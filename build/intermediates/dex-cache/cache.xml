@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_43e19084c9090816b020df4387d04648ae47123f\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_83d7d79e1290b466b7bb8cecd7aa7b4ac3fb17ad\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Syncroweb\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_1d3b971faab803f089b2413942ebce3007531eca\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_e94676dd4e0e5618eaf2d4a46b4ddac51d8833b0\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_09d547ac7a3a3c423365725cca31cef2d70a1f3c\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_4e3c148e9a82379f3cd1bd4d9dda29645b3ccdd3\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="99b235c8069acdf79ec08cfbac75a4b31d2afc40">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_f14384bbfabec334dd26a89c5866f856ed664ff6\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="23.0.3"
+        sha1="05f15f41eed0128e09b7941c24bbb258e8e5a5d7">
+        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_45ab5b63739dd3d13cf199134ed59797021f68bc\classes.dex" />
+    </item>
+
+</items>

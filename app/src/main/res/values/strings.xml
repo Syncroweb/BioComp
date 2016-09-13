@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">BioComp2.0</string>
+
+    <string name="message_1">Insert birthday date!</string>
+    <string name="commento">With this score you have </string>
+    <string name="fisico_1">a low physical attraction, </string>
+    <string name="fisico_2">a warm physical attraction, </string>
+    <string name="fisico_3">a middle physical attraction, </string>
+    <string name="fisico_4">a strong physical attraction, </string>
+    <string name="emotivo_1">a low emotional involvement, </string>
+    <string name="emotivo_2">a little emotional involvement, </string>
+    <string name="emotivo_3">a middle emotional involvement, </string>
+    <string name="emotivo_4">a strong emotional involvement, </string>
+    <string name="intellettuale_1">a very low intellectual compatibility.</string>
+    <string name="intellettuale_2">a low intellectual compatibility.</string>
+    <string name="intellettuale_3">a middle intellectual compatibility.</string>
+    <string name="intellettuale_4">an huge intellectual compatibility.</string>
+    <string name="fisico">Physical</string>
+    <string name="emotivo">Emotional</string>
+    <string name="intellettuale">Intellectual</string>
+    <string name="button_1">Calculate</string>
+    <string name="button_2">Reset</string>
+    <string name="date">MM/dd/yyyy</string>
+
+    <string name="take_screenshot">Take screenshot</string>
+    <string name="n_a">Screenshot interface not (yet) available.</string>
+    <string name="native_n_a">Native service not found.</string>
+    <string name="screenshot_error">Error while taking screenshot.</string>
+    <string name="screenshot_ok">Screenshot taken successfully.</string>
+    <string name="add_a_new_date">Add a new Date</string>
+    <string name="load_date">Load Date</string>
+    <string name="intellectual">Intellectual</string>
+    <string name="emotional">Emotional</string>
+    <string name="physical">Physical</string>
+    <string name="choose_a_date">Choose date</string>
+    <string name="share_on_twitter">Twitter</string>
+    <string name="calculate">Calculate</string>
+    <string name="share_on_facebook">Facebook</string>
+    <string name="select_a_new_date">Select a new Date</string>
+    <string name="infos">Infos</string>
+    <string name="other_apps">Other Apps</string>
+    <string name="twitter">Twitter</string>
+    <string name="datelist">DateList</string>
+    <string name="intro_biocomp">BioComp is an app that calculates the compatibility between people through the theory of biorhythms.</string>
+    <string name="infos_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget luctus turpis. Donec magna nibh, venenatis quis finibus non, porta eget sem. Integer id orci eget mi fringilla commodo eget eu leo. Pellentesque euismod tellus tellus, id cursus neque vulputate a. Proin efficitur, velit eget elementum sollicitudin, erat diam imperdiet erat, quis laoreet tellus risus a elit. In suscipit, quam a vulputate malesuada, velit eros porta eros, vel volutpat diam sem a mauris. Aliquam scelerisque ultrices commodo. Aenean a cursus nulla, sit amet fringilla ligula. Donec ullamcorper, lacus vel maximus sodales, urna lacus vulputate velit, id consectetur purus augue at elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum id scelerisque risus, ac dictum tellus. In hac habitasse platea dictumst. Suspendisse egestas dolor pulvinar magna molestie luctus et non dolor. Etiam vitae suscipit tellus, condimentum ullamcorper metus. Cras pharetra non nunc vel rutrum.
+
+Phasellus quis egestas ligula, vel luctus mauris. Nunc ultricies aliquet enim, sit amet fringilla ipsum rutrum semper. Ut sed est rhoncus, viverra sem nec, tristique ligula. Sed sit amet euismod massa. Nam elementum aliquam leo a dignissim. Ut molestie nec libero ac dignissim. Donec id lorem sed massa dictum fermentum. Nulla scelerisque gravida pulvinar. Phasellus ullamcorper justo urna, pharetra mattis tortor commodo quis. Proin dignissim ante sit amet tempus tincidunt.
+
+Aliquam risus libero, auctor vitae erat id, pretium vehicula dui. Mauris eget sapien sem. In porta risus ut lacus consectetur, in egestas ligula semper. Nam eros quam, efficitur et lacinia at, finibus a libero. Vestibulum sagittis non felis quis vulputate. Ut id pharetra eros. Mauris massa arcu, condimentum sed magna vitae, blandit egestas nisi. Vestibulum ullamcorper aliquam lorem, at congue neque sagittis vel. Morbi ac ipsum non neque efficitur vehicula sit amet quis orci. Nulla convallis sollicitudin consequat.</string>
+
+</resources>
