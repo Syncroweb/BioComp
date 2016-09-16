@@ -21,13 +21,14 @@
           android:layout_centerHorizontal="true" />
 
        <DatePicker
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
           android:id="@+id/dpPickADate"
            android:datePickerMode="spinner"
            android:layout_below="@+id/linearLayout"
            android:layout_alignParentStart="false"
-           android:layout_marginTop="24dp" />
+           android:layout_marginTop="24dp"
+           android:layout_above="@+id/btnSaveDate" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -73,6 +74,7 @@
         android:id="@+id/btnSaveDate"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:background="@color/colorAccent"/>
+        android:background="@color/colorAccent"
+        android:onClick="saveDate"/>
 
 </RelativeLayout>

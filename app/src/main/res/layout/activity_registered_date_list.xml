@@ -10,23 +10,13 @@
     tools:context="com.syncroweb.biocomp20.RegisteredDateList"
     android:background="#fafafa">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="YOUR DATE LIST"
-        android:id="@+id/txtTitleDateList"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
 
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lwPersone"
         android:layout_above="@+id/btnAddNewDate"
-        android:layout_below="@+id/txtTitleDateList"
-        android:layout_marginTop="16dp" />
+        android:layout_alignParentTop="true" />
 
     <Button
         android:layout_width="match_parent"

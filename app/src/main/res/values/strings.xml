@@ -42,10 +42,12 @@
     <string name="twitter">Twitter</string>
     <string name="datelist">Date List</string>
     <string name="intro_biocomp">BioComp is an app that calculates the compatibility between people through the theory of biorhythms.</string>
-    <string name="infos_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget luctus turpis. Donec magna nibh, venenatis quis finibus non, porta eget sem. Integer id orci eget mi fringilla commodo eget eu leo. Pellentesque euismod tellus tellus, id cursus neque vulputate a. Proin efficitur, velit eget elementum sollicitudin, erat diam imperdiet erat, quis laoreet tellus risus a elit. In suscipit, quam a vulputate malesuada, velit eros porta eros, vel volutpat diam sem a mauris. Aliquam scelerisque ultrices commodo. Aenean a cursus nulla, sit amet fringilla ligula. Donec ullamcorper, lacus vel maximus sodales, urna lacus vulputate velit, id consectetur purus augue at elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum id scelerisque risus, ac dictum tellus. In hac habitasse platea dictumst. Suspendisse egestas dolor pulvinar magna molestie luctus et non dolor. Etiam vitae suscipit tellus, condimentum ullamcorper metus. Cras pharetra non nunc vel rutrum.
-
-Phasellus quis egestas ligula, vel luctus mauris. Nunc ultricies aliquet enim, sit amet fringilla ipsum rutrum semper. Ut sed est rhoncus, viverra sem nec, tristique ligula. Sed sit amet euismod massa. Nam elementum aliquam leo a dignissim. Ut molestie nec libero ac dignissim. Donec id lorem sed massa dictum fermentum. Nulla scelerisque gravida pulvinar. Phasellus ullamcorper justo urna, pharetra mattis tortor commodo quis. Proin dignissim ante sit amet tempus tincidunt.
-
-Aliquam risus libero, auctor vitae erat id, pretium vehicula dui. Mauris eget sapien sem. In porta risus ut lacus consectetur, in egestas ligula semper. Nam eros quam, efficitur et lacinia at, finibus a libero. Vestibulum sagittis non felis quis vulputate. Ut id pharetra eros. Mauris massa arcu, condimentum sed magna vitae, blandit egestas nisi. Vestibulum ullamcorper aliquam lorem, at congue neque sagittis vel. Morbi ac ipsum non neque efficitur vehicula sit amet quis orci. Nulla convallis sollicitudin consequat.</string>
+    <string name="calculate_compatibility">CALCULATE COMPATIBILITY</string>
+    <string name="welcome_to_biocomp">WELCOME TO BIOCOMP</string>
+    <string name="enter_new_profile">ENTER NEW PROFILE</string>
+    <string name="your_date_list">YOUR LIST OF DATES</string>
+    <string name="choose_date">Choose date</string>
+    <string name="our_other_apps">OUR OTHER APPS</string>
+    <string name="load_or_new">LOAD OR CREATE DATE</string>
 
 </resources>

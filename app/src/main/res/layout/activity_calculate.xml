@@ -11,8 +11,8 @@
     android:background="#fafafa">
 
     <Button
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/btnSecondPhoto"
         android:background="@drawable/man"
         android:layout_below="@+id/lblNameTwo"
@@ -20,8 +20,8 @@
         android:layout_marginTop="12dp" />
 
     <Button
-        android:layout_width="140dp"
-        android:layout_height="140dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/btnFirstPhoto"
         android:background="@drawable/girl"
         android:layout_below="@+id/lblNameOne"
@@ -29,35 +29,11 @@
         android:layout_marginTop="12dp" />
 
 
-    <TextView   android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/emotional"
-        android:id="@+id/lblEmotional"
-        android:textSize="22dp"
-        android:gravity="center_horizontal"
-        android:layout_below="@+id/btnDateTwo"
-        android:layout_marginTop="16dp" />
 
-    <TextView   android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/intellectual"
-        android:textSize="22dp"
-        android:id="@+id/lblIntellectual"
-        android:layout_below="@+id/lblCalculatedEm"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="16dp" />
-
-    <TextView   android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/physical"
-        android:textSize="22dp"
-        android:id="@+id/lblPhysical"
-        android:layout_below="@+id/lblCalculatedInt"
-        android:layout_marginTop="16dp" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="44dp"
         android:text="@string/choose_a_date"
         android:id="@+id/btnDateOne"
         android:tag="dateOne"
@@ -66,13 +42,13 @@
         android:layout_below="@+id/btnSecondPhoto"
         android:layout_alignStart="@+id/btnFirstPhoto"
         android:layout_alignEnd="@+id/btnFirstPhoto"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:background="@color/colorAccent"
         />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="44dp"
         android:text="@string/choose_a_date"
         android:id="@+id/btnDateTwo"
         android:clickable="true"
@@ -81,65 +57,32 @@
         android:layout_alignLeft="@+id/btnSecondPhoto"
         android:tag="dateTwo"
         android:layout_alignRight="@+id/btnSecondPhoto"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="44dp"
         android:background="@color/colorAccent" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblCalculatedEm"
-        android:textSize="24dp"
-        android:gravity="center_horizontal"
-        android:text="0%"
-        android:layout_alignBottom="@+id/lblEmotional"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimary"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblCalculatedInt"
-        android:textSize="24dp"
-        android:gravity="center_horizontal"
-        android:text="0%"
-        android:layout_alignBottom="@+id/lblIntellectual"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimary"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/lblCalculatedPh"
-        android:textSize="24dp"
-        android:gravity="center_horizontal"
-        android:text="0%"
-        android:layout_alignBottom="@+id/lblPhysical"
-        android:layout_centerHorizontal="true"
-        android:textColor="@color/colorPrimary"/>
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblNameOne"
-        android:textSize="22dp"
+        android:textSize="18dp"
         android:gravity="center_horizontal"
-        android:layout_below="@+id/txtTitleCalculate"
         android:layout_marginTop="12dp"
         android:layout_alignEnd="@+id/btnFirstPhoto"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:text="First" />
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/lblNameTwo"
-        android:textSize="22dp"
+        android:textSize="18dp"
         android:gravity="center_horizontal"
-        android:layout_below="@+id/txtTitleCalculate"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="12dp"
-        android:layout_alignStart="@+id/btnSecondPhoto" />
+        android:layout_alignStart="@+id/btnSecondPhoto"
+        android:text="Second" />
 
     <Button
         android:id="@+id/btnCalculate"
@@ -152,14 +95,108 @@
         android:layout_alignParentStart="true"
         android:background="@color/colorAccent" />
 
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnDateOne">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/emotional"
+            android:id="@+id/lblEmotional"
+            android:textSize="18dp"
+            android:gravity="left"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"/>
+
+        <TextView   android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/intellectual"
+            android:textSize="18dp"
+            android:id="@+id/lblIntellectual"
+            android:gravity="left"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"/>
+
+        <TextView   android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/physical"
+            android:textSize="18dp"
+            android:id="@+id/lblPhysical"
+            android:layout_marginTop="16dp"
+            android:layout_weight="1"
+            android:gravity="left" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btnDateTwo"
+        android:layout_below="@+id/btnDateOne"
+        android:layout_marginTop="44dp"
+        android:layout_above="@+id/btnCalculate">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblCalculatedEm"
+            android:textSize="20dp"
+            android:gravity="left"
+            android:text="0%"
+            android:textColor="@color/colorPrimary"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblCalculatedInt"
+            android:textSize="20dp"
+            android:gravity="left"
+            android:text="0%"
+            android:textColor="@color/colorPrimary"
+            android:layout_weight="1"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/lblCalculatedPh"
+            android:textSize="20dp"
+            android:gravity="left"
+            android:text="0%"
+            android:textColor="@color/colorPrimary"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="CALCULATE COMPATIBILITY"
-        android:id="@+id/txtTitleCalculate"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="dd/mm/yyyy"
+        android:id="@+id/lblDateOne"
+        android:layout_below="@+id/btnFirstPhoto"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/btnFirstPhoto"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="dd/mm/yyyy"
+        android:id="@+id/lblDateTwo"
+        android:layout_below="@+id/btnSecondPhoto"
+        android:layout_alignStart="@+id/btnSecondPhoto"
+        android:layout_alignEnd="@+id/btnSecondPhoto"
+        android:layout_marginTop="16dp"
+        android:gravity="center_horizontal" />
 
     <!--
     <LinearLayout

@@ -7,12 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.NumberPicker;
 import android.widget.Toast;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class RegisterOrLoadDate extends AppCompatActivity {
 
@@ -30,7 +25,7 @@ public class RegisterOrLoadDate extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register_or_load_date);
+        setContentView(R.layout.activity_register);
 
         txtName = (EditText) findViewById(R.id.txtNameSurname);
         //ivPhoto = (Button) findViewById(R.id.photoRegister);

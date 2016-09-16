@@ -1,56 +1,71 @@
 package com.syncroweb.biocomp20;
 
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 public class Infos extends AppCompatActivity {
 
+    TextView text;
 
-    private TextView txtBioritmi;
+    AssetManager assetManager;
 
     //Read the file from the root.
     //The file contains all the infos
     //about the BioCompatibility.
     //Once read, all the text will be
-    //displayed into a EditText
+    //displayed into a TextView
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        String text;
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_infos);
 
-        txtBioritmi = (TextView) this.findViewById(R.id.txtBioritmi);
-    }
-/*
+        text = (TextView) findViewById(R.id.txtBioritmi);
 
-        text = readFile("/files/bioritmi.txt"); //mettere il percorso esatto
-        txtBioritmi.setText(text);
+        assetManager = getAssets();
+
+        text.setText(readFile("bioritmi.txt"));
+
     }
 
-    //Function that read the file and
-    //return the content
+    //Function that read the file in Assets folder
+    //and return the content
     public String readFile(String path)
     {
-        String content = null;
-        File file = new File(path);
-        FileReader reader = null;
-
-        try
-        {
-            reader = new FileReader(file);
-            char[] chars = new char[(int) file.length()];
-            reader.read(chars);
-            content = new String(chars);
-            reader.close();
-        }
-        catch (IOException e)
-        {
+        String contents = "";
+        InputStream is = null;
+        BufferedReader reader = null;
+        try {
+            is = assetManager.open(path);
+            reader = new BufferedReader(new InputStreamReader(is));
+            contents = reader.readLine();
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                contents += '\n' + line;
+            }
+        } catch (final Exception e) {
             e.printStackTrace();
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException ignored) {
+                }
+            }
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException ignored) {
+                }
+            }
         }
+        return contents;
 
-        return content;
-    } */
+    }
 }

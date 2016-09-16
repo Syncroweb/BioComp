@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
 
@@ -24,7 +25,7 @@ public class ChooseDate extends AppCompatActivity {
 
         dp = (DatePicker) findViewById(R.id.dpPickADate);
 
-        //Setto il datePicker (problema con precisione mese APRILE = 3)
+        //Set the datePicker (problema con precisione mese APRILE = 3)
         assert dp != null;
         dp.setCalendarViewShown(false);
         dp.setMinDate(1940);
@@ -50,13 +51,15 @@ public class ChooseDate extends AppCompatActivity {
             {
                 StringBuilder sb = new StringBuilder();
                 date = sb.append(dayOfMonth).append("/").append(monthOfYear).append("/").append(year).toString();
-
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
-                        .setNegativeButton("No", dialogClickListener).show();
             }
         });
+    }
+
+    public void saveDate(View view) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(ChooseDate.this);
+        builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
     }
 
     // Listener of the dialog
@@ -80,4 +83,6 @@ public class ChooseDate extends AppCompatActivity {
             }
         }
     };
+
+
 }

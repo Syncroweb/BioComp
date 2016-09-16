@@ -22,10 +22,6 @@ public class RegisteredDateList extends AppCompatActivity {
     ArrayList<String> lista;
     ArrayAdapter<String> adapter;
 
-    //private CursorAdapter adapter;
-    //DBManager db;
-    //private Cursor cursor;
-
     Button btnAddNewDate;
 
     //As soon as the GUI is created
