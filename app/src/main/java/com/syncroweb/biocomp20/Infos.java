@@ -2,7 +2,7 @@ package com.syncroweb.biocomp20;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.TextView;
 
 public class Infos extends AppCompatActivity {

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.DatePicker;
+import android.widget.NumberPicker;
 
 
 public class ChooseDate extends AppCompatActivity {
@@ -14,16 +15,25 @@ public class ChooseDate extends AppCompatActivity {
     DatePicker dp;
     String date;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_date);
 
+        dp = (DatePicker) findViewById(R.id.dpPickADate);
+
+        //Setto il datePicker (problema con precisione mese APRILE = 3)
+        assert dp != null;
+        dp.setCalendarViewShown(false);
+        dp.setMinDate(1940);
+        dp.setMaxDate(System.currentTimeMillis());
+
         // DatePicker Listener which build the
         // date string and call a function for
         // a dialog result that confirm or not
-        // if the picked date is right
+        /* if the picked date is right
         dp.init(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 StringBuilder sb = new StringBuilder();
@@ -31,6 +41,16 @@ public class ChooseDate extends AppCompatActivity {
                 date = sb.append(dayOfMonth).append("/")
                         .append(monthOfYear).append("/")
                         .append(year).toString();
+                }
+        });*/
+
+        dp.init(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), new DatePicker.OnDateChangedListener()
+        {
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            {
+                StringBuilder sb = new StringBuilder();
+                date = sb.append(dayOfMonth).append("/").append(monthOfYear).append("/").append(year).toString();
+
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
                 builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)

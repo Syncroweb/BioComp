@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Save changes"
-        android:id="@+id/btnSaveChanges"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorAccent" />
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.syncroweb.biocomp20.RegisterOrLoadDate"
+    android:background="#fafafa">
 
     <Button
         android:layout_width="150dp"
@@ -25,6 +18,16 @@
         android:layout_marginTop="16dp"
         android:layout_below="@+id/txtTitleRegister"
         android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save changes"
+        android:id="@+id/btnSaveChanges"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/colorAccent"/>
+
 
     <EditText
         android:layout_width="300dp"
@@ -42,26 +45,29 @@
         android:layout_height="wrap_content"
         android:text="Date of Birth"
         android:id="@+id/lblBirthDate"
-        android:textSize="22dp"
+        android:textSize="18dp"
         android:gravity="center"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/photoRegister"
+        android:layout_alignParentStart="false"
+        android:layout_marginTop="16dp" />
 
-<!--
+
     <DatePicker
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/datePicker"
         android:layout_below="@+id/lblBirthDate"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp" />
-    -->
+        android:datePickerMode="spinner"
+        android:layout_above="@+id/btnSaveChanges"
+        android:layout_marginBottom="8dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Name"
         android:id="@+id/lblNominativo"
-        android:textSize="22sp"
+        android:textSize="18dp"
         android:layout_alignTop="@+id/photoRegister"
         android:layout_alignStart="@+id/txtNameSurname"
         android:layout_marginTop="20dp" />
@@ -74,47 +80,42 @@
         android:id="@+id/txtTitleRegister"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
+<!--
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/lblBirthDate"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:id="@+id/linearLayout">
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:id="@+id/linearLayout"
+        android:layout_above="@+id/btnSaveChanges">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Day"
         android:id="@+id/lblDay"
-        android:textSize="22sp"
-        android:layout_below="@+id/lblBirthDate"
         android:layout_weight="1"
-        android:textAlignment="center" />
+        android:textSize="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Month"
         android:id="@+id/lblMonth"
-        android:textSize="22sp"
-        android:layout_below="@+id/lblBirthDate"
         android:layout_weight="1"
-        android:textAlignment="center" />
+        android:textSize="16dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Year"
         android:id="@+id/lblYear"
-        android:textSize="22sp"
-        android:layout_below="@+id/lblBirthDate"
-        android:layout_weight="2"
-        android:textAlignment="center" />
+        android:layout_weight="1"
+        android:textSize="16dp" />
 
     </LinearLayout>
 
@@ -127,7 +128,8 @@
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
         android:layout_alignTop="@+id/linearLayout"
-        android:layout_marginTop="44dp">
+        android:layout_marginTop="28dp"
+        android:layout_marginBottom="16dp">
 
         <NumberPicker
             android:layout_width="wrap_content"
@@ -146,6 +148,6 @@
             android:layout_height="wrap_content"
             android:id="@+id/npYear"
             android:layout_weight="2"/>
-    </LinearLayout>
+    </LinearLayout> -->
 
 </RelativeLayout>

@@ -7,7 +7,17 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.syncroweb.biocomp20.OtherApps">
+    tools:context="com.syncroweb.biocomp20.OtherApps"
+    android:background="#fafafa">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="OTHER APPS BY SYNCROWEB"
+        android:id="@+id/txtTitleOther"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button     android:layout_width="140dp"
         android:layout_height="140dp"
@@ -27,9 +37,8 @@
         android:layout_marginRight="16dp"
         android:background="@drawable/toro"
         android:tag="it.com.toro"
-        android:layout_below="@+id/txtTitleOther"
-        android:layout_alignEnd="@+id/btnSyncroweb"
-        android:layout_marginTop="24dp" />
+        android:layout_alignTop="@+id/btnImgOne"
+        android:layout_alignParentEnd="true" />
 
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -58,10 +67,9 @@
         android:id="@+id/btnSyncroweb"
         android:textSize="20sp"
         android:background="@drawable/logo"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="80dp"
-        android:layout_alignParentEnd="true" />
+        android:layout_above="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp" />
 
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,13 +81,5 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="48dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="OTHER APPS BY SYNCROWEB"
-        android:id="@+id/txtTitleOther"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

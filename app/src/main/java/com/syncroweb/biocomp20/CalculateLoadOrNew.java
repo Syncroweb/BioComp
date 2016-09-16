@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 public class CalculateLoadOrNew extends AppCompatActivity {
 
+    //???????????
     final int DATE_LISTS_ID = 1032;
     final int CHOOSE_A_DATE_ID = 1342;
 
@@ -18,8 +19,7 @@ public class CalculateLoadOrNew extends AppCompatActivity {
     private Button btnNewDate;
     private Button btnLoadDate;
 
-    // First function starting.
-    // It load the ads into the form.
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -33,8 +33,8 @@ public class CalculateLoadOrNew extends AppCompatActivity {
         // to choose a saved profile.
         btnNewDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), RegisteredDateList.class);
-                startActivityForResult(i, DATE_LISTS_ID);
+                Intent i = new Intent(view.getContext(), ChooseDate.class);
+                startActivityForResult(i, CHOOSE_A_DATE_ID);
             }
         });
 
@@ -43,8 +43,8 @@ public class CalculateLoadOrNew extends AppCompatActivity {
         // to choose a single date
         btnLoadDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), ChooseDate.class);
-                startActivityForResult(i, CHOOSE_A_DATE_ID);
+                Intent i = new Intent(view.getContext(), RegisteredDateList.class);
+                startActivityForResult(i, DATE_LISTS_ID);
             }
         });
     }

@@ -18,6 +18,7 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+
         splash= (ImageView) findViewById(R.id.imgSplash);
         animazione= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.movimento);
         splash.startAnimation(animazione);
@@ -33,6 +34,7 @@ public class SplashScreen extends AppCompatActivity {
                     }
                     Intent i = new Intent(SplashScreen.this, MainMenu.class);
                     startActivity(i);
+                    finish();   //bloccare il torna indietro alla splashscreen da main menu
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -42,8 +44,4 @@ public class SplashScreen extends AppCompatActivity {
         cambiaPagina.start();
     }
 
-   /* public void goToMenu(View view) {
-        Intent i = new Intent(this, MainMenu.class);
-        startActivity(i);
-    }*/
 }

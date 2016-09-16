@@ -7,27 +7,30 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.syncroweb.biocomp20.SplashScreen">
+    tools:context="com.syncroweb.biocomp20.SplashScreen"
+    android:background="#fafafa">
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:id="@+id/imgSplash"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/heart1"
-        android:onClick="goToMenu"
-        android:layout_alignParentEnd="false" />
+        android:src="@drawable/heart3"
+        android:layout_alignParentEnd="false"/>
+    <!--android:onClick="goToMenu" -->
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="BioComp"
-        android:textSize="40dp"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:text="BIOCOMP"
+        android:textSize="36dp"
+        android:id="@+id/txtSplash"
+        android:layout_above="@+id/imgSplash"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/secondary_text_default_material_light" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -36,5 +39,7 @@
         android:text="by Syncroweb"
         android:id="@+id/textView3"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#d6d7d7"
+        android:textSize="18dp"/>
 </RelativeLayout>

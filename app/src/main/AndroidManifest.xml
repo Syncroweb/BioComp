@@ -12,58 +12,58 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".SplashScreen">
+        <activity android:name=".SplashScreen"
+                  android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainMenu">
-
-        </activity>
-
-        <activity android:name=".Calculate"
+        <activity android:name=".MainMenu"></activity>
+        <activity
+            android:name=".Calculate"
             android:parentActivityName=".MainMenu">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.syncroweb.biocomp20.MainMenu"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syncroweb.biocomp20.MainMenu" />
         </activity>
-
-        <activity android:name=".CalculateLoadOrNew"
+        <activity
+            android:name=".CalculateLoadOrNew"
             android:parentActivityName=".Calculate">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.syncroweb.biocomp20.Calculate"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syncroweb.biocomp20.Calculate" />
         </activity>
-
-        <activity android:name=".ChooseDate">
-
-        </activity>
-
-        <activity android:name=".Infos"
+        <activity android:name=".ChooseDate"></activity>
+        <activity
+            android:name=".Infos"
             android:parentActivityName=".MainMenu">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.syncroweb.biocomp20.MainMenu"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syncroweb.biocomp20.MainMenu" />
         </activity>
-
-        <activity android:name=".RegisterOrLoadDate"
-                  android:parentActivityName=".RegisteredDateList">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.syncroweb.biocomp20.RegisteredDateList"/>
+        <activity
+            android:name=".RegisterOrLoadDate"
+            android:parentActivityName=".RegisteredDateList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syncroweb.biocomp20.RegisteredDateList" />
         </activity>
-
-        <activity android:name=".RegisteredDateList"
-                  android:parentActivityName=".MainMenu">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.syncroweb.biocomp20.MainMenu"/>
+        <activity
+            android:name=".RegisteredDateList"
+            android:parentActivityName=".MainMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syncroweb.biocomp20.MainMenu" />
         </activity>
-
-        <activity android:name=".OtherApps"
-                  android:parentActivityName=".MainMenu">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                       android:value="com.syncroweb.biocomp20.MainMenu"/>
+        <activity
+            android:name=".OtherApps"
+            android:parentActivityName=".MainMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syncroweb.biocomp20.MainMenu" />
         </activity>
-
     </application>
 
 </manifest>

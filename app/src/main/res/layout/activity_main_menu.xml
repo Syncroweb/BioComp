@@ -7,23 +7,25 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.syncroweb.biocomp20.MainMenu">
+    tools:context="com.syncroweb.biocomp20.MainMenu"
+    android:background="#fafafa">
 
     <Button
         android:id="@+id/btnCalculate"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Calculate"
-        android:textSize="28dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:background="@color/colorAccent" />
+        android:textSize="24dp"
+        android:background="@color/colorAccent"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
-
+<!--
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/linearLayout2">
 
         <Button
             android:id="@+id/btnDatesList"
@@ -55,7 +57,7 @@
             android:layout_weight="1"
             android:background="@color/colorAccent" />
 
-    </LinearLayout>
+    </LinearLayout> -->
 
     <TextView
         android:layout_width="wrap_content"
@@ -75,6 +77,15 @@
         android:layout_below="@+id/txtTitleMenu"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/imgBioRitmi"
+        android:src="@drawable/bioritmi"
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
+
 
 
 </RelativeLayout>

@@ -22,8 +22,8 @@ public class Calculate extends AppCompatActivity {
     private String labelTags;
 
 
-    private TextView lblDateOne;
-    private TextView lblDateTwo;
+    private Button DateOne;
+    private Button DateTwo;
     private TextView lblNameOne;
     private TextView lblNameTwo;
 
@@ -41,8 +41,8 @@ public class Calculate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate);
 
-        lblDateOne = (TextView)this.findViewById(R.id.lblDateOne);
-        lblDateTwo = (TextView)this.findViewById(R.id.lblDateTwo);
+        DateOne = (Button) this.findViewById(R.id.btnDateOne);
+        DateTwo = (Button) this.findViewById(R.id.btnDateTwo);
         lblNameOne = (TextView)this.findViewById(R.id.lblNameOne);
         lblNameTwo = (TextView)this.findViewById(R.id.lblNameTwo);
 
@@ -77,7 +77,7 @@ public class Calculate extends AppCompatActivity {
         // Function that start the activity
         // "calculate_load_or_new" and wait for
         // the user to put the dates
-        lblDateOne.setOnClickListener(new View.OnClickListener() {
+        DateOne.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 labelTags = view.getTag().toString();
                 Intent i = new Intent(view.getContext(), CalculateLoadOrNew.class);
@@ -88,7 +88,7 @@ public class Calculate extends AppCompatActivity {
         // Function that start the activity
         // "calculate_load_or_new" and wait for
         // the user to put the dates
-        lblDateTwo.setOnClickListener(new View.OnClickListener() {
+        DateTwo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 labelTags = view.getTag().toString();
                 Intent i = new Intent(view.getContext(), CalculateLoadOrNew.class);
@@ -113,13 +113,13 @@ public class Calculate extends AppCompatActivity {
                     case RESULT_OK_DATE:
                         if (labelTags.equals("dateOne"))
                         {
-                            lblDateOne.setText(data.getStringExtra("date"));
-                            lblDateOne.setClickable(false);
+                            DateOne.setText(data.getStringExtra("date"));
+                            DateOne.setClickable(false);
                         }
                         else
                         {
-                            lblDateTwo.setText(data.getStringExtra("data"));
-                            lblDateTwo.setClickable(false);
+                            DateTwo.setText(data.getStringExtra("data"));
+                            DateTwo.setClickable(false);
                             btnCalculate.setClickable(true);
                         }
                         break;
@@ -130,16 +130,16 @@ public class Calculate extends AppCompatActivity {
                         {
                             name = data.getStringExtra("name") + " " + data.getStringExtra("surname");
                             lblNameOne.setText(name);
-                            lblDateOne.setText(data.getStringExtra("date"));
-                            lblDateOne.setClickable(false);
+                            DateOne.setText(data.getStringExtra("date"));
+                            DateOne.setClickable(false);
                         }
                         else
                         {
-                            lblDateTwo.setText(data.getStringExtra("data"));
+                            DateTwo.setText(data.getStringExtra("data"));
                             name = data.getStringExtra("name") + " " + data.getStringExtra("surname");
                             lblNameTwo.setText(name);
-                            lblDateTwo.setText(data.getStringExtra("date"));
-                            lblDateTwo.setClickable(false);
+                            DateTwo.setText(data.getStringExtra("date"));
+                            DateTwo.setClickable(false);
                             btnCalculate.setClickable(true);
                         }
                         break;
@@ -169,12 +169,12 @@ public class Calculate extends AppCompatActivity {
         int difference;
 
 
-        try {   vetDates[0] = DateFormatConverter(lblDateOne.getText().toString());  }
+        try {   vetDates[0] = DateFormatConverter(DateOne.getText().toString());  }
         catch(Error error) {    Toast.makeText(         getApplicationContext(),
                 error.getMessage(),
                 Toast.LENGTH_SHORT).show();  }
 
-        try {   vetDates[1] = (Date)lblDateTwo.getText();                            }
+        try {   vetDates[1] = (Date)DateTwo.getText();                            }
         catch(Error error) {    Toast.makeText(         getApplicationContext(),
                 error.getMessage(),
                 Toast.LENGTH_SHORT).show();  }
@@ -183,7 +183,7 @@ public class Calculate extends AppCompatActivity {
         difference = actualDifference(vetDates[0], vetDates[1]);
 
         for(int i = 0; i < CYCLES; i++)
-            vetResults[i] = difference - ( (int)( difference / vetCostants[i] ) * vetCostants[i] );
+            vetResults[i] = difference - ( ( difference / vetCostants[i] ) * vetCostants[i] );
 
         for(int i = 0; i < CYCLES; i++)
             vetCalculatedLables[i].setText(vetResults[i]);
@@ -282,11 +282,11 @@ public class Calculate extends AppCompatActivity {
         for(int i = 0; i < CYCLES; i++)
             vetCalculatedLables[i].setText("");
 
-        lblDateOne.setText("Choose a Date!");
-        lblDateOne.setClickable(true);
+        DateOne.setText("Choose a Date");
+        DateOne.setClickable(true);
 
-        lblDateTwo.setText("Choose a Date!");
-        lblDateTwo.setClickable(true);
+        DateTwo.setText("Choose a Date");
+        DateTwo.setClickable(true);
 
         btnCalculate.setText("Calculate");
         btnCalculate.setTag("calculate");

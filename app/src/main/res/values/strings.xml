@@ -20,7 +20,7 @@
     <string name="intellettuale">Intellectual</string>
     <string name="button_1">Calculate</string>
     <string name="button_2">Reset</string>
-    <string name="date">MM/dd/yyyy</string>
+    <string name="date">dd/MM/yyyy</string>
 
     <string name="take_screenshot">Take screenshot</string>
     <string name="n_a">Screenshot interface not (yet) available.</string>
@@ -36,11 +36,11 @@
     <string name="share_on_twitter">Twitter</string>
     <string name="calculate">Calculate</string>
     <string name="share_on_facebook">Facebook</string>
-    <string name="select_a_new_date">Select a new Date</string>
+    <string name="select_a_new_date">New Date</string>
     <string name="infos">Infos</string>
     <string name="other_apps">Other Apps</string>
     <string name="twitter">Twitter</string>
-    <string name="datelist">DateList</string>
+    <string name="datelist">Date List</string>
     <string name="intro_biocomp">BioComp is an app that calculates the compatibility between people through the theory of biorhythms.</string>
     <string name="infos_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eget luctus turpis. Donec magna nibh, venenatis quis finibus non, porta eget sem. Integer id orci eget mi fringilla commodo eget eu leo. Pellentesque euismod tellus tellus, id cursus neque vulputate a. Proin efficitur, velit eget elementum sollicitudin, erat diam imperdiet erat, quis laoreet tellus risus a elit. In suscipit, quam a vulputate malesuada, velit eros porta eros, vel volutpat diam sem a mauris. Aliquam scelerisque ultrices commodo. Aenean a cursus nulla, sit amet fringilla ligula. Donec ullamcorper, lacus vel maximus sodales, urna lacus vulputate velit, id consectetur purus augue at elit. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum id scelerisque risus, ac dictum tellus. In hac habitasse platea dictumst. Suspendisse egestas dolor pulvinar magna molestie luctus et non dolor. Etiam vitae suscipit tellus, condimentum ullamcorper metus. Cras pharetra non nunc vel rutrum.
 
