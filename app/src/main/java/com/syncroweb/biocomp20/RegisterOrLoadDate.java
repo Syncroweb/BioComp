@@ -62,7 +62,7 @@ public class RegisterOrLoadDate extends AppCompatActivity {
                 name = txtName.getText().toString().trim();
 
                 if(!name.equals("") && !date.equals("")){
-                    String item = name + "      | " + date;
+                    String item = name + "      |       " + date;
                     Intent i = new Intent();
                     i.putExtra("ITEM", item);
                     setResult(0, i);

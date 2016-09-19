@@ -1,6 +1,7 @@
 package com.syncroweb.biocomp20;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +9,11 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 public class Calculate extends AppCompatActivity {
 
@@ -32,6 +35,11 @@ public class Calculate extends AppCompatActivity {
     private TextView[] vetCalculatedLables = new TextView[CYCLES];
 
     private Button btnCalculate;
+
+    private TextView result;
+
+    //private Date insertOne;
+    //private Date insertTwo;
 
     // Function that first starts when the activity
     // is launched. It actually starts the components
@@ -55,8 +63,15 @@ public class Calculate extends AppCompatActivity {
         vetCalculatedLables[2] = (TextView)this.findViewById(R.id.lblCalculatedPh);
 
         btnCalculate = (Button)this.findViewById(R.id.btnCalculate);
+
+        result = (TextView) findViewById(R.id.txtResult);
+
+        //Disable Calculate Button
         assert btnCalculate != null;
+        btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
+        btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
+
 
         // Function that call the real
         // BioCompatibility function and
@@ -69,8 +84,8 @@ public class Calculate extends AppCompatActivity {
                 if(buttonTag.equals("calculate"))
                 {
                     calculateBioCompatibility();
-                    btnCalculate.setText("Reset");
                     btnCalculate.setTag("reset");
+                    btnCalculate.setText("Reset");
                 }
                 else
                     resetGui();
@@ -120,11 +135,10 @@ public class Calculate extends AppCompatActivity {
                             lblDateOne.setText(data.getStringExtra("date"));
                             DateOne.setClickable(false);
                         }
-                        else
+                        else if (labelTags.equals("dateTwo"))
                         {
-                            lblDateTwo.setText(data.getStringExtra("data"));
+                            lblDateTwo.setText(data.getStringExtra("date"));
                             DateTwo.setClickable(false);
-                            btnCalculate.setClickable(true);
                         }
                         break;
 
@@ -132,7 +146,7 @@ public class Calculate extends AppCompatActivity {
                         String name;
                         if (labelTags.equals("dateOne"))
                         {
-                            name = data.getStringExtra("name") + " " + data.getStringExtra("surname");
+                            name = data.getStringExtra("name");
                             lblNameOne.setText(name);
                             lblDateOne.setText(data.getStringExtra("date"));
                             DateOne.setClickable(false);
@@ -140,13 +154,19 @@ public class Calculate extends AppCompatActivity {
                         else
                         {
                             lblDateTwo.setText(data.getStringExtra("data"));
-                            name = data.getStringExtra("name") + " " + data.getStringExtra("surname");
+                            name = data.getStringExtra("name");
                             lblNameTwo.setText(name);
                             lblDateTwo.setText(data.getStringExtra("date"));
                             DateTwo.setClickable(false);
-                            btnCalculate.setClickable(true);
                         }
                         break;
+                }
+
+                //Able Calculate Button
+                if(!lblDateOne.getText().equals("") && !lblDateTwo.getText().equals("")){
+                    btnCalculate.setEnabled(true);
+                    btnCalculate.setClickable(true);
+                    btnCalculate.setBackgroundColor(Color.argb(255, 255, 196, 0));
                 }
             }
             catch (Error error)
@@ -172,13 +192,12 @@ public class Calculate extends AppCompatActivity {
 
         int difference;
 
-
-        try {   vetDates[0] = DateFormatConverter(DateOne.getText().toString());  }
+        try {   vetDates[0] = DateFormatConverter((String) lblDateOne.getText());   }
         catch(Error error) {    Toast.makeText(         getApplicationContext(),
                 error.getMessage(),
                 Toast.LENGTH_SHORT).show();  }
 
-        try {   vetDates[1] = (Date)lblDateTwo.getText();                            }
+        try {   vetDates[1] = DateFormatConverter((String) lblDateTwo.getText());                            }
         catch(Error error) {    Toast.makeText(         getApplicationContext(),
                 error.getMessage(),
                 Toast.LENGTH_SHORT).show();  }
@@ -189,8 +208,9 @@ public class Calculate extends AppCompatActivity {
         for(int i = 0; i < CYCLES; i++)
             vetResults[i] = difference - ( ( difference / vetCostants[i] ) * vetCostants[i] );
 
-        for(int i = 0; i < CYCLES; i++)
-            vetCalculatedLables[i].setText(vetResults[i]);
+        for(int i = 0; i < CYCLES; i++) {
+            vetCalculatedLables[i].setText(Double.toString(vetResults[i]) + "%");   //METTERE PRECISIONE DECIMALE!!
+        }
 
         writeComments(vetResults);
     }
@@ -199,7 +219,7 @@ public class Calculate extends AppCompatActivity {
     // into a Date and then returns it
     private Date DateFormatConverter(String myDateString)
     {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALY); //setto la data per italia
         Date myNewDate;
 
         try {   myNewDate = dateFormat.parse(myDateString);         }
@@ -221,11 +241,12 @@ public class Calculate extends AppCompatActivity {
         return  Math.abs((int) (millis / 1000 / 24 / 60 / 60));
     }
 
-    // Function that displays with Toasts
+    // Function that displays with TextView
     // the results of the calculations
     public void writeComments(int[] vetResults)
     {
-        String[] Messages = new String[CYCLES];
+        String resultMessage;
+        String[] messages = new String[CYCLES];
 
         double[] vetPhysical =     {    99.9, 92.3, 81.6, 73.9, 65.2, 56.5, 47.8, 39.1, 30.4, 21.7,
                 13, 4.3, 4.3, 13, 21.7, 30.4, 39.1, 47.8, 56.5, 65.2, 73.9,
@@ -239,44 +260,47 @@ public class Calculate extends AppCompatActivity {
                 76, 82, 88, 94, 99.9                                        };
 
         // Emotional
-        Messages[0] = Double.toString(vetEmotional[vetResults[0]]) + "%";
+        messages[0] = "";
 
         if (vetEmotional[vetResults[0]] < 30)
-            Messages[0] += ", " + this.getString(R.string.emotivo_1);
-        if (vetEmotional[vetResults[0]] > 30)
-            Messages[0] += ", " + this.getString(R.string.emotivo_2);
-        if (vetEmotional[vetResults[0]] > 60)
-            Messages[0] += ", " + this.getString(R.string.emotivo_3);
+            messages[0] += this.getString(R.string.emotivo_1);
+        if (vetEmotional[vetResults[0]] > 30 && vetEmotional[vetResults[0]] < 60)
+            messages[0] += this.getString(R.string.emotivo_2);
+        if (vetEmotional[vetResults[0]] > 60 && vetEmotional[vetResults[0]] < 80)
+            messages[0] += this.getString(R.string.emotivo_3);
         if (vetEmotional[vetResults[0]] > 80)
-            Messages[0] += ", " + this.getString(R.string.emotivo_4);
+            messages[0] += this.getString(R.string.emotivo_4);
 
         // Intellectual
-        Messages[1] = Double.toString(vetIntellectual[vetResults[1]]) + "%";
+        messages[1] = "";
 
         if (vetIntellectual[vetResults[1]] < 30)
-            Messages[1] = ", " +  this.getString(R.string.intellettuale_1);
-        if (vetIntellectual[vetResults[1]] > 30)
-            Messages[1] = ", " + this.getString(R.string.intellettuale_2);
-        if (vetIntellectual[vetResults[1]] > 60)
-            Messages[1] = ", " + this.getString(R.string.intellettuale_3);
+            messages[1] = this.getString(R.string.intellettuale_1);
+        if (vetIntellectual[vetResults[1]] > 30 && vetIntellectual[vetResults[0]] < 60)
+            messages[1] = this.getString(R.string.intellettuale_2);
+        if (vetIntellectual[vetResults[1]] > 60 && vetIntellectual[vetResults[0]] < 80)
+            messages[1] = this.getString(R.string.intellettuale_3);
         if (vetIntellectual[vetResults[1]] > 80)
-            Messages[1] = ", " + this.getString(R.string.intellettuale_4);
+            messages[1] = this.getString(R.string.intellettuale_4);
 
         // Physical
-        Messages[2] = Double.toString(vetPhysical[vetResults[2]]) + "%";
+        messages[2] = "";
 
         if (vetPhysical[vetResults[2]] < 30)
-            Messages[2] = ", " + this.getString(R.string.fisico_1);
-        if (vetPhysical[vetResults[2]] > 30)
-            Messages[2] = ", " + this.getString(R.string.fisico_2);
-        if (vetPhysical[vetResults[2]] > 60)
-            Messages[2] = ", " + this.getString(R.string.fisico_3);
+            messages[2] = this.getString(R.string.fisico_1);
+        if (vetPhysical[vetResults[2]] > 30 && vetPhysical[vetResults[0]] < 60)
+            messages[2] = this.getString(R.string.fisico_2);
+        if (vetPhysical[vetResults[2]] > 60 && vetPhysical[vetResults[0]] < 80)
+            messages[2] = this.getString(R.string.fisico_3);
         if (vetPhysical[vetResults[2]] > 80)
-            Messages[2] = ", " + this.getString(R.string.fisico_4);
+            messages[2] = this.getString(R.string.fisico_4);
 
-        //Results Toasts
-        for(int i = 0; i < CYCLES; i++)
-            Toast.makeText(getApplicationContext(), Messages[i], Toast.LENGTH_SHORT).show();
+        resultMessage = messages[0] + messages[1] + messages[2];
+
+        //Results
+        result.setText(resultMessage);
+
+            //Toast.makeText(getApplicationContext(), messages[i], Toast.LENGTH_SHORT).show();
     }
 
     // Function that resets the GUI in order to
@@ -286,14 +310,18 @@ public class Calculate extends AppCompatActivity {
         for(int i = 0; i < CYCLES; i++)
             vetCalculatedLables[i].setText("");
 
-        DateOne.setText("Choose a Date");
+        lblDateOne.setText("dd/mm/yyyy");
         DateOne.setClickable(true);
 
-        DateTwo.setText("Choose a Date");
+        lblDateTwo.setText("dd/mm/yyyy");
         DateTwo.setClickable(true);
+
+        result.setText("");
 
         btnCalculate.setText("Calculate");
         btnCalculate.setTag("calculate");
+        btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
+        btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
     }
 }

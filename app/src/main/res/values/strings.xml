@@ -3,18 +3,18 @@
 
     <string name="message_1">Insert birthday date!</string>
     <string name="commento">With this score you have </string>
-    <string name="fisico_1">a low physical attraction, </string>
-    <string name="fisico_2">a warm physical attraction, </string>
-    <string name="fisico_3">a middle physical attraction, </string>
-    <string name="fisico_4">a strong physical attraction, </string>
+    <string name="fisico_1">and a low physical attraction.</string>
+    <string name="fisico_2">and a warm physical attraction.</string>
+    <string name="fisico_3">and a middle physical attraction.</string>
+    <string name="fisico_4">and a strong physical attraction.</string>
     <string name="emotivo_1">a low emotional involvement, </string>
     <string name="emotivo_2">a little emotional involvement, </string>
     <string name="emotivo_3">a middle emotional involvement, </string>
     <string name="emotivo_4">a strong emotional involvement, </string>
-    <string name="intellettuale_1">a very low intellectual compatibility.</string>
-    <string name="intellettuale_2">a low intellectual compatibility.</string>
-    <string name="intellettuale_3">a middle intellectual compatibility.</string>
-    <string name="intellettuale_4">an huge intellectual compatibility.</string>
+    <string name="intellettuale_1">a very low intellectual compatibility, </string>
+    <string name="intellettuale_2">a low intellectual compatibility, </string>
+    <string name="intellettuale_3">a middle intellectual compatibility, </string>
+    <string name="intellettuale_4">an huge intellectual compatibility, </string>
     <string name="fisico">Physical</string>
     <string name="emotivo">Emotional</string>
     <string name="intellettuale">Intellectual</string>
@@ -28,6 +28,7 @@
     <string name="screenshot_error">Error while taking screenshot.</string>
     <string name="screenshot_ok">Screenshot taken successfully.</string>
     <string name="add_a_new_date">Add a new Date</string>
+
     <string name="load_date">Load Date</string>
     <string name="intellectual">Intellectual</string>
     <string name="emotional">Emotional</string>

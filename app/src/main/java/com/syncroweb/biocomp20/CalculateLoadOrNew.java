@@ -9,15 +9,14 @@ import android.widget.Toast;
 
 public class CalculateLoadOrNew extends AppCompatActivity {
 
-    //???????????
     final int DATE_LISTS_ID = 1032;
     final int CHOOSE_A_DATE_ID = 1342;
 
     final int RESULT_OK_LIST = 1618;
     final int RESULT_OK_DATE = 1588;
 
-    private Button btnNewDate;
-    private Button btnLoadDate;
+    Button btnNewDate;
+    Button btnLoadDate;
 
 
     @Override
@@ -31,20 +30,20 @@ public class CalculateLoadOrNew extends AppCompatActivity {
 
         // Start the activity that allow the user
         // to choose a saved profile.
-        btnNewDate.setOnClickListener(new View.OnClickListener() {
+        btnLoadDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), ChooseDate.class);
-                startActivityForResult(i, CHOOSE_A_DATE_ID);
+                Intent i = new Intent(view.getContext(), RegisteredDateList.class);
+                startActivityForResult(i, DATE_LISTS_ID);
             }
         });
 
 
         // Start the activity that allow the user
         // to choose a single date
-        btnLoadDate.setOnClickListener(new View.OnClickListener() {
+        btnNewDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), RegisteredDateList.class);
-                startActivityForResult(i, DATE_LISTS_ID);
+                Intent i = new Intent(view.getContext(), ChooseDate.class);
+                startActivityForResult(i, CHOOSE_A_DATE_ID);
             }
         });
     }
@@ -80,7 +79,7 @@ public class CalculateLoadOrNew extends AppCompatActivity {
                 if(resultCode == RESULT_OK)
                 {
                     Intent i = new Intent();
-                    i.putExtra("date", data.getStringExtra("data"));
+                    i.putExtra("date", data.getStringExtra("DATE"));
                     setResult(RESULT_OK_DATE, i);
                     finish();
                 }

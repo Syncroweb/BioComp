@@ -39,7 +39,7 @@ public class RegisteredDateList extends AppCompatActivity {
         btnAddNewDate = (Button) findViewById(R.id.btnAddNewDate);
         lista= new ArrayList<>();
 
-        lista.add("Nome     | Data di nascita");
+        lista.add("Nome     |       Data di nascita");
 
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista);
         lwPersone.setAdapter(adapter);

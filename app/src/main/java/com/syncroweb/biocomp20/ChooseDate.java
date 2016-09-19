@@ -34,17 +34,7 @@ public class ChooseDate extends AppCompatActivity {
         // DatePicker Listener which build the
         // date string and call a function for
         // a dialog result that confirm or not
-        /* if the picked date is right
-        dp.init(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                StringBuilder sb = new StringBuilder();
-
-                date = sb.append(dayOfMonth).append("/")
-                        .append(monthOfYear).append("/")
-                        .append(year).toString();
-                }
-        });*/
-
+        // if the picked date is right
         dp.init(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), new DatePicker.OnDateChangedListener()
         {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth)
@@ -70,8 +60,9 @@ public class ChooseDate extends AppCompatActivity {
         public void onClick(DialogInterface dialog, int which) {
             switch (which){
                 case DialogInterface.BUTTON_POSITIVE:
+                    String data= date;
                     Intent i = new Intent();
-                    i.putExtra("date", date);
+                    i.putExtra("DATE", data);
                     setResult(RESULT_OK, i);
                     dialog.dismiss();
                     finish();
