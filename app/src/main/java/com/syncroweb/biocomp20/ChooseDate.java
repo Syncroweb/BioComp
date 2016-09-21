@@ -28,8 +28,7 @@ public class ChooseDate extends AppCompatActivity {
         //Set the datePicker (problema con precisione mese APRILE = 3)
         assert dp != null;
         dp.setCalendarViewShown(false);
-        dp.setMinDate(1940);
-        dp.setMaxDate(System.currentTimeMillis());
+        //dp.setMaxDate(System.currentTimeMillis());
 
         // DatePicker Listener which build the
         // date string and call a function for

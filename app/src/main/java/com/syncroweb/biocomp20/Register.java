@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.Toast;
+
+import static android.R.attr.checked;
 
 public class Register extends AppCompatActivity {
 
@@ -15,10 +18,11 @@ public class Register extends AppCompatActivity {
     //Button ivPhoto;
     Button btnSave;
     DatePicker dpDate;
-
-
     String name;
     String date;
+
+    RadioButton male;
+    RadioButton female;
 
 
     @Override
@@ -31,6 +35,8 @@ public class Register extends AppCompatActivity {
         //ivPhoto = (Button) findViewById(R.id.photoRegister);
         btnSave = (Button) findViewById(R.id.btnSaveChanges);
         dpDate = (DatePicker) findViewById(R.id.datePicker);
+        male = (RadioButton) findViewById(R.id.radioMale);
+        female = (RadioButton) findViewById(R.id.radioFemale);
 
 
         //Setto il datePicker (problema con precisione mese APRILE = 3)
@@ -76,5 +82,21 @@ public class Register extends AppCompatActivity {
         });
     }
 
+/*
+    public void onRadioButtonClicked(View view) {
 
+        boolean check = ((RadioButton) view).isChecked();
+
+        switch(view.getId()) {
+            case R.id.radioMale:
+                if (checked)
+                    view.setChecked(true);
+                    break;
+            case R.id.radioFemale:
+                if (checked)
+                    view.setChecked(true);
+                    break;
+        }
+    }
+    */
 }
