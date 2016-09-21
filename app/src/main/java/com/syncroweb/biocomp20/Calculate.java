@@ -25,15 +25,16 @@ public class Calculate extends AppCompatActivity {
     private String labelTags;
 
     private double[] vetPhysical =     {    99.9, 92.3, 81.6, 73.9, 65.2, 56.5, 47.8, 39.1, 30.4, 21.7,
-                        13, 4.3, 4.3, 13, 21.7, 30.4, 39.1, 47.8, 56.5, 65.2, 73.9,
-                        81.6, 92.3, 99.9                                            };
+            13, 4.3, 4.3, 13, 21.7, 30.4, 39.1, 47.8, 56.5, 65.2, 73.9,
+            81.6, 92.3, 99.9                                            };
 
-                private double[] vetEmotional =    {    99.9, 93, 86, 79, 71, 64, 57, 50, 43, 36, 29, 21, 14, 7, 0,
-                        7, 14, 21, 29, 36, 43, 50, 57, 64, 71, 79, 86, 93, 99.9     };
+    private double[] vetEmotional =    {    99.9, 93, 86, 79, 71, 64, 57, 50, 43, 36, 29, 21, 14, 7, 0,
+            7, 14, 21, 29, 36, 43, 50, 57, 64, 71, 79, 86, 93, 99.9     };
 
-                private double[] vetIntellectual = {    99.9, 94, 88, 82, 76, 70, 64, 58, 52, 46, 39, 33, 27, 21,
-                        15, 9, 3, 3, 9, 15, 21, 27, 33, 39, 46, 52, 58, 64, 70,
-                        76, 82, 88, 94, 99.9                                        };
+    private double[] vetIntellectual = {    99.9, 94, 88, 82, 76, 70, 64, 58, 52, 46, 39, 33, 27, 21,
+            15, 9, 3, 3, 9, 15, 21, 27, 33, 39, 46, 52, 58, 64, 70,
+            76, 82, 88, 94, 99.9                                        };
+
 
     private Button DateOne;
     private Button DateTwo;
@@ -47,6 +48,9 @@ public class Calculate extends AppCompatActivity {
     private Button btnCalculate;
 
     private TextView result;
+
+    //private Date insertOne;
+    //private Date insertTwo;
 
     // Function that first starts when the activity
     // is launched. It actually starts the components
@@ -87,14 +91,6 @@ public class Calculate extends AppCompatActivity {
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 String buttonTag = btnCalculate.getTag().toString();
-
-                //Disable Date Button
-                DateOne.setClickable(false);
-                DateOne.setEnabled(false);
-                DateOne.setBackgroundColor(Color.argb(255, 224, 224, 224));
-                DateTwo.setClickable(false);
-                DateTwo.setEnabled(false);
-                DateTwo.setBackgroundColor(Color.argb(255, 224, 224, 224));
 
                 if(buttonTag.equals("calculate"))
                 {
@@ -148,12 +144,12 @@ public class Calculate extends AppCompatActivity {
                         if (labelTags.equals("dateOne"))
                         {
                             lblDateOne.setText(data.getStringExtra("date"));
-                            DateOne.setText("Change");
+                            DateOne.setClickable(false);
                         }
                         else if (labelTags.equals("dateTwo"))
                         {
                             lblDateTwo.setText(data.getStringExtra("date"));
-                            DateTwo.setText("Change");
+                            DateTwo.setClickable(false);
                         }
                         break;
 
@@ -193,6 +189,8 @@ public class Calculate extends AppCompatActivity {
         }
     }
 
+
+
     // Function that calculate the BioCompatibility
     // between the two selected dates
     // It uses several other sub-functions to work
@@ -220,12 +218,15 @@ public class Calculate extends AppCompatActivity {
 
         for(int i = 0; i < CYCLES; i++)
             vetResults[i] = difference - ( ( difference / vetCostants[i] ) * vetCostants[i] );
-            double fisico = vetPhysical[vetResults[0]];
-            double emotivo = vetEmotional[vetResults[1]];
-            double intellettuale = vetIntellectual[vetResults[2]];
-            vetCalculatedLables[0].setText(Double.toString(fisico) + "%");   //METTERE PRECISIONE DECIMALE!!
-            vetCalculatedLables[1].setText(Double.toString(emotivo) + "%");   //METTERE PRECISIONE DECIMALE!!
-            vetCalculatedLables[2].setText(Double.toString(intellettuale) + "%");   //METTERE PRECISIONE DECIMALE!!
+
+        double fisico = vetPhysical[vetResults[0]];
+        double emotivo = vetEmotional[vetResults[1]];
+        double intellettuale = vetIntellectual[vetResults[2]];
+
+        vetCalculatedLables[0].setText(Double.toString(fisico) + "%");   //METTERE PRECISIONE DECIMALE!!
+        vetCalculatedLables[1].setText(Double.toString(emotivo) + "%");   //METTERE PRECISIONE DECIMALE!!
+        vetCalculatedLables[2].setText(Double.toString(intellettuale) + "%");   //METTERE PRECISIONE DECIMALE!!
+
 
         writeComments(vetResults);
     }
@@ -263,8 +264,9 @@ public class Calculate extends AppCompatActivity {
         String resultMessage;
         String[] messages = new String[CYCLES];
 
+
         // Emotional
-        messages[0] = "Your result: ";
+        messages[0] = "Your result is: ";
 
         if (vetEmotional[vetResults[0]] < 30)
             messages[0] += this.getString(R.string.emotivo_1) + " ";
@@ -328,13 +330,5 @@ public class Calculate extends AppCompatActivity {
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
         btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
-
-        //Able Date Button
-        DateOne.setClickable(true);
-        DateOne.setEnabled(true);
-        DateOne.setBackgroundColor(Color.argb(255, 255, 196, 0));
-        DateTwo.setClickable(true);
-        DateTwo.setEnabled(true);
-        DateTwo.setBackgroundColor(Color.argb(255, 255, 196, 0));
     }
 }
