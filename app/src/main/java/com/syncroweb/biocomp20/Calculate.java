@@ -219,7 +219,7 @@ public class Calculate extends AppCompatActivity {
     // into a Date and then returns it
     private Date DateFormatConverter(String myDateString)
     {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ITALY); //setto la data per italia
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //setto la data per italia
         Date myNewDate;
 
         try {   myNewDate = dateFormat.parse(myDateString);         }
@@ -260,28 +260,28 @@ public class Calculate extends AppCompatActivity {
                 76, 82, 88, 94, 99.9                                        };
 
         // Emotional
-        messages[0] = "";
+        messages[0] = "Your result is: ";
 
         if (vetEmotional[vetResults[0]] < 30)
-            messages[0] += this.getString(R.string.emotivo_1);
+            messages[0] += this.getString(R.string.emotivo_1) + " ";
         if (vetEmotional[vetResults[0]] > 30 && vetEmotional[vetResults[0]] < 60)
-            messages[0] += this.getString(R.string.emotivo_2);
+            messages[0] += this.getString(R.string.emotivo_2) + " ";
         if (vetEmotional[vetResults[0]] > 60 && vetEmotional[vetResults[0]] < 80)
-            messages[0] += this.getString(R.string.emotivo_3);
+            messages[0] += this.getString(R.string.emotivo_3) + " ";
         if (vetEmotional[vetResults[0]] > 80)
-            messages[0] += this.getString(R.string.emotivo_4);
+            messages[0] += this.getString(R.string.emotivo_4) + " ";
 
         // Intellectual
         messages[1] = "";
 
         if (vetIntellectual[vetResults[1]] < 30)
-            messages[1] = this.getString(R.string.intellettuale_1);
+            messages[1] = this.getString(R.string.intellettuale_1) + " ";
         if (vetIntellectual[vetResults[1]] > 30 && vetIntellectual[vetResults[0]] < 60)
-            messages[1] = this.getString(R.string.intellettuale_2);
+            messages[1] = this.getString(R.string.intellettuale_2) + " ";
         if (vetIntellectual[vetResults[1]] > 60 && vetIntellectual[vetResults[0]] < 80)
-            messages[1] = this.getString(R.string.intellettuale_3);
+            messages[1] = this.getString(R.string.intellettuale_3) + " ";
         if (vetIntellectual[vetResults[1]] > 80)
-            messages[1] = this.getString(R.string.intellettuale_4);
+            messages[1] = this.getString(R.string.intellettuale_4) + " ";
 
         // Physical
         messages[2] = "";
@@ -318,6 +318,7 @@ public class Calculate extends AppCompatActivity {
 
         result.setText("");
 
+        //Disable Calculate Button
         btnCalculate.setText("Calculate");
         btnCalculate.setTag("calculate");
         btnCalculate.setEnabled(false);

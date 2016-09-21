@@ -43,12 +43,13 @@
     <string name="twitter">Twitter</string>
     <string name="datelist">Date List</string>
     <string name="intro_biocomp">BioComp is an app that calculates the compatibility between people through the theory of biorhythms.</string>
-    <string name="calculate_compatibility">CALCULATE COMPATIBILITY</string>
-    <string name="welcome_to_biocomp">WELCOME TO BIOCOMP</string>
-    <string name="enter_new_profile">ENTER NEW PROFILE</string>
-    <string name="your_date_list">YOUR LIST OF DATES</string>
+
+    <string name="calculate_compatibility">Calculate Compatibility</string>
+    <string name="welcome_to_biocomp">Welcome to BioComp</string>
+    <string name="enter_new_profile">Enter New Profile</string>
+    <string name="your_date_list">Your List of Dates</string>
     <string name="choose_date">Choose date</string>
-    <string name="our_other_apps">OUR OTHER APPS</string>
-    <string name="load_or_new">LOAD OR CREATE DATE</string>
+    <string name="our_other_apps">Our Other Apps</string>
+    <string name="load_or_new">Load or Create Date</string>
 
 </resources>

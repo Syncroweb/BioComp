@@ -32,7 +32,7 @@ public class CalculateLoadOrNew extends AppCompatActivity {
         // to choose a saved profile.
         btnLoadDate.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), RegisteredDateList.class);
+                Intent i = new Intent(view.getContext(), LoadDate.class);
                 startActivityForResult(i, DATE_LISTS_ID);
             }
         });

@@ -1,17 +1,11 @@
 package com.syncroweb.biocomp20;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CursorAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -48,7 +42,7 @@ public class RegisteredDateList extends AppCompatActivity {
         btnAddNewDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), RegisterOrLoadDate.class);
+                Intent i = new Intent(view.getContext(), Register.class);
                 startActivityForResult(i, 0);
             }
         });

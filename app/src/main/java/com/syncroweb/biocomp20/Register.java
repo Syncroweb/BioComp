@@ -9,7 +9,7 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegisterOrLoadDate extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     EditText txtName;
     //Button ivPhoto;
@@ -47,7 +47,7 @@ public class RegisterOrLoadDate extends AppCompatActivity {
             public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth)
             {
                 StringBuilder sb = new StringBuilder();
-                date = sb.append(dayOfMonth).append("/").append(monthOfYear).append("/").append(year).toString();
+                date = sb.append(dayOfMonth).append("/").append(monthOfYear+1).append("/").append(year).toString();
             }
         });
 
