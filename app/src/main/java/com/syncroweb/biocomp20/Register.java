@@ -1,28 +1,34 @@
 package com.syncroweb.biocomp20;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 import static android.R.attr.checked;
 
 public class Register extends AppCompatActivity {
 
     EditText txtName;
-    //Button ivPhoto;
+    Button avatar;
     Button btnSave;
     DatePicker dpDate;
     String name;
     String date;
 
-    RadioButton male;
-    RadioButton female;
+    AdView adsRegister;
 
 
     @Override
@@ -32,18 +38,21 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         txtName = (EditText) findViewById(R.id.txtNameSurname);
-        //ivPhoto = (Button) findViewById(R.id.photoRegister);
         btnSave = (Button) findViewById(R.id.btnSaveChanges);
         dpDate = (DatePicker) findViewById(R.id.datePicker);
-        male = (RadioButton) findViewById(R.id.radioMale);
-        female = (RadioButton) findViewById(R.id.radioFemale);
+        avatar = (Button) findViewById(R.id.avatar);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
+
+        //Banner
+        adsRegister = (AdView) findViewById(R.id.adsRegister);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adsRegister.loadAd(adRequest);
 
 
         //Setto il datePicker (problema con precisione mese APRILE = 3)
         assert dpDate != null;
         dpDate.setCalendarViewShown(false);
-        dpDate.setMinDate(1940);
-        dpDate.setMaxDate(System.currentTimeMillis());
 
          //Listener of the DatePicker
         // that build the date string once
@@ -82,21 +91,12 @@ public class Register extends AppCompatActivity {
         });
     }
 
-/*
-    public void onRadioButtonClicked(View view) {
+    //Choose an avatar
+    public void chooseAvatar(View view) {
 
-        boolean check = ((RadioButton) view).isChecked();
+        Intent i= new Intent(this, ChooseAvatar.class);
+        startActivity(i);
 
-        switch(view.getId()) {
-            case R.id.radioMale:
-                if (checked)
-                    view.setChecked(true);
-                    break;
-            case R.id.radioFemale:
-                if (checked)
-                    view.setChecked(true);
-                    break;
-        }
+
     }
-    */
 }

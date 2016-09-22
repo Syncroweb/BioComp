@@ -9,16 +9,28 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class MainMenu extends AppCompatActivity {
 
     Button btnCalculate;
+    AdView adsMain;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
+
         btnCalculate = (Button) findViewById(R.id.btnCalculate);
+
+        // /Banner
+        adsMain = (AdView) findViewById(R.id.adsMain);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adsMain.loadAd(adRequest);
 
         //Start the activity that calculate
         //the BioCompatibility

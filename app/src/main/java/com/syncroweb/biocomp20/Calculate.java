@@ -49,9 +49,6 @@ public class Calculate extends AppCompatActivity {
 
     private TextView result;
 
-    //private Date insertOne;
-    //private Date insertTwo;
-
     // Function that first starts when the activity
     // is launched. It actually starts the components
     // allowing the following operations to work
@@ -83,7 +80,6 @@ public class Calculate extends AppCompatActivity {
         btnCalculate.setClickable(false);
         btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
 
-
         // Function that call the real
         // BioCompatibility function and
         // switch between the button
@@ -97,6 +93,16 @@ public class Calculate extends AppCompatActivity {
                     calculateBioCompatibility();
                     btnCalculate.setTag("reset");
                     btnCalculate.setText("Reset");
+
+                    //Disable Choose Date Buttons
+                    DateOne.setText("Choose Date");
+                    DateTwo.setText("Choose Date");
+                    DateOne.setEnabled(false);
+                    DateOne.setClickable(false);
+                    DateTwo.setEnabled(false);
+                    DateTwo.setClickable(false);
+                    DateOne.setBackgroundColor(Color.argb(255, 224, 224, 224));
+                    DateTwo.setBackgroundColor(Color.argb(255, 224, 224, 224));
                 }
                 else
                     resetGui();
@@ -144,12 +150,12 @@ public class Calculate extends AppCompatActivity {
                         if (labelTags.equals("dateOne"))
                         {
                             lblDateOne.setText(data.getStringExtra("date"));
-                            DateOne.setClickable(false);
+                            DateOne.setText("Change");
                         }
                         else if (labelTags.equals("dateTwo"))
                         {
                             lblDateTwo.setText(data.getStringExtra("date"));
-                            DateTwo.setClickable(false);
+                            DateTwo.setText("Change");
                         }
                         break;
 
@@ -330,5 +336,15 @@ public class Calculate extends AppCompatActivity {
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
         btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
+
+        //Able Choose Date Buttons
+        DateOne.setText("Choose Date");
+        DateTwo.setText("Choose Date");
+        DateOne.setEnabled(true);
+        DateOne.setClickable(true);
+        DateTwo.setEnabled(true);
+        DateTwo.setClickable(true);
+        DateOne.setBackgroundColor(Color.argb(255, 255, 196, 0));
+        DateTwo.setBackgroundColor(Color.argb(255, 255, 196, 0));
     }
 }

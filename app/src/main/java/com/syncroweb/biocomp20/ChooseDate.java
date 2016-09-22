@@ -9,6 +9,10 @@ import android.view.View;
 import android.widget.DatePicker;
 import android.widget.NumberPicker;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 
 public class ChooseDate extends AppCompatActivity {
 
@@ -16,6 +20,7 @@ public class ChooseDate extends AppCompatActivity {
     DatePicker dp;
     String date;
 
+    AdView adsDate;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -23,12 +28,18 @@ public class ChooseDate extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_date);
 
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
+
+        //Banner
+        adsDate = (AdView) findViewById(R.id.adsDate);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adsDate.loadAd(adRequest);
+
         dp = (DatePicker) findViewById(R.id.dpPickADate);
 
         //Set the datePicker (problema con precisione mese APRILE = 3)
         assert dp != null;
         dp.setCalendarViewShown(false);
-        //dp.setMaxDate(System.currentTimeMillis());
 
         // DatePicker Listener which build the
         // date string and call a function for

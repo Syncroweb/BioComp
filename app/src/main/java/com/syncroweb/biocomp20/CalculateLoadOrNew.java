@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class CalculateLoadOrNew extends AppCompatActivity {
 
     final int DATE_LISTS_ID = 1032;
@@ -18,12 +22,21 @@ public class CalculateLoadOrNew extends AppCompatActivity {
     Button btnNewDate;
     Button btnLoadDate;
 
+    AdView adsLoN;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculate_load_or_new);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
+
+        //Banner
+        adsLoN = (AdView) findViewById(R.id.adsLoN);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adsLoN.loadAd(adRequest);
 
         btnNewDate = (Button)findViewById(R.id.btnNewDate);
         btnLoadDate = (Button)findViewById(R.id.btnLoadDate);
