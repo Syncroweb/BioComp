@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainMenu"></activity>
+        <activity android:name=".MainMenu" />
         <activity
             android:name=".Calculate"
             android:label="@string/calculate_compatibility"
@@ -39,7 +39,7 @@
         </activity>
         <activity
             android:name=".ChooseDate"
-            android:label="@string/choose_date"></activity>
+            android:label="@string/choose_date" />
         <activity
             android:name=".Infos"
             android:label="@string/infos"
@@ -72,12 +72,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.MainMenu" />
         </activity>
-        <activity android:name=".LoadDate"
+        <activity
+            android:name=".LoadDate"
             android:label="Load Date"
             android:parentActivityName=".CalculateLoadOrNew">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.syncroweb.biocomp20.CalculateLoadOrNew"/>
+                android:value="com.syncroweb.biocomp20.CalculateLoadOrNew" />
+        </activity>
+        <activity android:name=".ChooseAvatar"
+            android:label="Choose an Avatar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.syncroweb.biocomp20.Register" />
         </activity>
     </application>
 

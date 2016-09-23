@@ -18,7 +18,7 @@
     <string name="fisico">Physical</string>
     <string name="emotivo">Emotional</string>
     <string name="intellettuale">Intellectual</string>
-    <string name="button_1">Calculate</string>
+    <string name="calculate_biocomp">Calculate Bio Compatibility</string>
     <string name="button_2">Reset</string>
     <string name="date">dd/MM/yyyy</string>
 
@@ -52,4 +52,7 @@
     <string name="our_other_apps">Our Other Apps</string>
     <string name="load_or_new">Load or Create Date</string>
 
+    <string name="banner">ca-app-pub-1505207846260374/5186273936</string>
+    <string name="prova_banner">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="save_profile">Save profile</string>
 </resources>

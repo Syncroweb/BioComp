@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "827780371472",
+    "firebase_url": "https://biocomp-f244a.firebaseio.com",
+    "project_id": "biocomp-f244a",
+    "storage_bucket": "biocomp-f244a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:827780371472:android:b23ea621fea47f2d",
+        "android_client_info": {
+          "package_name": "com.syncroweb.biocomp20"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "827780371472-t87ltvgbqfbkmoptdk9n7bgm0u4q6n35.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA90iPzADrfhH5ibskd_RKCPSc3xIB8Nqk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

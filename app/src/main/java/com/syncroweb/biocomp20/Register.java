@@ -3,6 +3,7 @@ package com.syncroweb.biocomp20;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,7 +23,7 @@ import static android.R.attr.checked;
 public class Register extends AppCompatActivity {
 
     EditText txtName;
-    Button avatar;
+    Button btnAvatar;
     Button btnSave;
     DatePicker dpDate;
     String name;
@@ -40,7 +41,7 @@ public class Register extends AppCompatActivity {
         txtName = (EditText) findViewById(R.id.txtNameSurname);
         btnSave = (Button) findViewById(R.id.btnSaveChanges);
         dpDate = (DatePicker) findViewById(R.id.datePicker);
-        avatar = (Button) findViewById(R.id.avatar);
+        btnAvatar = (Button) findViewById(R.id.avatar);
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
 
@@ -50,7 +51,7 @@ public class Register extends AppCompatActivity {
         adsRegister.loadAd(adRequest);
 
 
-        //Setto il datePicker (problema con precisione mese APRILE = 3)
+        //Set the DatePicker
         assert dpDate != null;
         dpDate.setCalendarViewShown(false);
 
@@ -76,6 +77,7 @@ public class Register extends AppCompatActivity {
 
                 name = txtName.getText().toString().trim();
 
+                //FORSE MEGLIO USARE TRY CATCH?!
                 if(!name.equals("") && !date.equals("")){
                     String item = name + "      |       " + date;
                     Intent i = new Intent();
@@ -93,10 +95,19 @@ public class Register extends AppCompatActivity {
 
     //Choose an avatar
     public void chooseAvatar(View view) {
-
         Intent i= new Intent(this, ChooseAvatar.class);
-        startActivity(i);
+        startActivityForResult(i, 0);
+    }
 
+    // Call Back method to get the Strings form other Activity
+    @Override
+    protected void onActivityResult( int requestCode, int resultCode, Intent data){
+        super.onActivityResult(requestCode, resultCode, data);
 
+        if(requestCode==0){
+            String avatar = data.getStringExtra("AVATAR");
+            btnAvatar.setBackgroundResource(Integer.parseInt(avatar));
+            //btnAvatar.setBackgroundResource((int) Long.parseLong(avatar));
+        }
     }
 }
