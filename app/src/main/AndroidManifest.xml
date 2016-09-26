@@ -13,18 +13,21 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SplashScreen"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainMenu" />
+        <activity
+            android:name=".MainMenu"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Calculate"
             android:label="@string/calculate_compatibility"
-            android:parentActivityName=".MainMenu">
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.MainMenu" />
@@ -32,18 +35,21 @@
         <activity
             android:name=".CalculateLoadOrNew"
             android:label="@string/load_or_new"
-            android:parentActivityName=".Calculate">
+            android:parentActivityName=".Calculate"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.Calculate" />
         </activity>
         <activity
             android:name=".ChooseDate"
-            android:label="@string/choose_date" />
+            android:label="@string/choose_date"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".Infos"
             android:label="@string/infos"
-            android:parentActivityName=".MainMenu">
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.MainMenu" />
@@ -51,7 +57,8 @@
         <activity
             android:name=".Register"
             android:label="@string/enter_new_profile"
-            android:parentActivityName=".RegisteredDateList">
+            android:parentActivityName=".RegisteredDateList"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.RegisteredDateList" />
@@ -59,7 +66,8 @@
         <activity
             android:name=".RegisteredDateList"
             android:label="@string/your_date_list"
-            android:parentActivityName=".MainMenu">
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.MainMenu" />
@@ -67,7 +75,8 @@
         <activity
             android:name=".OtherApps"
             android:label="@string/our_other_apps"
-            android:parentActivityName=".MainMenu">
+            android:parentActivityName=".MainMenu"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.MainMenu" />
@@ -75,13 +84,17 @@
         <activity
             android:name=".LoadDate"
             android:label="Load Date"
-            android:parentActivityName=".CalculateLoadOrNew">
+            android:parentActivityName=".CalculateLoadOrNew"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.syncroweb.biocomp20.CalculateLoadOrNew" />
+                android:value="com.syncroweb.biocomp20.CalculateLoadOrNew"
+                android:screenOrientation="portrait"/>
         </activity>
-        <activity android:name=".ChooseAvatar"
-            android:label="Choose an Avatar">
+        <activity
+            android:name=".ChooseAvatar"
+            android:label="Choose an Avatar"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.syncroweb.biocomp20.Register" />

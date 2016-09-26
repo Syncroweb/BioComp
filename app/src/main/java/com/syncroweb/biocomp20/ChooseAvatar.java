@@ -1,10 +1,12 @@
 package com.syncroweb.biocomp20;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -43,79 +45,39 @@ public class ChooseAvatar extends AppCompatActivity {
         public void press(View v) {
         switch (v.getId()) {
             case R.id.imgLY1:
-                 Toast t= Toast.makeText(ChooseAvatar.this,
-                         "CLICK",
-                         Toast.LENGTH_SHORT);
-                        t.show();
-                avatar = String.valueOf(imgLY1.getResources());
-                //Intent i = new Intent();
-                //i.putExtra("AVATAR", avatar);
-                //setResult(0, i);
-                //finish();
+                avatar = String.valueOf(R.drawable.girl);
                 break;
 
             case R.id.imgLY2:
-                avatar = String.valueOf(imgLY2.getResources());
-                //Intent i2 = new Intent();
-                //i2.putExtra("AVATAR", avatar);
-                //setResult(0, i2);
-                //finish();
+                avatar = String.valueOf(R.drawable.girl2);
                 break;
 
             case R.id.imgLY3:
-                avatar = String.valueOf(R.id.imgLY3);
-                //Intent i3 = new Intent();
-                //i3.putExtra("AVATAR", avatar);
-                //setResult(0, i3);
-                //finish();
+                avatar = String.valueOf(R.drawable.girl3);
                 break;
 
             case R.id.imgLY4:
-                avatar = String.valueOf(R.id.imgLY4);
-                //Intent i4 = new Intent();
-                //i4.putExtra("AVATAR", avatar);
-                //setResult(0, i4);
-                //finish();
+                avatar = String.valueOf(R.drawable.man);
                 break;
 
             case R.id.imgLY5:
-                avatar = String.valueOf(R.id.imgLY5);
-                //Intent i5 = new Intent();
-                //i5.putExtra("AVATAR", avatar);
-                //setResult(0, i5);
-                //finish();
+                avatar = String.valueOf(R.drawable.man2);
                 break;
 
             case R.id.imgLY6:
-                avatar = String.valueOf(R.id.imgLY6);
-                //Intent i6 = new Intent();
-                //i6.putExtra("AVATAR", avatar);
-                //setResult(0, i6);
-                //finish();
+                avatar = String.valueOf(R.drawable.man3);
                 break;
 
             case R.id.imgLY7:
-                avatar = String.valueOf(R.id.imgLY7);
-                //Intent i7 = new Intent();
-                //i7.putExtra("AVATAR", avatar);
-                //setResult(0, i7);
-                //finish();
+                avatar = String.valueOf(R.drawable.girl4);
                 break;
 
             case R.id.imgLY8:
-                avatar = String.valueOf(R.id.imgLY8);
-                //Intent i8 = new Intent();
-                //i8.putExtra("AVATAR", avatar);
-                //setResult(0, i8);
-                //finish();
+                avatar = String.valueOf(R.drawable.man4);
                 break;
 
             case R.id.imgLY9:
-                avatar = String.valueOf(R.id.imgLY9);
-                //Intent i9 = new Intent();
-                //i9.putExtra("AVATAR", avatar);
-                //setResult(0, i9);
-                //finish();
+                avatar = String.valueOf(R.drawable.girl5);
                 break;
 
             default:

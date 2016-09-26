@@ -12,18 +12,20 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import static android.R.attr.background;
 import static android.R.attr.checked;
 
 public class Register extends AppCompatActivity {
 
     EditText txtName;
-    Button btnAvatar;
+    ImageButton btnAvatar;
     Button btnSave;
     DatePicker dpDate;
     String name;
@@ -31,6 +33,7 @@ public class Register extends AppCompatActivity {
 
     AdView adsRegister;
 
+    String avatar;
 
     @Override
     public void onCreate(Bundle savedInstanceState)
@@ -41,7 +44,7 @@ public class Register extends AppCompatActivity {
         txtName = (EditText) findViewById(R.id.txtNameSurname);
         btnSave = (Button) findViewById(R.id.btnSaveChanges);
         dpDate = (DatePicker) findViewById(R.id.datePicker);
-        btnAvatar = (Button) findViewById(R.id.avatar);
+        btnAvatar = (ImageButton) findViewById(R.id.avatar);
 
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
 
@@ -79,9 +82,11 @@ public class Register extends AppCompatActivity {
 
                 //FORSE MEGLIO USARE TRY CATCH?!
                 if(!name.equals("") && !date.equals("")){
-                    String item = name + "      |       " + date;
+                    //String item = name + "      |       " + date;
                     Intent i = new Intent();
-                    i.putExtra("ITEM", item);
+                    i.putExtra("AVATAR", avatar);
+                    i.putExtra("NAME", name);
+                    i.putExtra("DATE", date);
                     setResult(0, i);
                     finish();
                 } else
@@ -105,9 +110,8 @@ public class Register extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode==0){
-            String avatar = data.getStringExtra("AVATAR");
+            avatar = data.getStringExtra("AVATAR");
             btnAvatar.setBackgroundResource(Integer.parseInt(avatar));
-            //btnAvatar.setBackgroundResource((int) Long.parseLong(avatar));
         }
     }
 }

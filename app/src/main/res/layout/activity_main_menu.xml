@@ -38,17 +38,6 @@
         android:layout_centerVertical="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:id="@+id/btnCalculate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/calculate_compatibility"
-        android:textSize="18dp"
-        android:background="@color/colorAccent"
-        android:layout_above="@+id/adsMain"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="8dp" />
-
     <com.google.android.gms.ads.AdView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,5 +46,28 @@
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/prova_banner"/>
+
+    <Button
+        android:id="@+id/btnDateList"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:text="Date List"
+        android:background="@color/colorAccent"
+        android:layout_marginBottom="8dp"
+        android:layout_above="@+id/adsMain"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="@string/calculate_compatibility"
+        android:background="@color/colorAccent"
+        android:layout_alignBaseline="@+id/btnDateList"
+        android:layout_alignBottom="@+id/btnDateList"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/btnDateList"
+        android:layout_marginLeft="10dp" />
+
 
 </RelativeLayout>

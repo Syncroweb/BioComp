@@ -13,6 +13,8 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import java.util.Calendar;
+
 
 public class ChooseDate extends AppCompatActivity {
 
@@ -23,8 +25,7 @@ public class ChooseDate extends AppCompatActivity {
     AdView adsDate;
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_date);
 
@@ -37,7 +38,7 @@ public class ChooseDate extends AppCompatActivity {
 
         dp = (DatePicker) findViewById(R.id.dpPickADate);
 
-        //Set the datePicker (problema con precisione mese APRILE = 3)
+        //Set the datePicker
         assert dp != null;
         dp.setCalendarViewShown(false);
 
@@ -45,12 +46,10 @@ public class ChooseDate extends AppCompatActivity {
         // date string and call a function for
         // a dialog result that confirm or not
         // if the picked date is right
-        dp.init(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), new DatePicker.OnDateChangedListener()
-        {
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth)
-            {
+        dp.init(dp.getYear(), dp.getMonth(), dp.getDayOfMonth(), new DatePicker.OnDateChangedListener() {
+            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 StringBuilder sb = new StringBuilder();
-                date = sb.append(dayOfMonth).append("/").append(monthOfYear+1).append("/").append(year).toString();
+                date = sb.append(dayOfMonth).append("/").append(monthOfYear + 1).append("/").append(year).toString();
             }
         });
     }
@@ -58,7 +57,7 @@ public class ChooseDate extends AppCompatActivity {
     public void saveDate(View view) {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(ChooseDate.this);
-        builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+        builder.setMessage("Confirming the date inserted?" + "\n\n" + date).setPositiveButton("Yes", dialogClickListener)
                 .setNegativeButton("No", dialogClickListener).show();
     }
 

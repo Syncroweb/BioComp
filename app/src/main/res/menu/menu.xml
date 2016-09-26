@@ -3,12 +3,13 @@
 
     <item
         android:id="@+id/menu1"
-        android:title="Date List"/>
+        android:title="@string/infos"/>
+
     <item
         android:id="@+id/menu2"
-        android:title="Infos"/>
+        android:title="@string/other_apps"/>
 
     <item
         android:id="@+id/menu3"
-        android:title="Other Apps"/>
+        android:title="Change Language"/>
 </menu>

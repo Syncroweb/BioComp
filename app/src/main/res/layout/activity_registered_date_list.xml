@@ -11,7 +11,6 @@
     tools:context="com.syncroweb.biocomp20.RegisteredDateList"
     android:background="#fafafa">
 
-
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -37,5 +36,6 @@
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/prova_banner"/>
+
 
 </RelativeLayout>

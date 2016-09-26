@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -12,15 +11,23 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-import java.util.ArrayList;
-
 public class RegisteredDateList extends AppCompatActivity {
 
     ListView lwPersone;
-    ArrayList<String> lista;
-    ArrayAdapter<String> adapter;
+    //ArrayList<String> lista;
+    //ArrayAdapter<String> adapter;
 
     Button btnAddNewDate;
+
+    int i = 0;
+    CustomListAdapter adapter;
+
+    //Creo 10 possibili salvataggi
+    String[] nome = new String[10];
+    String[] dataNascita = new String[10];
+    int[] foto = new int[10];
+
+    DBHelper dbHelper;
 
     AdView adsList;
 
@@ -35,6 +42,9 @@ public class RegisteredDateList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered_date_list);
 
+        //Create DB
+        dbHelper = new DBHelper(this);
+
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
 
         //Banner
@@ -42,13 +52,22 @@ public class RegisteredDateList extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adsList.loadAd(adRequest);
 
+        nome[i] = "NOME";
+        dataNascita[i] = "DATA DI NASCITA";
+        foto[i] = R.drawable.user;
+
+        //Creo lista personalizzata
+        adapter = new CustomListAdapter(this, nome, dataNascita, foto);
+
         lwPersone = (ListView) findViewById(R.id.lwPersone);
+
         btnAddNewDate = (Button) findViewById(R.id.btnAddNewDate);
-        lista= new ArrayList<>();
 
+        /*lista= new ArrayList<>();
         lista.add("Nome     |       Data di nascita");
-
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista);
+        */
+
         lwPersone.setAdapter(adapter);
 
        //Start Activity Register
@@ -67,9 +86,26 @@ public class RegisteredDateList extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode==0){
-            String item = data.getStringExtra("ITEM");
+            String photo = data.getStringExtra("AVATAR");
+            String name = data.getStringExtra("NAME");
+            String date = data.getStringExtra("DATE");
+
+            i++;    //aggiorno la posizione
+
+            //Riempio gli array man mano che arrivano i dati
+            foto[i] = Integer.parseInt(photo);
+            nome[i] = name;
+            dataNascita[i] =  date;
+
+            adapter.notifyDataSetChanged();
+
+            /*
             lista.add(item);
             adapter.notifyDataSetChanged();
+            */
         }
     }
+
+    //Insert to DB (NON TROVA IL METODO)
+    //dbHelper.execSQL("INSER INTO name VALUES ('name', 'name');");
 }

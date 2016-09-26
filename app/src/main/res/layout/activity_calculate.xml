@@ -79,8 +79,6 @@
         android:background="@color/colorAccent"
         android:textSize="18dp" />
 
-
-
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -164,7 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=""
+        android:text="dd/mm/yyyy"
         android:id="@+id/lblDateOne"
         android:layout_below="@+id/btnFirstPhoto"
         android:layout_alignParentStart="true"
@@ -197,7 +195,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text=""
+        android:text="dd/mm/yyyy"
         android:id="@+id/lblDateTwo"
         android:textSize="18dp"
         android:layout_alignBaseline="@+id/lblDateOne"

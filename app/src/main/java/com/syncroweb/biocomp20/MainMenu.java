@@ -16,6 +16,7 @@ import com.google.android.gms.ads.MobileAds;
 public class MainMenu extends AppCompatActivity {
 
     Button btnCalculate;
+    Button btnDateList;
     AdView adsMain;
 
     @Override
@@ -26,6 +27,7 @@ public class MainMenu extends AppCompatActivity {
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
 
         btnCalculate = (Button) findViewById(R.id.btnCalculate);
+        btnDateList = (Button) findViewById(R.id.btnDateList);
 
         // /Banner
         adsMain = (AdView) findViewById(R.id.adsMain);
@@ -41,10 +43,18 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
+        //Start the activity that show
+        //all the saved people's datas
+        btnDateList.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), RegisteredDateList.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //Gestione del menu (3 pallini)
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -62,9 +72,9 @@ public class MainMenu extends AppCompatActivity {
         {
             case R.id.menu1:
 
-                //Start the activity that show
-                //all the saved people's datas
-                Intent menu1 = new Intent(this, RegisteredDateList.class);
+                //Start the activity that contains
+                //the infos about the BioCompatibility
+                Intent menu1 = new Intent(this, Infos.class);
                 startActivity(menu1);
 
                 break;
@@ -72,19 +82,10 @@ public class MainMenu extends AppCompatActivity {
             case R.id.menu2:
 
                 //Start the activity that contains
-                //the infos about the BioCompatibility
-                Intent menu2 = new Intent(this, Infos.class);
-                startActivity(menu2);
-
-                break;
-
-            case R.id.menu3:
-
-                //Start the activity that contains
                 //the links to the other syncroweb apps
                 //or to the syncroweb's app page
-                Intent menu3 = new Intent(this, OtherApps.class);
-                startActivity(menu3);
+                Intent menu2 = new Intent(this, OtherApps.class);
+                startActivity(menu2);
 
                 break;
         }

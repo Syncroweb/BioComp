@@ -101,7 +101,7 @@
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/girl5"
+            android:src="@drawable/girl4"
             android:layout_weight="1"
             android:id="@+id/imgLY7"
             android:onClick="press"/>
@@ -117,7 +117,7 @@
         <ImageView
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:src="@drawable/girl4"
+            android:src="@drawable/girl5"
             android:layout_weight="1"
             android:id="@+id/imgLY9"
             android:onClick="press"/>

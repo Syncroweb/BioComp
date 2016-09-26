@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -48,6 +51,9 @@ public class Calculate extends AppCompatActivity {
     private Button btnCalculate;
 
     private TextView result;
+    private TextView lblCalculateEm;
+    private TextView lblCalculateIn;
+    private TextView lblCalculatePh;
 
     // Function that first starts when the activity
     // is launched. It actually starts the components
@@ -73,6 +79,9 @@ public class Calculate extends AppCompatActivity {
         btnCalculate = (Button)this.findViewById(R.id.btnCalculate);
 
         result = (TextView) findViewById(R.id.txtResult);
+        lblCalculateEm = (TextView) findViewById(R.id.lblCalculatedEm);
+        lblCalculateIn = (TextView) findViewById(R.id.lblCalculatedInt);
+        lblCalculatePh = (TextView) findViewById(R.id.lblCalculatedPh);
 
         //Disable Calculate Button
         assert btnCalculate != null;
@@ -229,9 +238,9 @@ public class Calculate extends AppCompatActivity {
         double emotivo = vetEmotional[vetResults[1]];
         double intellettuale = vetIntellectual[vetResults[2]];
 
-        vetCalculatedLables[0].setText(Double.toString(fisico) + "%");   //METTERE PRECISIONE DECIMALE!!
-        vetCalculatedLables[1].setText(Double.toString(emotivo) + "%");   //METTERE PRECISIONE DECIMALE!!
-        vetCalculatedLables[2].setText(Double.toString(intellettuale) + "%");   //METTERE PRECISIONE DECIMALE!!
+        vetCalculatedLables[0].setText(Double.toString(fisico) + "%");
+        vetCalculatedLables[1].setText(Double.toString(emotivo) + "%");
+        vetCalculatedLables[2].setText(Double.toString(intellettuale) + "%");
 
 
         writeComments(vetResults);
@@ -346,5 +355,38 @@ public class Calculate extends AppCompatActivity {
         DateTwo.setClickable(true);
         DateOne.setBackgroundColor(Color.argb(255, 255, 196, 0));
         DateTwo.setBackgroundColor(Color.argb(255, 255, 196, 0));
+
+        //Percentual
+        lblCalculateEm.setText("0%");
+        lblCalculateIn.setText("0%");
+        lblCalculatePh.setText("0%");
+        lblCalculateEm.setTextColor(Color.argb(255, 229, 5, 0));
+        lblCalculateIn.setTextColor(Color.argb(255, 229, 5, 0));
+        lblCalculatePh.setTextColor(Color.argb(255, 229, 5, 0));
+    }
+
+    //Gestione del menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_calculate,menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id=item.getItemId();
+        switch(id)
+        {
+            case R.id.menuReset:
+                resetGui();
+
+                break;
+
+        }
+        return false;
     }
 }
