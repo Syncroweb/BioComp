@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,6 +12,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
@@ -55,6 +60,8 @@ public class Calculate extends AppCompatActivity {
     private TextView lblCalculateIn;
     private TextView lblCalculatePh;
 
+    InterstitialAd adsFull;
+
     // Function that first starts when the activity
     // is launched. It actually starts the components
     // allowing the following operations to work
@@ -83,11 +90,30 @@ public class Calculate extends AppCompatActivity {
         lblCalculateIn = (TextView) findViewById(R.id.lblCalculatedInt);
         lblCalculatePh = (TextView) findViewById(R.id.lblCalculatedPh);
 
+        //Instantiate the InterstitialAd object
+        adsFull = new InterstitialAd(this);
+        adsFull.setAdUnitId("ca-app-pub-3940256099942544/1033173712");  //id di prova
+        adsFull.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                super.onAdClosed();
+                requestNewInterstitial();
+            }
+        });
+
+
         //Disable Calculate Button
         assert btnCalculate != null;
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
         btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
+
+        //Display the interstitial ad
+        if (adsFull.isLoaded()) {
+            adsFull.show();
+        } else {
+            Log.d("", "Error ADS");
+        }
 
         // Function that call the real
         // BioCompatibility function and
@@ -97,27 +123,26 @@ public class Calculate extends AppCompatActivity {
             public void onClick(View view) {
                 String buttonTag = btnCalculate.getTag().toString();
 
-                if(buttonTag.equals("calculate"))
-                {
-                    calculateBioCompatibility();
-                    btnCalculate.setTag("reset");
-                    btnCalculate.setText("Reset");
+                    if (buttonTag.equals("calculate")) {
+                            calculateBioCompatibility();
 
-                    //Disable Choose Date Buttons
-                    DateOne.setText("Choose Date");
-                    DateTwo.setText("Choose Date");
-                    DateOne.setEnabled(false);
-                    DateOne.setClickable(false);
-                    DateTwo.setEnabled(false);
-                    DateTwo.setClickable(false);
-                    DateOne.setBackgroundColor(Color.argb(255, 224, 224, 224));
-                    DateTwo.setBackgroundColor(Color.argb(255, 224, 224, 224));
-                }
-                else
-                    resetGui();
+                            btnCalculate.setTag("reset");
+                            btnCalculate.setText("Reset");
+
+                            //Disable Choose Date Buttons
+                            DateOne.setText("Choose Date");
+                            DateTwo.setText("Choose Date");
+                            DateOne.setEnabled(false);
+                            DateOne.setClickable(false);
+                            DateTwo.setEnabled(false);
+                            DateTwo.setClickable(false);
+                            DateOne.setBackgroundColor(Color.argb(255, 224, 224, 224));
+                            DateTwo.setBackgroundColor(Color.argb(255, 224, 224, 224));
+
+                    }else
+                        resetGui();
             }
         });
-
 
         // Function that start the activity
         // "calculate_load_or_new" and wait for
@@ -140,6 +165,15 @@ public class Calculate extends AppCompatActivity {
                 startActivityForResult(i, LOAD_OR_NEW_ID);
             }
         });
+    }
+
+    //Create the AdListener
+    private void requestNewInterstitial() {
+        AdRequest adRequest = new AdRequest.Builder()
+                .addTestDevice("SEE_YOUR_LOGCAT_TO_GET_YOUR_DEVICE_ID")
+                .build();
+
+        adsFull.loadAd(adRequest);
     }
 
     // Function that allows the program
@@ -203,7 +237,6 @@ public class Calculate extends AppCompatActivity {
             }
         }
     }
-
 
 
     // Function that calculate the BioCompatibility
