@@ -16,11 +16,11 @@
         android:id="@+id/imgSplash"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/heart3"
+        android:src="@drawable/logofinal"
         android:layout_alignParentEnd="false"/>
     <!--android:onClick="goToMenu" -->
 
-
+<!--
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +30,7 @@
         android:id="@+id/txtSplash"
         android:layout_above="@+id/imgSplash"
         android:layout_centerHorizontal="true"
-        android:textColor="@color/secondary_text_default_material_light" />
+        android:textColor="@color/secondary_text_default_material_light" /> -->
 
     <TextView
         android:layout_width="wrap_content"
