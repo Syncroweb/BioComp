@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="it.syncroweb.android.bio">
 
-    <!-- Include required permissions for Google Mobile Ads to run-->
+    <!-- Include required permissions for Google Mobile Ads to run -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -13,92 +13,94 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--This meta-data tag is required to use Google Play services.-->
-        <meta-data android:name="com.google.android.gms.version"
-        android:value="@integer/google_play_services_version"/>
+        <!-- This meta-data tag is required to use Google Play services. -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
 
         <activity
-            android:name="it.syncroweb.android.bio.SplashScreen"
-            android:theme="@style/SplashTheme"
-            android:screenOrientation="portrait">
+            android:name=".SplashScreen"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.MainMenu"
-            android:screenOrientation="portrait"/>
+            android:name=".MainMenu"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="it.syncroweb.android.bio.Calculate"
+            android:name=".Calculate"
             android:label="@string/calculate_compatibility"
-            android:parentActivityName="it.syncroweb.android.bio.MainMenu"
+            android:parentActivityName=".MainMenu"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.syncroweb.android.bio.MainMenu" />
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.CalculateLoadOrNew"
+            android:name=".CalculateLoadOrNew"
             android:label="@string/load_or_new"
-            android:parentActivityName="it.syncroweb.android.bio.Calculate"
+            android:parentActivityName=".Calculate"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.syncroweb.android.bio.Calculate" />
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.ChooseDate"
+            android:name=".ChooseDate"
             android:label="@string/choose_date"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="it.syncroweb.android.bio.Infos"
+            android:name=".Infos"
             android:label="@string/infos"
-            android:parentActivityName="it.syncroweb.android.bio.MainMenu"
+            android:parentActivityName=".MainMenu"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.syncroweb.android.bio.MainMenu" />
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.Register"
+            android:name=".Register"
             android:label="@string/enter_new_profile"
-            android:parentActivityName="it.syncroweb.android.bio.RegisteredDateList"
+            android:parentActivityName=".RegisteredDateList"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.syncroweb.android.bio.RegisteredDateList" />
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.RegisteredDateList"
+            android:name=".RegisteredDateList"
             android:label="@string/your_date_list"
-            android:parentActivityName="it.syncroweb.android.bio.MainMenu"
+            android:parentActivityName=".MainMenu"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.syncroweb.android.bio.MainMenu" />
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.OtherApps"
+            android:name=".OtherApps"
             android:label="@string/our_other_apps"
-            android:parentActivityName="it.syncroweb.android.bio.MainMenu"
+            android:parentActivityName=".MainMenu"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="it.syncroweb.android.bio.MainMenu" />
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.LoadDate"
+            android:name=".LoadDate"
             android:label="Load Date"
-            android:parentActivityName="it.syncroweb.android.bio.CalculateLoadOrNew"
+            android:parentActivityName=".CalculateLoadOrNew"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="it.syncroweb.android.bio.CalculateLoadOrNew"
-                android:screenOrientation="portrait"/>
+                android:screenOrientation="portrait"
+                android:value="it.syncroweb.android.bio.CalculateLoadOrNew" />
         </activity>
         <activity
-            android:name="it.syncroweb.android.bio.ChooseAvatar"
+            android:name=".ChooseAvatar"
             android:label="Choose an Avatar"
             android:screenOrientation="portrait">
             <meta-data
@@ -106,8 +108,9 @@
                 android:value="it.syncroweb.android.bio.Register" />
         </activity>
 
-        <!--Include the AdActivity configChanges and theme. -->
-        <activity android:name="com.google.android.gms.ads.AdActivity"
+        <!-- Include the AdActivity configChanges and theme. -->
+        <activity
+            android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
     </application>

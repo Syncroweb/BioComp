@@ -401,7 +401,7 @@ public class Calculate extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu)
     {
         MenuInflater inflater=getMenuInflater();
-        inflater.inflate(R.menu.menu_calculate,menu);
+        inflater.inflate(R.menu.menu_calculate, menu);
         return true;
 
     }
@@ -416,7 +416,6 @@ public class Calculate extends AppCompatActivity {
                 resetGui();
 
                 break;
-
         }
         return false;
     }

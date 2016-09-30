@@ -34,5 +34,6 @@ public class LoadDate extends AppCompatActivity {
 
         lwPersone = (ListView) findViewById(R.id.lwPersone);
 
+        //CARICARE IL DB CREATO SU REGISTER DATE LIST
     }
 }

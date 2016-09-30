@@ -1,11 +1,14 @@
 package it.syncroweb.android.bio;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -69,6 +72,19 @@ public class RegisteredDateList extends AppCompatActivity {
         */
 
         lwPersone.setAdapter(adapter);
+
+        /*FLOATING BUTTON
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        assert fab != null;
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), Register.class);
+                startActivityForResult(i, 0);
+                //Snackbar.make(view, "Add New Date", Snackbar.LENGTH_LONG)
+                  //      .setAction("Action", null).show();
+            }
+        });*/
 
        //Start Activity Register
         btnAddNewDate.setOnClickListener(new View.OnClickListener() {

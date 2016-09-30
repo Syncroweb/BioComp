@@ -3,6 +3,9 @@ package it.syncroweb.android.bio;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -24,7 +27,6 @@ public class Register extends AppCompatActivity {
     String date;
 
     AdView adsRegister;
-
     String avatar;
 
     @Override
@@ -66,7 +68,7 @@ public class Register extends AppCompatActivity {
         //Function that recall the DB
         //and the DBHelper function
         //'createContact' in order to
-        //save the datas the user inserted
+        /*save the datas the user inserted
         btnSave.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
 
@@ -87,7 +89,7 @@ public class Register extends AppCompatActivity {
                             Toast.LENGTH_SHORT).show();
 
             }
-        });
+        });     */
     }
 
     //Choose an avatar
@@ -105,5 +107,48 @@ public class Register extends AppCompatActivity {
             avatar = data.getStringExtra("AVATAR");
             btnAvatar.setBackgroundResource(Integer.parseInt(avatar));
         }
+    }
+
+    //GESTIONE ACTION BAR
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_register, menu);
+        return true;
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id=item.getItemId();
+        switch (id) {
+
+            case R.id.actionDone:
+
+                name = txtName.getText().toString().trim();
+
+                //FORSE MEGLIO USARE TRY CATCH?!
+                if(!name.equals("") && !date.equals("")){
+                    //String item = name + "      |       " + date;
+                    Intent i = new Intent();
+                    i.putExtra("AVATAR", avatar);
+                    i.putExtra("NAME", name);
+                    i.putExtra("DATE", date);
+                    setResult(0, i);
+                    finish();
+                } else
+                    Toast.makeText(getApplicationContext(),
+                            "Uno dei dati inseriti non è valido!",
+                            Toast.LENGTH_SHORT).show();
+                break;
+
+            //default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+            //    return super.onOptionsItemSelected(item);
+
+        }
+        return false;
     }
 }
