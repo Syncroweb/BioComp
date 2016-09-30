@@ -1,4 +1,4 @@
-package com.syncroweb.biocomp20;
+package it.syncroweb.android.bio;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -17,11 +17,9 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 
 public class Calculate extends AppCompatActivity {
 

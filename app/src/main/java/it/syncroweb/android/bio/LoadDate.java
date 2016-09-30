@@ -1,18 +1,12 @@
-package com.syncroweb.biocomp20;
+package it.syncroweb.android.bio;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-
-import java.util.ArrayList;
 
 public class LoadDate extends AppCompatActivity {
 

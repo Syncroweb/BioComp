@@ -1,14 +1,10 @@
-package com.syncroweb.biocomp20;
+package it.syncroweb.android.bio;
 
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.GridView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 public class ChooseAvatar extends AppCompatActivity {
 

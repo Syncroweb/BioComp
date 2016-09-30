@@ -1,4 +1,4 @@
-package com.syncroweb.biocomp20;
+package it.syncroweb.android.bio;
 
 import android.app.Activity;
 import android.support.annotation.NonNull;

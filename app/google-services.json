@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:827780371472:android:b23ea621fea47f2d",
         "android_client_info": {
-          "package_name": "com.syncroweb.biocomp20"
+          "package_name": "it.syncroweb.android.bio"
         }
       },
       "oauth_client": [

@@ -1,4 +1,4 @@
-package com.syncroweb.biocomp20;
+package it.syncroweb.android.bio;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,13 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
-import android.widget.NumberPicker;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
-
-import java.util.Calendar;
 
 
 public class ChooseDate extends AppCompatActivity {

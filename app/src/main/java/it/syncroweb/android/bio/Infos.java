@@ -1,4 +1,4 @@
-package com.syncroweb.biocomp20;
+package it.syncroweb.android.bio;
 
 import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
