@@ -2,8 +2,10 @@ package it.syncroweb.android.bio;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -17,6 +19,8 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -60,6 +64,8 @@ public class Calculate extends AppCompatActivity {
 
     InterstitialAd adsFull;
 
+    private ShareActionProvider mShareActionProvider;
+
     // Function that first starts when the activity
     // is launched. It actually starts the components
     // allowing the following operations to work
@@ -68,6 +74,7 @@ public class Calculate extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_calculate);
 
         DateOne = (Button) this.findViewById(R.id.btnDateOne);
@@ -97,8 +104,8 @@ public class Calculate extends AppCompatActivity {
                 super.onAdClosed();
                 requestNewInterstitial();
             }
+            
         });
-
 
         //Disable Calculate Button
         assert btnCalculate != null;
@@ -163,6 +170,23 @@ public class Calculate extends AppCompatActivity {
                 startActivityForResult(i, LOAD_OR_NEW_ID);
             }
         });
+    }
+
+    public void shareScreenShot() {
+        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+        Uri screenshotUri = Uri.parse("android.resource://esempioScreen/*");
+
+        try {
+               InputStream stream = getContentResolver().openInputStream(screenshotUri);
+        }
+
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        sharingIntent.setType("image/jpeg");
+        sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
+        startActivity(Intent.createChooser(sharingIntent, "SHARE RESULT USING"));
     }
 
     //Create the AdListener
@@ -402,8 +426,18 @@ public class Calculate extends AppCompatActivity {
     {
         MenuInflater inflater=getMenuInflater();
         inflater.inflate(R.menu.menu_calculate, menu);
+       // mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.actionShare)
+         //       .getActionProvider();
+        //mShareActionProvider.setShareIntent(shareScreenShot();
         return true;
 
+    }
+
+    // Call to update the share intent
+    private void setShareIntent(Intent shareIntent) {
+        if (mShareActionProvider != null) {
+            mShareActionProvider.setShareIntent(shareIntent);
+        }
     }
 
     @Override
@@ -414,9 +448,16 @@ public class Calculate extends AppCompatActivity {
         {
             case R.id.menuReset:
                 resetGui();
+                break;
+
+            case R.id.actionShare:
+                shareScreenShot();
 
                 break;
         }
         return false;
     }
+
+
+
 }

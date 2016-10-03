@@ -34,7 +34,6 @@
     <string name="emotional">Emotional</string>
     <string name="physical">Physical</string>
     <string name="choose_a_date">Choose date</string>
-    <string name="share_on_twitter">Twitter</string>
     <string name="calculate">Calculate</string>
     <string name="share_on_facebook">Facebook</string>
     <string name="select_a_new_date">New Date</string>
@@ -54,6 +53,12 @@
 
     <string name="banner">ca-app-pub-1505207846260374/5186273936</string>
     <string name="prova_banner">ca-app-pub-3940256099942544/6300978111</string>
+
     <string name="save_profile">Save profile</string>
     <string name="title_activity_date_list">DateList</string>
+
+    <string name="facebook_app_id">1637657219830501</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
