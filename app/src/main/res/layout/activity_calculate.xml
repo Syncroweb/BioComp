@@ -21,7 +21,8 @@
         android:background="@drawable/man"
         android:layout_below="@+id/lblNameTwo"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:onClick="chooseAvatarTwo"/>
 
     <Button
         android:layout_width="120dp"
@@ -30,7 +31,8 @@
         android:background="@drawable/girl"
         android:layout_below="@+id/lblNameOne"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="12dp" />
+        android:layout_marginTop="12dp"
+        android:onClick="chooseAvatarOne"/>
 
     <Button
         android:layout_width="wrap_content"

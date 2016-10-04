@@ -1,8 +1,11 @@
 package it.syncroweb.android.bio;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
@@ -19,8 +22,8 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
-import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -34,20 +37,22 @@ public class Calculate extends AppCompatActivity {
 
     private String labelTags;
 
-    private double[] vetPhysical =     {    99.9, 92.3, 81.6, 73.9, 65.2, 56.5, 47.8, 39.1, 30.4, 21.7,
+    private double[] vetPhysical = {99.9, 92.3, 81.6, 73.9, 65.2, 56.5, 47.8, 39.1, 30.4, 21.7,
             13, 4.3, 4.3, 13, 21.7, 30.4, 39.1, 47.8, 56.5, 65.2, 73.9,
-            81.6, 92.3, 99.9                                            };
+            81.6, 92.3, 99.9};
 
-    private double[] vetEmotional =    {    99.9, 93, 86, 79, 71, 64, 57, 50, 43, 36, 29, 21, 14, 7, 0,
-            7, 14, 21, 29, 36, 43, 50, 57, 64, 71, 79, 86, 93, 99.9     };
+    private double[] vetEmotional = {99.9, 93, 86, 79, 71, 64, 57, 50, 43, 36, 29, 21, 14, 7, 0,
+            7, 14, 21, 29, 36, 43, 50, 57, 64, 71, 79, 86, 93, 99.9};
 
-    private double[] vetIntellectual = {    99.9, 94, 88, 82, 76, 70, 64, 58, 52, 46, 39, 33, 27, 21,
+    private double[] vetIntellectual = {99.9, 94, 88, 82, 76, 70, 64, 58, 52, 46, 39, 33, 27, 21,
             15, 9, 3, 3, 9, 15, 21, 27, 33, 39, 46, 52, 58, 64, 70,
-            76, 82, 88, 94, 99.9                                        };
+            76, 82, 88, 94, 99.9};
 
 
     private Button DateOne;
     private Button DateTwo;
+    private Button avatarOne;
+    private Button avatarTwo;
     private TextView lblNameOne;
     private TextView lblNameTwo;
     private TextView lblDateOne;
@@ -71,24 +76,25 @@ public class Calculate extends AppCompatActivity {
     // allowing the following operations to work
     // properly
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_calculate);
 
         DateOne = (Button) this.findViewById(R.id.btnDateOne);
         DateTwo = (Button) this.findViewById(R.id.btnDateTwo);
-        lblNameOne = (TextView)this.findViewById(R.id.lblNameOne);
-        lblNameTwo = (TextView)this.findViewById(R.id.lblNameTwo);
+        lblNameOne = (TextView) this.findViewById(R.id.lblNameOne);
+        lblNameTwo = (TextView) this.findViewById(R.id.lblNameTwo);
         lblDateOne = (TextView) findViewById(R.id.lblDateOne);
         lblDateTwo = (TextView) findViewById(R.id.lblDateTwo);
+        avatarOne = (Button) findViewById(R.id.btnFirstPhoto);
+        avatarTwo = (Button) findViewById(R.id.btnSecondPhoto);
 
-        vetCalculatedLables[0] = (TextView)this.findViewById(R.id.lblCalculatedEm);
-        vetCalculatedLables[1] = (TextView)this.findViewById(R.id.lblCalculatedInt);
-        vetCalculatedLables[2] = (TextView)this.findViewById(R.id.lblCalculatedPh);
+        vetCalculatedLables[0] = (TextView) this.findViewById(R.id.lblCalculatedEm);
+        vetCalculatedLables[1] = (TextView) this.findViewById(R.id.lblCalculatedInt);
+        vetCalculatedLables[2] = (TextView) this.findViewById(R.id.lblCalculatedPh);
 
-        btnCalculate = (Button)this.findViewById(R.id.btnCalculate);
+        btnCalculate = (Button) this.findViewById(R.id.btnCalculate);
 
         result = (TextView) findViewById(R.id.txtResult);
         lblCalculateEm = (TextView) findViewById(R.id.lblCalculatedEm);
@@ -104,7 +110,7 @@ public class Calculate extends AppCompatActivity {
                 super.onAdClosed();
                 requestNewInterstitial();
             }
-            
+
         });
 
         //Disable Calculate Button
@@ -128,24 +134,30 @@ public class Calculate extends AppCompatActivity {
             public void onClick(View view) {
                 String buttonTag = btnCalculate.getTag().toString();
 
-                    if (buttonTag.equals("calculate")) {
-                            calculateBioCompatibility();
+                if (buttonTag.equals("calculate")) {
+                    calculateBioCompatibility();
 
-                            btnCalculate.setTag("reset");
-                            btnCalculate.setText("Reset");
+                    btnCalculate.setTag("reset");
+                    btnCalculate.setText("Reset");
 
-                            //Disable Choose Date Buttons
-                            DateOne.setText("Choose Date");
-                            DateTwo.setText("Choose Date");
-                            DateOne.setEnabled(false);
-                            DateOne.setClickable(false);
-                            DateTwo.setEnabled(false);
-                            DateTwo.setClickable(false);
-                            DateOne.setBackgroundColor(Color.argb(255, 224, 224, 224));
-                            DateTwo.setBackgroundColor(Color.argb(255, 224, 224, 224));
+                    //Disable Choose Date Buttons
+                    DateOne.setText("Choose Date");
+                    DateTwo.setText("Choose Date");
+                    DateOne.setEnabled(false);
+                    DateOne.setClickable(false);
+                    DateTwo.setEnabled(false);
+                    DateTwo.setClickable(false);
+                    DateOne.setBackgroundColor(Color.argb(255, 224, 224, 224));
+                    DateTwo.setBackgroundColor(Color.argb(255, 224, 224, 224));
 
-                    }else
-                        resetGui();
+                    //Disable Avatar Button
+                    avatarOne.setEnabled(false);
+                    avatarOne.setClickable(false);
+                    avatarTwo.setEnabled(false);
+                    avatarTwo.setClickable(false);
+
+                } else
+                    resetGui();
             }
         });
 
@@ -172,23 +184,6 @@ public class Calculate extends AppCompatActivity {
         });
     }
 
-    public void shareScreenShot() {
-        Intent sharingIntent = new Intent(Intent.ACTION_SEND);
-        Uri screenshotUri = Uri.parse("android.resource://esempioScreen/*");
-
-        try {
-               InputStream stream = getContentResolver().openInputStream(screenshotUri);
-        }
-
-        catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        sharingIntent.setType("image/jpeg");
-        sharingIntent.putExtra(Intent.EXTRA_STREAM, screenshotUri);
-        startActivity(Intent.createChooser(sharingIntent, "SHARE RESULT USING"));
-    }
-
     //Create the AdListener
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
@@ -203,22 +198,15 @@ public class Calculate extends AppCompatActivity {
     // by the users with the "calculate_load_or_new"
     // activity
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if(requestCode == LOAD_OR_NEW_ID)
-        {
-            try
-            {
-                switch (resultCode)
-                {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == LOAD_OR_NEW_ID) {
+            try {
+                switch (resultCode) {
                     case RESULT_OK_DATE:
-                        if (labelTags.equals("dateOne"))
-                        {
+                        if (labelTags.equals("dateOne")) {
                             lblDateOne.setText(data.getStringExtra("date"));
                             DateOne.setText("Change");
-                        }
-                        else if (labelTags.equals("dateTwo"))
-                        {
+                        } else if (labelTags.equals("dateTwo")) {
                             lblDateTwo.setText(data.getStringExtra("date"));
                             DateTwo.setText("Change");
                         }
@@ -226,15 +214,12 @@ public class Calculate extends AppCompatActivity {
 
                     case RESULT_OK_LIST:
                         String name;
-                        if (labelTags.equals("dateOne"))
-                        {
+                        if (labelTags.equals("dateOne")) {
                             name = data.getStringExtra("name");
                             lblNameOne.setText(name);
                             lblDateOne.setText(data.getStringExtra("date"));
                             DateOne.setClickable(false);
-                        }
-                        else
-                        {
+                        } else {
                             lblDateTwo.setText(data.getStringExtra("data"));
                             name = data.getStringExtra("name");
                             lblNameTwo.setText(name);
@@ -245,27 +230,33 @@ public class Calculate extends AppCompatActivity {
                 }
 
                 //Able Calculate Button
-                if(!lblDateOne.getText().equals("") && !lblDateTwo.getText().equals("")){
+                if (!lblDateOne.getText().equals("") && !lblDateTwo.getText().equals("")) {
                     btnCalculate.setEnabled(true);
                     btnCalculate.setClickable(true);
                     btnCalculate.setBackgroundColor(Color.argb(255, 255, 196, 0));
                 }
-            }
-            catch (Error error)
-            {
-                Toast.makeText( getApplicationContext(),
+            } catch (Error error) {
+                Toast.makeText(getApplicationContext(),
                         error.getMessage(),
                         Toast.LENGTH_SHORT).show();
             }
+        } else if(requestCode==0){
+            String avatar = data.getStringExtra("AVATAR");
+            avatarOne.setBackgroundResource(Integer.parseInt(avatar));
+
+        } else if(requestCode==2){
+            String avatar = data.getStringExtra("AVATAR");
+            avatarTwo.setBackgroundResource(Integer.parseInt(avatar));
         }
+
+
     }
 
 
     // Function that calculate the BioCompatibility
     // between the two selected dates
     // It uses several other sub-functions to work
-    public void calculateBioCompatibility()
-    {
+    public void calculateBioCompatibility() {
         Date[] vetDates = new Date[2];
 
         final int[] vetCostants = {28, 33, 23};
@@ -273,21 +264,27 @@ public class Calculate extends AppCompatActivity {
 
         int difference;
 
-        try {   vetDates[0] = DateFormatConverter((String) lblDateOne.getText());   }
-        catch(Error error) {    Toast.makeText(         getApplicationContext(),
-                error.getMessage(),
-                Toast.LENGTH_SHORT).show();  }
+        try {
+            vetDates[0] = DateFormatConverter((String) lblDateOne.getText());
+        } catch (Error error) {
+            Toast.makeText(getApplicationContext(),
+                    error.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
 
-        try {   vetDates[1] = DateFormatConverter((String) lblDateTwo.getText());                            }
-        catch(Error error) {    Toast.makeText(         getApplicationContext(),
-                error.getMessage(),
-                Toast.LENGTH_SHORT).show();  }
+        try {
+            vetDates[1] = DateFormatConverter((String) lblDateTwo.getText());
+        } catch (Error error) {
+            Toast.makeText(getApplicationContext(),
+                    error.getMessage(),
+                    Toast.LENGTH_SHORT).show();
+        }
 
 
         difference = actualDifference(vetDates[0], vetDates[1]);
 
-        for(int i = 0; i < CYCLES; i++)
-            vetResults[i] = difference - ( ( difference / vetCostants[i] ) * vetCostants[i] );
+        for (int i = 0; i < CYCLES; i++)
+            vetResults[i] = difference - ((difference / vetCostants[i]) * vetCostants[i]);
 
         double fisico = vetPhysical[vetResults[0]];
         double emotivo = vetEmotional[vetResults[1]];
@@ -303,34 +300,34 @@ public class Calculate extends AppCompatActivity {
 
     // Function that converts the date String
     // into a Date and then returns it
-    private Date DateFormatConverter(String myDateString)
-    {
+    private Date DateFormatConverter(String myDateString) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //setto la data per italia
         Date myNewDate;
 
-        try {   myNewDate = dateFormat.parse(myDateString);         }
-        catch (java.text.ParseException e) {    e.printStackTrace();
-            return null;        }
+        try {
+            myNewDate = dateFormat.parse(myDateString);
+        } catch (java.text.ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
         return myNewDate;
     }
 
     // Function that calculate the difference
     // between the two selected dates
-    public static int actualDifference(Date date1, Date date2)
-    {
+    public static int actualDifference(Date date1, Date date2) {
         GregorianCalendar gc1 = new GregorianCalendar();
         GregorianCalendar gc2 = new GregorianCalendar();
         gc1.setTime(date1);
         gc2.setTime(date2);
 
         long millis = gc2.getTimeInMillis() - gc1.getTimeInMillis();
-        return  Math.abs((int) (millis / 1000 / 24 / 60 / 60));
+        return Math.abs((int) (millis / 1000 / 24 / 60 / 60));
     }
 
     // Function that displays with TextView
     // the results of the calculations
-    public void writeComments(int[] vetResults)
-    {
+    public void writeComments(int[] vetResults) {
         String resultMessage;
         String[] messages = new String[CYCLES];
 
@@ -376,14 +373,13 @@ public class Calculate extends AppCompatActivity {
         //Results
         result.setText(resultMessage);
 
-            //Toast.makeText(getApplicationContext(), messages[i], Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), messages[i], Toast.LENGTH_SHORT).show();
     }
 
     // Function that resets the GUI in order to
     // make it ready to be used again
-    public void resetGui()
-    {
-        for(int i = 0; i < CYCLES; i++)
+    public void resetGui() {
+        for (int i = 0; i < CYCLES; i++)
             vetCalculatedLables[i].setText("");
 
         lblDateOne.setText("dd/mm/yyyy");
@@ -411,6 +407,12 @@ public class Calculate extends AppCompatActivity {
         DateOne.setBackgroundColor(Color.argb(255, 255, 196, 0));
         DateTwo.setBackgroundColor(Color.argb(255, 255, 196, 0));
 
+        //Able Avatar Button
+        avatarOne.setEnabled(true);
+        avatarOne.setClickable(true);
+        avatarTwo.setEnabled(true);
+        avatarTwo.setClickable(true);
+
         //Percentual
         lblCalculateEm.setText("0%");
         lblCalculateIn.setText("0%");
@@ -420,44 +422,77 @@ public class Calculate extends AppCompatActivity {
         lblCalculatePh.setTextColor(Color.argb(255, 229, 5, 0));
     }
 
+    //Method to take ScreenShot
+    private Bitmap screenShot(View view) {
+        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        view.draw(canvas);
+        return bitmap;
+    }
+
+    private static File saveBitmap(Bitmap bm, String fileName) {
+        final String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
+        File dir = new File(path);
+        if (!dir.exists())
+            dir.mkdirs();
+        File file = new File(dir, fileName);
+        try {
+            FileOutputStream fOut = new FileOutputStream(file);
+            bm.compress(Bitmap.CompressFormat.PNG, 85, fOut);
+            fOut.flush();
+            fOut.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return file;
+    }
+
     //Gestione del menu
     @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        MenuInflater inflater=getMenuInflater();
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_calculate, menu);
-       // mShareActionProvider = (ShareActionProvider) menu.findItem(R.id.actionShare)
-         //       .getActionProvider();
-        //mShareActionProvider.setShareIntent(shareScreenShot();
+
         return true;
-
     }
 
-    // Call to update the share intent
-    private void setShareIntent(Intent shareIntent) {
-        if (mShareActionProvider != null) {
-            mShareActionProvider.setShareIntent(shareIntent);
-        }
-    }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        int id=item.getItemId();
-        switch(id)
-        {
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
             case R.id.menuReset:
                 resetGui();
                 break;
 
             case R.id.actionShare:
-                shareScreenShot();
+
+                Bitmap bm = screenShot(this.getWindow().getDecorView().findViewById(android.R.id.content));
+                File file = saveBitmap(bm, "biocomp_image.png");
+                Log.i("chase", "filepath: " + file.getAbsolutePath());
+                Uri uri = Uri.fromFile(new File(file.getAbsolutePath()));
+                Intent shareIntent = new Intent();
+                shareIntent.setAction(Intent.ACTION_SEND);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Result BioCompatibility"); //frase già precompilata per il commento
+                shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                shareIntent.setType("image/*");
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                startActivity(Intent.createChooser(shareIntent, "Share Result"));
 
                 break;
         }
         return false;
     }
 
+    //Choose avatar first photo
+    public void chooseAvatarOne(View view) {
+        Intent i = new Intent(this, ChooseAvatar.class);
+        startActivityForResult(i, 0);
+    }
 
-
+    //Choose avatar second photo
+    public void chooseAvatarTwo(View view) {
+        Intent i = new Intent(this, ChooseAvatar.class);
+        startActivityForResult(i, 2);
+    }
 }
