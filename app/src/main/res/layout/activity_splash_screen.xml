@@ -8,7 +8,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="it.syncroweb.android.bio.SplashScreen"
-    android:background="#fafafa">
+    android:background="#ffffff">
 
     <ImageView
         android:layout_width="220dp"

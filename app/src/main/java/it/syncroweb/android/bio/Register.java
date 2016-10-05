@@ -36,7 +36,6 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         txtName = (EditText) findViewById(R.id.txtNameSurname);
-        btnSave = (Button) findViewById(R.id.btnSaveChanges);
         dpDate = (DatePicker) findViewById(R.id.datePicker);
         btnAvatar = (ImageButton) findViewById(R.id.avatar);
 

@@ -3,4 +3,5 @@
     <color name="colorPrimary">#E50500</color>
     <color name="colorPrimaryDark">#d50000</color>
     <color name="colorAccent">#ffc400</color>
+    <color name="textButton">#000000</color>
 </resources>

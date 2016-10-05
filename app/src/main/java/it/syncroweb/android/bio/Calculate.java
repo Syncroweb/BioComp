@@ -1,11 +1,13 @@
 package it.syncroweb.android.bio;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
@@ -49,14 +51,12 @@ public class Calculate extends AppCompatActivity {
             76, 82, 88, 94, 99.9};
 
 
-    private Button DateOne;
-    private Button DateTwo;
     private Button avatarOne;
     private Button avatarTwo;
     private TextView lblNameOne;
     private TextView lblNameTwo;
-    private TextView lblDateOne;
-    private TextView lblDateTwo;
+    private Button lblDateOne;
+    private Button lblDateTwo;
 
     private TextView[] vetCalculatedLables = new TextView[CYCLES];
 
@@ -81,12 +81,10 @@ public class Calculate extends AppCompatActivity {
 
         setContentView(R.layout.activity_calculate);
 
-        DateOne = (Button) this.findViewById(R.id.btnDateOne);
-        DateTwo = (Button) this.findViewById(R.id.btnDateTwo);
         lblNameOne = (TextView) this.findViewById(R.id.lblNameOne);
         lblNameTwo = (TextView) this.findViewById(R.id.lblNameTwo);
-        lblDateOne = (TextView) findViewById(R.id.lblDateOne);
-        lblDateTwo = (TextView) findViewById(R.id.lblDateTwo);
+        lblDateOne = (Button) findViewById(R.id.lblDateOne);
+        lblDateTwo = (Button) findViewById(R.id.lblDateTwo);
         avatarOne = (Button) findViewById(R.id.btnFirstPhoto);
         avatarTwo = (Button) findViewById(R.id.btnSecondPhoto);
 
@@ -117,7 +115,6 @@ public class Calculate extends AppCompatActivity {
         assert btnCalculate != null;
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
-        btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
 
         //Display the interstitial ad
         if (adsFull.isLoaded()) {
@@ -141,14 +138,10 @@ public class Calculate extends AppCompatActivity {
                     btnCalculate.setText("Reset");
 
                     //Disable Choose Date Buttons
-                    DateOne.setText("Choose Date");
-                    DateTwo.setText("Choose Date");
-                    DateOne.setEnabled(false);
-                    DateOne.setClickable(false);
-                    DateTwo.setEnabled(false);
-                    DateTwo.setClickable(false);
-                    DateOne.setBackgroundColor(Color.argb(255, 224, 224, 224));
-                    DateTwo.setBackgroundColor(Color.argb(255, 224, 224, 224));
+                    lblDateOne.setEnabled(false);
+                    lblDateOne.setClickable(false);
+                    lblDateTwo.setEnabled(false);
+                    lblDateTwo.setClickable(false);
 
                     //Disable Avatar Button
                     avatarOne.setEnabled(false);
@@ -164,7 +157,7 @@ public class Calculate extends AppCompatActivity {
         // Function that start the activity
         // "calculate_load_or_new" and wait for
         // the user to put the dates
-        DateOne.setOnClickListener(new View.OnClickListener() {
+        lblDateOne.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 labelTags = view.getTag().toString();
                 Intent i = new Intent(view.getContext(), CalculateLoadOrNew.class);
@@ -175,7 +168,7 @@ public class Calculate extends AppCompatActivity {
         // Function that start the activity
         // "calculate_load_or_new" and wait for
         // the user to put the dates
-        DateTwo.setOnClickListener(new View.OnClickListener() {
+        lblDateTwo.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 labelTags = view.getTag().toString();
                 Intent i = new Intent(view.getContext(), CalculateLoadOrNew.class);
@@ -205,10 +198,8 @@ public class Calculate extends AppCompatActivity {
                     case RESULT_OK_DATE:
                         if (labelTags.equals("dateOne")) {
                             lblDateOne.setText(data.getStringExtra("date"));
-                            DateOne.setText("Change");
                         } else if (labelTags.equals("dateTwo")) {
                             lblDateTwo.setText(data.getStringExtra("date"));
-                            DateTwo.setText("Change");
                         }
                         break;
 
@@ -218,13 +209,13 @@ public class Calculate extends AppCompatActivity {
                             name = data.getStringExtra("name");
                             lblNameOne.setText(name);
                             lblDateOne.setText(data.getStringExtra("date"));
-                            DateOne.setClickable(false);
+                            lblDateOne.setClickable(false);
                         } else {
                             lblDateTwo.setText(data.getStringExtra("data"));
                             name = data.getStringExtra("name");
                             lblNameTwo.setText(name);
                             lblDateTwo.setText(data.getStringExtra("date"));
-                            DateTwo.setClickable(false);
+                            lblDateTwo.setClickable(false);
                         }
                         break;
                 }
@@ -233,7 +224,6 @@ public class Calculate extends AppCompatActivity {
                 if (!lblDateOne.getText().equals("") && !lblDateTwo.getText().equals("")) {
                     btnCalculate.setEnabled(true);
                     btnCalculate.setClickable(true);
-                    btnCalculate.setBackgroundColor(Color.argb(255, 255, 196, 0));
                 }
             } catch (Error error) {
                 Toast.makeText(getApplicationContext(),
@@ -383,10 +373,10 @@ public class Calculate extends AppCompatActivity {
             vetCalculatedLables[i].setText("");
 
         lblDateOne.setText("dd/mm/yyyy");
-        DateOne.setClickable(true);
+        lblDateOne.setClickable(true);
 
         lblDateTwo.setText("dd/mm/yyyy");
-        DateTwo.setClickable(true);
+        lblDateTwo.setClickable(true);
 
         result.setText("");
 
@@ -395,17 +385,14 @@ public class Calculate extends AppCompatActivity {
         btnCalculate.setTag("calculate");
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
-        btnCalculate.setBackgroundColor(Color.argb(255, 224, 224, 224));
 
         //Able Choose Date Buttons
-        DateOne.setText("Choose Date");
-        DateTwo.setText("Choose Date");
-        DateOne.setEnabled(true);
-        DateOne.setClickable(true);
-        DateTwo.setEnabled(true);
-        DateTwo.setClickable(true);
-        DateOne.setBackgroundColor(Color.argb(255, 255, 196, 0));
-        DateTwo.setBackgroundColor(Color.argb(255, 255, 196, 0));
+        lblDateOne.setText("Chodd/mm/yyyy");
+        lblDateTwo.setText("dd/mm/yyyy");
+        lblDateOne.setEnabled(true);
+        lblDateOne.setClickable(true);
+        lblDateTwo.setEnabled(true);
+        lblDateTwo.setClickable(true);
 
         //Able Avatar Button
         avatarOne.setEnabled(true);

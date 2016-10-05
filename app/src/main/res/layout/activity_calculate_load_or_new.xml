@@ -9,32 +9,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="it.syncroweb.android.bio.CalculateLoadOrNew"
-    android:background="#fafafa">
+    android:background="#ffffff">
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="56dp"
         android:text="@string/load_date"
-        android:width="150dp"
-        android:height="150dp"
+        style="@style/AppTheme.Button"
         android:id="@+id/btnLoadDate"
         android:gravity="center"
         android:onClick="startRegisteredDateList"
         android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
-        android:background="@color/colorAccent" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="56dp"
+        style="@style/AppTheme.Button"
         android:text="@string/select_a_new_date"
-        android:width="150dp"
-        android:height="150dp"
         android:id="@+id/btnNewDate"
         android:gravity="center|center_horizontal"
         android:layout_centerVertical="true"
-        android:layout_alignParentEnd="true"
-        android:background="@color/colorAccent" />
+        android:layout_alignParentEnd="true"/>
 
     <TextView
         android:layout_width="wrap_content"
