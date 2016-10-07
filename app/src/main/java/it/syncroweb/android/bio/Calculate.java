@@ -1,13 +1,14 @@
 package it.syncroweb.android.bio;
 
 import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 
+import android.provider.MediaStore;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
@@ -61,7 +62,6 @@ public class Calculate extends AppCompatActivity {
     private TextView[] vetCalculatedLables = new TextView[CYCLES];
 
     private Button btnCalculate;
-
     private TextView result;
     private TextView lblCalculateEm;
     private TextView lblCalculateIn;
@@ -69,7 +69,7 @@ public class Calculate extends AppCompatActivity {
 
     InterstitialAd adsFull;
 
-    private ShareActionProvider mShareActionProvider;
+    //private ShareActionProvider mShareActionProvider;
 
     // Function that first starts when the activity
     // is launched. It actually starts the components
@@ -135,7 +135,7 @@ public class Calculate extends AppCompatActivity {
                     calculateBioCompatibility();
 
                     btnCalculate.setTag("reset");
-                    btnCalculate.setText("Reset");
+                    btnCalculate.setText(R.string.reset);
 
                     //Disable Choose Date Buttons
                     lblDateOne.setEnabled(false);
@@ -372,10 +372,10 @@ public class Calculate extends AppCompatActivity {
         for (int i = 0; i < CYCLES; i++)
             vetCalculatedLables[i].setText("");
 
-        lblDateOne.setText("dd/mm/yyyy");
+        lblDateOne.setText(R.string.date);
         lblDateOne.setClickable(true);
 
-        lblDateTwo.setText("dd/mm/yyyy");
+        lblDateTwo.setText(R.string.date);
         lblDateTwo.setClickable(true);
 
         result.setText("");
@@ -387,8 +387,8 @@ public class Calculate extends AppCompatActivity {
         btnCalculate.setClickable(false);
 
         //Able Choose Date Buttons
-        lblDateOne.setText("Chodd/mm/yyyy");
-        lblDateTwo.setText("dd/mm/yyyy");
+        lblDateOne.setText(R.string.date);
+        lblDateTwo.setText(R.string.date);
         lblDateOne.setEnabled(true);
         lblDateOne.setClickable(true);
         lblDateTwo.setEnabled(true);
@@ -404,9 +404,9 @@ public class Calculate extends AppCompatActivity {
         lblCalculateEm.setText("0%");
         lblCalculateIn.setText("0%");
         lblCalculatePh.setText("0%");
-        lblCalculateEm.setTextColor(Color.argb(255, 229, 5, 0));
-        lblCalculateIn.setTextColor(Color.argb(255, 229, 5, 0));
-        lblCalculatePh.setTextColor(Color.argb(255, 229, 5, 0));
+        lblCalculateEm.setTextColor(Color.parseColor(String.valueOf(R.color.colorPrimaryDark)));
+        lblCalculateIn.setTextColor(Color.parseColor(String.valueOf(R.color.colorPrimaryDark)));
+        lblCalculatePh.setTextColor(Color.parseColor(String.valueOf(R.color.colorPrimaryDark)));
     }
 
     //Method to take ScreenShot
@@ -454,17 +454,21 @@ public class Calculate extends AppCompatActivity {
 
             case R.id.actionShare:
 
-                Bitmap bm = screenShot(this.getWindow().getDecorView().findViewById(android.R.id.content));
-                File file = saveBitmap(bm, "biocomp_image.png");
-                Log.i("chase", "filepath: " + file.getAbsolutePath());
-                Uri uri = Uri.fromFile(new File(file.getAbsolutePath()));
+                //Bitmap bm = screenShot(this.findViewById(R.id.share));
+                //File file = saveBitmap(bm, "biocomp_image.png");
+                //Log.i("chase", "filepath: " + file.getAbsolutePath());
+                //Uri uri = Uri.fromFile(new File(file.getAbsolutePath()));
+
+                // QUESTO MANDA SOLO IL COMMENTO (no whatsapp)
                 Intent shareIntent = new Intent();
                 shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, "Result BioCompatibility"); //frase già precompilata per il commento
-                shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+                shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_bio)); //frase già precompilata per il commento
+                shareIntent.putExtra(Intent.EXTRA_STREAM, R.id.share); //uri
                 shareIntent.setType("image/*");
                 shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(shareIntent, "Share Result"));
+                startActivity(Intent.createChooser(shareIntent, "Share"));
+
+
 
                 break;
         }

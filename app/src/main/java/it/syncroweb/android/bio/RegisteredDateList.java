@@ -5,6 +5,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -20,7 +23,7 @@ public class RegisteredDateList extends AppCompatActivity {
     //ArrayList<String> lista;
     //ArrayAdapter<String> adapter;
 
-    Button btnAddNewDate;
+    //Button btnAddNewDate;
 
     int i = 0;
     CustomListAdapter adapter;
@@ -33,6 +36,8 @@ public class RegisteredDateList extends AppCompatActivity {
     DBHelper dbHelper;
 
     AdView adsList;
+
+    FloatingActionButton fab;
 
     //As soon as the GUI is created
     //this function will fill the
@@ -64,7 +69,7 @@ public class RegisteredDateList extends AppCompatActivity {
 
         lwPersone = (ListView) findViewById(R.id.lwPersone);
 
-        btnAddNewDate = (Button) findViewById(R.id.btnAddNewDate);
+        //btnAddNewDate = (Button) findViewById(R.id.btnAddNewDate);
 
         /*lista= new ArrayList<>();
         lista.add("Nome     |       Data di nascita");
@@ -73,27 +78,25 @@ public class RegisteredDateList extends AppCompatActivity {
 
         lwPersone.setAdapter(adapter);
 
-        /*FLOATING BUTTON
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        //FLOATING BUTTON
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), Register.class);
                 startActivityForResult(i, 0);
-                //Snackbar.make(view, "Add New Date", Snackbar.LENGTH_LONG)
-                  //      .setAction("Action", null).show();
             }
-        });*/
+        });
 
-       //Start Activity Register
+       /*Start Activity Register
         btnAddNewDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), Register.class);
                 startActivityForResult(i, 0);
             }
-        });
+        });*/
     }
 
     // Call Back method to get the Strings form other Activity
@@ -124,4 +127,29 @@ public class RegisteredDateList extends AppCompatActivity {
 
     //Insert to DB (NON TROVA IL METODO)
     //dbHelper.execSQL("INSER INTO name VALUES ('name', 'name');");
+
+    //Gestione del menu (3 pallini)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater=getMenuInflater();
+        inflater.inflate(R.menu.menu_date_list,menu);
+        return true;
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        int id=item.getItemId();
+        switch(id)
+        {
+            case R.id.resetList:
+
+                //METODO CHE AZZERA IL DATABASE!!
+
+                break;
+        }
+        return false;
+    }
 }

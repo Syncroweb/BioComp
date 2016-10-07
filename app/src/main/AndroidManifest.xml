@@ -94,7 +94,7 @@
         </activity>
         <activity
             android:name=".LoadDate"
-            android:label="Load Date"
+            android:label="@string/load_label"
             android:parentActivityName=".CalculateLoadOrNew"
             android:screenOrientation="portrait">
             <meta-data

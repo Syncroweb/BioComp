@@ -63,32 +63,6 @@ public class Register extends AppCompatActivity {
             }
         });
 
-
-        //Function that recall the DB
-        //and the DBHelper function
-        //'createContact' in order to
-        /*save the datas the user inserted
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-
-                name = txtName.getText().toString().trim();
-
-                //FORSE MEGLIO USARE TRY CATCH?!
-                if(!name.equals("") && !date.equals("")){
-                    //String item = name + "      |       " + date;
-                    Intent i = new Intent();
-                    i.putExtra("AVATAR", avatar);
-                    i.putExtra("NAME", name);
-                    i.putExtra("DATE", date);
-                    setResult(0, i);
-                    finish();
-                } else
-                    Toast.makeText(getApplicationContext(),
-                            "Uno dei dati inseriti non è valido!",
-                            Toast.LENGTH_SHORT).show();
-
-            }
-        });     */
     }
 
     //Choose an avatar
@@ -128,8 +102,7 @@ public class Register extends AppCompatActivity {
                 name = txtName.getText().toString().trim();
 
                 //FORSE MEGLIO USARE TRY CATCH?!
-                if(!name.equals("") && !date.equals("")){
-                    //String item = name + "      |       " + date;
+                if(!name.equals("") && !date.equals("") && !avatar.equals("")){
                     Intent i = new Intent();
                     i.putExtra("AVATAR", avatar);
                     i.putExtra("NAME", name);
@@ -138,7 +111,7 @@ public class Register extends AppCompatActivity {
                     finish();
                 } else
                     Toast.makeText(getApplicationContext(),
-                            "Uno dei dati inseriti non è valido!",
+                            R.string.insert_register,
                             Toast.LENGTH_SHORT).show();
                 break;
 

@@ -19,7 +19,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginBottom="8dp"
         android:layout_above="@+id/btnAddNewDate"/>
-
+<!--
     <Button
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -27,7 +27,7 @@
         android:id="@+id/btnAddNewDate"
         android:layout_above="@+id/adsList"
         android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent" />
+        android:background="@color/colorAccent" /> -->
 
     <com.google.android.gms.ads.AdView
         android:layout_width="wrap_content"
@@ -37,9 +37,9 @@
         android:layout_centerHorizontal="true"
         ads:adSize="BANNER"
         ads:adUnitId="@string/prova_banner"/>
-<!--
+
     <android.support.design.widget.FloatingActionButton
-        android:src="@drawable/ic_done_white_48dp"
+        android:src="@drawable/ic_person_add_white_48dp"
         app:fabSize="normal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,11 +48,11 @@
         app:layout_anchorGravity="bottom|right|end"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="12dp"
         android:layout_above="@+id/adsList"
         android:layout_alignParentEnd="true"
         android:id="@+id/fab"
-        android:backgroundTint="@color/colorPrimaryDark"/> -->
+        android:background="@color/colorAccent"/>
 
 
 </RelativeLayout>

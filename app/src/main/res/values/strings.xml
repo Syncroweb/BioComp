@@ -1,65 +1,97 @@
 <resources>
-    <string name="app_name">BioComp2.0</string>
+    <string name="app_name">BioComp</string>
 
-    <string name="message_1">Insert birthday date!</string>
+    <string name="message_1">Inserisci la data di nascita!</string>
     <string name="commento">With this score you have </string>
-    <string name="fisico_1">and a low physical attraction.</string>
-    <string name="fisico_2">and a warm physical attraction.</string>
-    <string name="fisico_3">and a middle physical attraction.</string>
-    <string name="fisico_4">and a strong physical attraction.</string>
-    <string name="emotivo_1">a low emotional involvement, </string>
-    <string name="emotivo_2">a little emotional involvement, </string>
-    <string name="emotivo_3">a middle emotional involvement, </string>
-    <string name="emotivo_4">a strong emotional involvement, </string>
-    <string name="intellettuale_1">a very low intellectual compatibility, </string>
-    <string name="intellettuale_2">a low intellectual compatibility, </string>
-    <string name="intellettuale_3">a middle intellectual compatibility, </string>
-    <string name="intellettuale_4">an huge intellectual compatibility, </string>
-    <string name="fisico">Physical</string>
-    <string name="emotivo">Emotional</string>
-    <string name="intellettuale">Intellectual</string>
-    <string name="calculate_biocomp">Calculate Bio Compatibility</string>
+    <string name="fisico_1">e una bassa attrazione fisica.</string>
+    <string name="fisico_2">e una buona attrazione fisica.</string>
+    <string name="fisico_3">e una media attrazione fisica.</string>
+    <string name="fisico_4">e una forte attrazione fisica.</string>
+    <string name="emotivo_1">un basso coinvolgimento emotivo, </string>
+    <string name="emotivo_2">poco coinvolgimento emotivo, </string>
+    <string name="emotivo_3">un medio coinvolgimento emotivo, </string>
+    <string name="emotivo_4">un forte coinvolgimento emotivo, </string>
+    <string name="intellettuale_1">una bassissima compatibilita\' intellettuale, </string>
+    <string name="intellettuale_2">una bassa compatibilita\' intellettuale, </string>
+    <string name="intellettuale_3">una media compatibilita\' intellettuale, </string>
+    <string name="intellettuale_4">una forte compatibilita\' intellettuale, </string>
+    <string name="fisico">Fisico</string>
+    <string name="emotivo">Emozionale</string>
+    <string name="intellettuale">IIntellettuale</string>
+    <string name="calculate_biocomp">Calcola Bio Compatibilita\'</string>
     <string name="button_2">Reset</string>
-    <string name="date">dd/MM/yyyy</string>
+    <string name="date">gg/mm/aaaa</string>
 
-    <string name="take_screenshot">Take screenshot</string>
-    <string name="n_a">Screenshot interface not (yet) available.</string>
-    <string name="native_n_a">Native service not found.</string>
-    <string name="screenshot_error">Error while taking screenshot.</string>
-    <string name="screenshot_ok">Screenshot taken successfully.</string>
-    <string name="add_a_new_date">Add a new Date</string>
+    <string name="take_screenshot">Fai screenshot</string>
+    <string name="n_a">Screenshot non disponibile.</string>
+    <string name="native_n_a">Servizio non trovato.</string>
+    <string name="screenshot_error">Errore durante lo screenshot.</string>
+    <string name="screenshot_ok">Screenshot eseguito.</string>
 
-    <string name="load_date">Load Date</string>
-    <string name="intellectual">Intellectual</string>
-    <string name="emotional">Emotional</string>
-    <string name="physical">Physical</string>
-    <string name="choose_a_date">Choose date</string>
-    <string name="calculate">Calculate</string>
+    <string name="add_a_new_date">Aggiungi una nuova data</string>
+
+    <string name="load_date">Carica Data</string>
+    <string name="intellectual">Intellettuale</string>
+    <string name="emotional">Emozionale</string>
+    <string name="physical">Fisico</string>
+    <string name="choose_a_date">Scegli Data</string>
+    <string name="calculate">Calcola</string>
     <string name="share_on_facebook">Facebook</string>
-    <string name="select_a_new_date">New Date</string>
-    <string name="infos">Infos</string>
-    <string name="other_apps">Other Apps</string>
+    <string name="select_a_new_date">Nuova Data</string>
+    <string name="infos">Info</string>
+    <string name="other_apps">Altre App</string>
     <string name="twitter">Twitter</string>
-    <string name="datelist">Date List</string>
-    <string name="intro_biocomp">BioComp is an app that calculates the compatibility between people through the theory of biorhythms.</string>
+    <string name="datelist">Lista Date</string>
+    <string name="intro_biocomp">BioComp è un\'app che calcola la compatibilita\' tra le persone attraverso l\'utilizzo della teoria dei bioritmi.</string>
 
-    <string name="calculate_compatibility">Calculate Compatibility</string>
-    <string name="welcome_to_biocomp">Welcome to BioComp</string>
-    <string name="enter_new_profile">Enter New Profile</string>
-    <string name="your_date_list">Your List of Dates</string>
-    <string name="choose_date">Choose date</string>
-    <string name="our_other_apps">Our Other Apps</string>
-    <string name="load_or_new">Load or Create Date</string>
+    <string name="calculate_compatibility">Calcola Compatibilita\'</string>
+    <string name="welcome_to_biocomp">Benvenuto In BioComp</string>
+    <string name="enter_new_profile">Nuovo Profilo</string>
+    <string name="your_date_list">La Tua Lista</string>
+    <string name="choose_date">Scegli Data</string>
+    <string name="our_other_apps">Le Nostre Altre App</string>
+    <string name="load_or_new">Carica o Inserisci Data</string>
 
     <string name="banner">ca-app-pub-1505207846260374/5186273936</string>
     <string name="prova_banner">ca-app-pub-3940256099942544/6300978111</string>
 
-    <string name="save_profile">Save profile</string>
-    <string name="title_activity_date_list">DateList</string>
+    <string name="save_profile">Salva profilo</string>
+    <string name="title_activity_date_list">Lista Date</string>
 
     <string name="facebook_app_id">1637657219830501</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="descr">Hello! for calculate Bio Compatibility, choose the avatars and birth dates.</string>
+    <string name="descr">Ciao! Per calcolare la Bio Compatibilita\', scegli gli avatar e le date di nascita.</string>
+    <string name="theory">Teoria Dei Bioritmi</string>
+    <string name="other_descr">Scarica le nostre app direttamente dal Google PlayStore.</string>
+    <string name="other_infos">Per informazioni o domande, perfavore visita il nostro sito web.</string>
+    <string name="name">Nome</string>
+    <string name="date_of_birth">Data di nascita</string>
+
+    <string name="bio_info">La teoria dei bioritmi ha dedicato sempre grande attenzione anche ai problemi di affinita\' tra individui.
+        Grazie a queste osservazioni si e\' potuto constatare che due persone il cui ciclo emozionale segue le stesse fluttuazioni avranno per tutta la vita la stessa disposizione ai sentimenti, all\'ottimismo e la stessa sensibilita\'. Vivranno insieme fasi di carica e di scarica e questo fatto li portera\' ad avere una grande affinita\' emozionale.
+        Ne La teoria dei bioritmi, gli alti e bassi nel corso di una vita pubblicato nel 1959, Hugo Max Gross dedica parecchi capitoli alla spiegazione delle corrispondenze nei matrimoni e nella altre occasioni di relazioni tra persone e mette a punto un metodo di valutazione basato sulle percentuali di affinita\' tra i cicli.
+        Il metodo di valutazione di compatibilita\' parte dalla considerazione che due individui con due cicli identici hanno la massima affinita\' con una percentuale pari al 100%.
+        Poiche\' il caso di minore corrispondenza si verifica nella situazione opposta, ossia quando lo scarto equivale alla meta\' del ciclo, dando a questa condizione una percentuale pari a 0%, ne consegue che per ogni giorno di discordanza l\'affinita\' diminuisce di una percentuale pari a 100 / i giorni del ciclo X 2.
+        La percentuale di affinita\' diminuira\' quindi dell\'8,70% nel ciclo fisico, del 7,14% nel ciclo emozionale e dell\'6,06% nel ciclo intellettuale per ogni giorno di differenza tra i cicli.
+        Conseguentemente minore sara\' la percentuale, neno elevata sara\' la percentuale di affinita\'.
+        Calcolata la compatibilita\' ciclo per ciclo, potra\' poi essere definita una media che ci dara\' la percentuale di affinita\' complessiva.
+        Generalmente va considerata buona una percentuale media superiore al 50%. Ovviamente, una percentuale oltre il 70% ci dira\' che tra due persone c\'e\' una grande sintonia, mentre una inferiore al 50% mette una seria ipoteca alla possibilita\' di intesa.
+        La compatibilita\' fisica e\' importante nella formazione di team sportivo o di lavoro. Quella emozionale per l\'intesa in una coppia, in una famiglia o nei rapporti di amicizia. Per le associazioni o collaborazioni basate su attivita\' intellettive sara\' indispensabile una buona corrispondenza intellettuale.
+        Ovviamente tutto questo riguarda una pura armonia bioritmica: nulla toglie che in presenza di obiettivi importanti o di forti motivazioni queste difficolta\' possano essere superate o che, nonostante una buona consonanza bioritmica, ci siano difficolta\' di rapporto dovute ad altri fattori.
+    </string>
+    <string name="reset_list">cancella lista</string>
+    <string name="choose_descr">Scegli la data da inserire e salva.</string>
+    <string name="day">Giorno</string>
+    <string name="month">Mese</string>
+    <string name="year">Anno</string>
+    <string name="reset">reset</string>
+    <string name="result_bio">Risultato della Bio Compatibilita\'</string>
+    <string name="insert_register">Uno dei dati inseriti non e\' valido!</string>
+    <string name="confirm">Confermi la data inserita?</string>
+    <string name="yes">Si</string>
+    <string name="no">No</string>
+    <string name="load_new_error">Qualcosa e\' andato storto. Il profilo selezionato non puo\' essere caricato!</string>
+    <string name="load_profile">Carica un profilo della tua lista, oppure creane uno nuovo.</string>
+    <string name="load_label">Carica Data</string>
+
 </resources>

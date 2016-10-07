@@ -51,7 +51,7 @@
         android:id="@+id/btnDateList"
         android:layout_width="wrap_content"
         style="@style/AppTheme.Button"
-        android:text="Date List"
+        android:text="@string/datelist"
         android:layout_marginBottom="8dp"
         android:layout_above="@+id/adsMain"
         android:layout_alignParentStart="true" />

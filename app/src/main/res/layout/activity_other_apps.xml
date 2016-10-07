@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Download our new app directly from the Google PlayStore."
+        android:text="@string/other_descr"
         android:id="@+id/txtTitleOther"
         android:layout_alignParentTop="true"
         android:textSize="18dp"/>
@@ -76,7 +76,7 @@
 
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="For info or any questions, please visit our web site."
+        android:text="@string/other_infos"
         android:id="@+id/textView"
         android:textSize="18dp"
         android:layout_below="@+id/lblSfondItalia"

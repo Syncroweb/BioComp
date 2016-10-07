@@ -82,7 +82,7 @@ public class CalculateLoadOrNew extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(     getApplicationContext(),
-                            "Something went wrong. Couldn't load the selected Profile!",
+                            R.string.load_new_error,
                             Toast.LENGTH_SHORT ).show();
                 break;
 
@@ -98,7 +98,7 @@ public class CalculateLoadOrNew extends AppCompatActivity {
                 }
                 else
                     Toast.makeText(     getApplicationContext(),
-                            "Something went wrong. Couldn't load the selected Date!",
+                            R.string.load_new_error,
                             Toast.LENGTH_SHORT ).show();
                 break;
         }

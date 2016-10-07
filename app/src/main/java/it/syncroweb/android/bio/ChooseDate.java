@@ -100,8 +100,8 @@ public class ChooseDate extends AppCompatActivity {
 
             case R.id.actionDone:
                 AlertDialog.Builder builder = new AlertDialog.Builder(ChooseDate.this);
-                builder.setMessage("Confirming the date inserted?" + "\n\n" + date).setPositiveButton("Yes", dialogClickListener)
-                        .setNegativeButton("No", dialogClickListener).show();
+                builder.setMessage(getString(R.string.confirm) + "\n\n" + date).setPositiveButton(R.string.yes, dialogClickListener)
+                        .setNegativeButton(R.string.no, dialogClickListener).show();
                 break;
 
             //default:
