@@ -1,6 +1,7 @@
 package it.syncroweb.android.bio;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,15 +18,22 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
 public class RegisteredDateList extends AppCompatActivity {
 
     ListView lwPersone;
-    //ArrayList<String> lista;
+    ArrayList<String> lista;
     //ArrayAdapter<String> adapter;
 
     //Button btnAddNewDate;
 
-    int i = 0;
     CustomListAdapter adapter;
 
     //Creo 10 possibili salvataggi
@@ -50,9 +58,6 @@ public class RegisteredDateList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registered_date_list);
 
-        //Create DB
-        dbHelper = new DBHelper(this);
-
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
 
         //Banner
@@ -60,22 +65,15 @@ public class RegisteredDateList extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adsList.loadAd(adRequest);
 
-        nome[i] = "NOME";
-        dataNascita[i] = "DATA DI NASCITA";
-        foto[i] = R.drawable.user;
+        //Create DB
+        dbHelper = new DBHelper(this);
+        lista = dbHelper.getAllContacts();
+
 
         //Creo lista personalizzata
-        adapter = new CustomListAdapter(this, nome, dataNascita, foto);
+        adapter = new CustomListAdapter(this, lista);   //DA CAPIRE COSA PASSARE
 
         lwPersone = (ListView) findViewById(R.id.lwPersone);
-
-        //btnAddNewDate = (Button) findViewById(R.id.btnAddNewDate);
-
-        /*lista= new ArrayList<>();
-        lista.add("Nome     |       Data di nascita");
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista);
-        */
-
         lwPersone.setAdapter(adapter);
 
         //FLOATING BUTTON
@@ -89,44 +87,42 @@ public class RegisteredDateList extends AppCompatActivity {
             }
         });
 
-       /*Start Activity Register
-        btnAddNewDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), Register.class);
-                startActivityForResult(i, 0);
-            }
-        });*/
     }
 
     // Call Back method to get the Strings form other Activity
     @Override
     protected void onActivityResult( int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
+        //Create DB
+        //dbHelper = new DBHelper(this);
 
         if(requestCode==0){
             String photo = data.getStringExtra("AVATAR");
             String name = data.getStringExtra("NAME");
             String date = data.getStringExtra("DATE");
 
-            i++;    //aggiorno la posizione
+            //i++;    //aggiorno la posizione
 
-            //Riempio gli array man mano che arrivano i dati
+            /*Riempio gli array man mano che arrivano i dati
             foto[i] = Integer.parseInt(photo);
             nome[i] = name;
-            dataNascita[i] =  date;
+            dataNascita[i] =  date;*/
+
+            //Insert to DB
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+            Date newdate= null;
+            try {
+                newdate= df.parse(date);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            dbHelper.insertContact(name, null, null, null, null, photo, newdate);
 
             adapter.notifyDataSetChanged();
 
-            /*
-            lista.add(item);
-            adapter.notifyDataSetChanged();
-            */
         }
     }
 
-    //Insert to DB (NON TROVA IL METODO)
-    //dbHelper.execSQL("INSER INTO name VALUES ('name', 'name');");
 
     //Gestione del menu (3 pallini)
     @Override
@@ -146,7 +142,7 @@ public class RegisteredDateList extends AppCompatActivity {
         {
             case R.id.resetList:
 
-                //METODO CHE AZZERA IL DATABASE!!
+                //dbHelper.deleteContact(); delete all?
 
                 break;
         }

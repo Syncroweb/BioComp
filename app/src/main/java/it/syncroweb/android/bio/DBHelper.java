@@ -47,7 +47,7 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String name, String phone, String email, String street, String place, String photo, Date birdate)
+    public boolean insertContact  (String name, String phone, String email, String street, String place, String photo, Date birthdate)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -58,7 +58,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("street", street);
         contentValues.put("place", place);
         contentValues.put("photo", photo);
-        contentValues.put("birdate", dateFormat.format(birdate));
+        contentValues.put("birthdate", dateFormat.format(birthdate));
         db.insert("contacts", null, contentValues);
         return true;
     }

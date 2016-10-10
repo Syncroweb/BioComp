@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:id="@+id/row_item">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Data di nascita"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:id="@+id/txtDataNascita"
         android:layout_below="@+id/txtNome"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/lvImage" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Nome"
         android:id="@+id/txtNome"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/txtDataNascita"
         android:layout_marginTop="28dp"
-        android:layout_alignEnd="@+id/txtDataNascita" />
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_alignEnd="@+id/txtDataNascita"
+        android:layout_toEndOf="@+id/lvImage" />
 
     <ImageView
         android:layout_width="80dp"
