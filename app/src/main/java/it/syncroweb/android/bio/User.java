@@ -5,17 +5,15 @@ class User {
 
     private String name;
     private String birthdate;
-    private int photo;
+    private String photo;
 
-    User(){};
-
-    public User(String name, String birthdate, int photo) {
+    User(String name, String birthdate, String photo) {
         this.name = name;
         this.birthdate = birthdate;
         this.photo = photo;
     }
 
-    String getName() {
+    public String getName() {
         return name;
     }
 
@@ -23,7 +21,7 @@ class User {
         this.name = name;
     }
 
-    String getBirthdate() {
+    public String getBirthdate() {
         return birthdate;
     }
 
@@ -31,11 +29,11 @@ class User {
         this.birthdate = birthdate;
     }
 
-    int getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(int photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 }

@@ -1,57 +1,37 @@
 package it.syncroweb.android.bio;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
 import java.util.List;
+
 
 public class RegisteredDateList extends AppCompatActivity {
 
     ListView lwPersone;
-    ArrayList<String> lista;
+    List<User> users = ListProvider.userList;
+
     //ArrayAdapter<String> adapter;
-
-    //Button btnAddNewDate;
-
     CustomListAdapter adapter;
-
-    //Creo 10 possibili salvataggi
-    String[] nome = new String[10];
-    String[] dataNascita = new String[10];
-    int[] foto = new int[10];
-
-    DBHelper dbHelper;
-
+    //DBHelper dbHelper;
     AdView adsList;
-
     FloatingActionButton fab;
 
-    //As soon as the GUI is created
-    //this function will fill the
-    //GridView with the records
-    //from the database, allowing, then, the user
-    //to pick one and modify / load it
+    User user;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -65,18 +45,20 @@ public class RegisteredDateList extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adsList.loadAd(adRequest);
 
-        //Create DB
-        dbHelper = new DBHelper(this);
-        lista = dbHelper.getAllContacts();
-
-
-        //Creo lista personalizzata
-        adapter = new CustomListAdapter(this, lista);   //DA CAPIRE COSA PASSARE
+        //users.add(new User("Name", "Birthdate", String.valueOf(R.drawable.user)));
 
         lwPersone = (ListView) findViewById(R.id.lwPersone);
+
+        /*Create DB
+        dbHelper = new DBHelper(this);
+        lista = dbHelper.getAllContacts();
+        */
+
+        //Creo lista personalizzata
+        adapter = new CustomListAdapter(this, R.layout.style_list, users);
         lwPersone.setAdapter(adapter);
 
-        //FLOATING BUTTON
+        //Floating Button
         fab = (FloatingActionButton) findViewById(R.id.fab);
         assert fab != null;
         fab.setOnClickListener(new View.OnClickListener() {
@@ -93,6 +75,7 @@ public class RegisteredDateList extends AppCompatActivity {
     @Override
     protected void onActivityResult( int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
+
         //Create DB
         //dbHelper = new DBHelper(this);
 
@@ -101,14 +84,9 @@ public class RegisteredDateList extends AppCompatActivity {
             String name = data.getStringExtra("NAME");
             String date = data.getStringExtra("DATE");
 
-            //i++;    //aggiorno la posizione
+            //users.addUser(name, date, photo);
 
-            /*Riempio gli array man mano che arrivano i dati
-            foto[i] = Integer.parseInt(photo);
-            nome[i] = name;
-            dataNascita[i] =  date;*/
-
-            //Insert to DB
+            /*Insert to DB
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             Date newdate= null;
             try {
@@ -117,6 +95,7 @@ public class RegisteredDateList extends AppCompatActivity {
                 e.printStackTrace();
             }
             dbHelper.insertContact(name, null, null, null, null, photo, newdate);
+            */
 
             adapter.notifyDataSetChanged();
 

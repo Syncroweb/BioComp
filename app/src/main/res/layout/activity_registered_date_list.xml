@@ -17,17 +17,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/lwPersone"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="8dp"
-        android:layout_above="@+id/btnAddNewDate"/>
-<!--
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:text="@string/add_a_new_date"
-        android:id="@+id/btnAddNewDate"
         android:layout_above="@+id/adsList"
-        android:layout_marginBottom="8dp"
-        android:background="@color/colorAccent" /> -->
+        android:layout_marginBottom="8dp"/>
+
 
     <com.google.android.gms.ads.AdView
         android:layout_width="wrap_content"
