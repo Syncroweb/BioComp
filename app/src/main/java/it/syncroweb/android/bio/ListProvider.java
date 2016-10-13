@@ -9,14 +9,10 @@ class ListProvider {
 
 
     static {
-        addUser("Nome", "Data di Nascita", String.valueOf(R.drawable.user));
-        addUser("Nome", "Data di Nascita", String.valueOf(R.drawable.user));
-        addUser("Nome", "Data di Nascita", String.valueOf(R.drawable.user));
-        addUser("Nome", "Data di Nascita", String.valueOf(R.drawable.user));
-        addUser("Nome", "Data di Nascita", String.valueOf(R.drawable.user));
-        addUser("Nome", "Data di Nascita", String.valueOf(R.drawable.user));
-        addUser("Nome", "Data di Nascita", String.valueOf(R.drawable.user));
+        addUser("Name", "Birthdate", String.valueOf(R.drawable.user));
+
     }
+
 
 
     private static void addUser(String name, String birthdate, String imgUser) {

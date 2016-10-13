@@ -1,7 +1,9 @@
 package it.syncroweb.android.bio;
 
+import android.content.Context;
 import android.content.Intent;
-import android.support.design.widget.CoordinatorLayout;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.design.widget.FloatingActionButton;
 
 import android.support.v7.app.AppCompatActivity;
@@ -15,22 +17,22 @@ import android.widget.ListView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.List;
-
 
 public class RegisteredDateList extends AppCompatActivity {
 
     ListView lwPersone;
     List<User> users = ListProvider.userList;
-
-    //ArrayAdapter<String> adapter;
     CustomListAdapter adapter;
-    //DBHelper dbHelper;
+    DBHelper dbHelper;
     AdView adsList;
     FloatingActionButton fab;
 
-    User user;
+    SharedPreferences mPrefs;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,17 +47,21 @@ public class RegisteredDateList extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder().build();
         adsList.loadAd(adRequest);
 
-        //users.add(new User("Name", "Birthdate", String.valueOf(R.drawable.user)));
-
         lwPersone = (ListView) findViewById(R.id.lwPersone);
 
         /*Create DB
         dbHelper = new DBHelper(this);
-        lista = dbHelper.getAllContacts();
+        users = dbHelper.getAllContacts();
         */
-
+/*
+        mPrefs = getPreferences(MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = mPrefs.getString("User", "");
+        Type type = new TypeToken<List<User>>(){}.getType();
+        users = gson.fromJson(json, type);
+*/
         //Creo lista personalizzata
-        adapter = new CustomListAdapter(this, R.layout.style_list, users);
+        adapter = new CustomListAdapter(this, 0, users);
         lwPersone.setAdapter(adapter);
 
         //Floating Button
@@ -71,6 +77,7 @@ public class RegisteredDateList extends AppCompatActivity {
 
     }
 
+
     // Call Back method to get the Strings form other Activity
     @Override
     protected void onActivityResult( int requestCode, int resultCode, Intent data){
@@ -84,7 +91,15 @@ public class RegisteredDateList extends AppCompatActivity {
             String name = data.getStringExtra("NAME");
             String date = data.getStringExtra("DATE");
 
-            //users.addUser(name, date, photo);
+            User user = new User(name, date, photo);
+/*
+            SharedPreferences.Editor prefsEditor = mPrefs.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(users);
+            prefsEditor.putString("User", json);
+            prefsEditor.apply();
+*/
+            users.add(user);
 
             /*Insert to DB
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -93,9 +108,7 @@ public class RegisteredDateList extends AppCompatActivity {
                 newdate= df.parse(date);
             } catch (ParseException e) {
                 e.printStackTrace();
-            }
-            dbHelper.insertContact(name, null, null, null, null, photo, newdate);
-            */
+            }*/
 
             adapter.notifyDataSetChanged();
 

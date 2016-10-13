@@ -69,12 +69,6 @@ public class Calculate extends AppCompatActivity {
 
     InterstitialAd adsFull;
 
-    //private ShareActionProvider mShareActionProvider;
-
-    // Function that first starts when the activity
-    // is launched. It actually starts the components
-    // allowing the following operations to work
-    // properly
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

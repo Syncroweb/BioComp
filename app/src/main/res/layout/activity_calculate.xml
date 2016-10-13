@@ -32,7 +32,10 @@
             android:paddingRight="16dp"
             android:backgroundTint="@color/colorAccent"/>
 
-    <include layout="@layout/share"/>
+    <include android:layout_height="wrap_content" layout="@layout/share"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/calculateDescr"
+        android:layout_alignParentStart="true"/>
 
 </RelativeLayout>
 
