@@ -1,23 +1,34 @@
 package it.syncroweb.android.bio;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Environment;
 
 import android.provider.MediaStore;
+import android.provider.Settings;
+import android.provider.SyncStateContract;
+import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +36,7 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
@@ -69,11 +81,14 @@ public class Calculate extends AppCompatActivity {
 
     InterstitialAd adsFull;
 
+    RelativeLayout shareView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_calculate);
+        shareView = (RelativeLayout) findViewById(R.id.shareView);
 
         lblNameOne = (TextView) this.findViewById(R.id.lblNameOne);
         lblNameTwo = (TextView) this.findViewById(R.id.lblNameTwo);
@@ -169,6 +184,8 @@ public class Calculate extends AppCompatActivity {
                 startActivityForResult(i, LOAD_OR_NEW_ID);
             }
         });
+
+
     }
 
     //Create the AdListener
@@ -180,10 +197,6 @@ public class Calculate extends AppCompatActivity {
         adsFull.loadAd(adRequest);
     }
 
-    // Function that allows the program
-    // to get and display the Dates chosen
-    // by the users with the "calculate_load_or_new"
-    // activity
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == LOAD_OR_NEW_ID) {
@@ -403,29 +416,53 @@ public class Calculate extends AppCompatActivity {
         lblCalculatePh.setTextColor(Color.parseColor(String.valueOf(R.color.colorPrimaryDark)));
     }
 
-    //Method to take ScreenShot
-    private Bitmap screenShot(View view) {
-        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-        Canvas canvas = new Canvas(bitmap);
-        view.draw(canvas);
-        return bitmap;
+    //For Share
+    private Bitmap getBitmapFromView(RelativeLayout view) {
+
+        Bitmap returnedBitmap = null;
+
+        try {
+
+            view.setDrawingCacheEnabled(true);
+
+/* new version
+            view.measure(View.MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), View.MeasureSpec.AT_MOST),
+                    View.MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), View.MeasureSpec.AT_MOST));
+            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+*/
+
+            view.measure(view.getMeasuredWidth(), view.getMeasuredHeight());
+
+/*old version
+            view.measure(View.MeasureSpec.makeMeasureSpec(800, View.MeasureSpec.UNSPECIFIED),
+                    View.MeasureSpec.makeMeasureSpec(600, View.MeasureSpec.UNSPECIFIED));
+            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
+*/
+            view.buildDrawingCache(true);
+            returnedBitmap = Bitmap.createBitmap(view.getDrawingCache());
+
+            //Define a bitmap with the same size as the view
+            view.setDrawingCacheEnabled(false);
+
+            return returnedBitmap;
+
+        }catch (Exception e){
+            e.getMessage();
+        }
+        return returnedBitmap;
     }
 
-    private static File saveBitmap(Bitmap bm, String fileName) {
-        final String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/Screenshots";
-        File dir = new File(path);
-        if (!dir.exists())
-            dir.mkdirs();
-        File file = new File(dir, fileName);
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
         try {
-            FileOutputStream fOut = new FileOutputStream(file);
-            bm.compress(Bitmap.CompressFormat.PNG, 85, fOut);
-            fOut.flush();
-            fOut.close();
-        } catch (Exception e) {
-            e.printStackTrace();
+            ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+            inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+            String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(),
+                    inImage, "", "");
+            return Uri.parse(path);
+        }catch (Exception e){
+            e.getMessage();
         }
-        return file;
+        return null;
     }
 
     //Gestione del menu
@@ -437,7 +474,6 @@ public class Calculate extends AppCompatActivity {
         return true;
     }
 
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -448,26 +484,26 @@ public class Calculate extends AppCompatActivity {
 
             case R.id.actionShare:
 
-                //Bitmap bm = screenShot(this.findViewById(R.id.share));
-                //File file = saveBitmap(bm, "biocomp_image.png");
-                //Log.i("chase", "filepath: " + file.getAbsolutePath());
-                //Uri uri = Uri.fromFile(new File(file.getAbsolutePath()));
+                try {
+                    Bitmap bitmap = getBitmapFromView(shareView);
+                    Intent shareIntent = new Intent();
+                    shareIntent.setAction(Intent.ACTION_SEND);
+                    shareIntent.putExtra(Intent.EXTRA_STREAM, getImageUri(this, bitmap));
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_bio)); //frase già precompilata per il commento
+                    shareIntent.setType("image/jpeg");
+                    shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send)));
 
-                // QUESTO MANDA SOLO IL COMMENTO (no whatsapp)
-                Intent shareIntent = new Intent();
-                shareIntent.setAction(Intent.ACTION_SEND);
-                shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_bio)); //frase già precompilata per il commento
-                shareIntent.putExtra(Intent.EXTRA_STREAM, R.id.share); //uri
-                shareIntent.setType("image/*");
-                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-                startActivity(Intent.createChooser(shareIntent, "Share"));
-
-
+                }catch (Exception e){
+                    e.getMessage();
+                }
 
                 break;
+
         }
         return false;
     }
+
 
     //Choose avatar first photo
     public void chooseAvatarOne(View view) {

@@ -95,5 +95,6 @@
     <string name="load_new_error">Something went wrong. Couldn\'t load the selected Profile!</string>
     <string name="load_profile">Load a profile from your list of dates, or create a new profile.</string>
     <string name="load_label">Load Date</string>
+    <string name="send">Share</string>
 
 </resources>

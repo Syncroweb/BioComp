@@ -93,5 +93,6 @@
     <string name="load_new_error">Qualcosa e\' andato storto. Il profilo selezionato non puo\' essere caricato!</string>
     <string name="load_profile">Carica un profilo della tua lista, oppure creane uno nuovo.</string>
     <string name="load_label">Carica Data</string>
+    <string name="send">Condividi</string>
 
 </resources>
