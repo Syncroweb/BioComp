@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/intro_biocomp"
         android:id="@+id/txtIntro"
-        android:textSize="18dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/lblTitle"
         android:layout_alignParentEnd="false"
         android:layout_marginTop="16dp" />

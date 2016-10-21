@@ -19,7 +19,7 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textAllCaps="true" />
+        android:textAllCaps="false" />
 
     <ScrollView
         android:id="@+id/scroller_id"
@@ -39,6 +39,7 @@
         android:text="@string/bio_info"
         android:enabled="false"
         android:layout_below="@+id/lblTitle"
+        android:textSize="16sp"
         android:layout_marginTop="8dp"
         android:paddingBottom="6dp"
         android:textColor="@color/common_google_signin_btn_text_light_default" />

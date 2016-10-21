@@ -177,8 +177,6 @@ public class Calculate extends AppCompatActivity {
                 startActivityForResult(i, LOAD_OR_NEW_ID);
             }
         });
-
-
     }
 
     //Create the AdListener
@@ -246,7 +244,6 @@ public class Calculate extends AppCompatActivity {
             String avatar = data.getStringExtra("AVATAR");
             avatarTwo.setBackgroundResource(Integer.parseInt(avatar));
         }
-
 
     }
 
@@ -370,8 +367,6 @@ public class Calculate extends AppCompatActivity {
 
         //Results
         result.setText(resultMessage);
-
-        //Toast.makeText(getApplicationContext(), messages[i], Toast.LENGTH_SHORT).show();
     }
 
     // Function that resets the GUI in order to
@@ -417,7 +412,25 @@ public class Calculate extends AppCompatActivity {
         lblCalculatePh.setTextColor(Color.argb(255, 213, 0, 0));
     }
 
-    //For Share
+    public static Bitmap getBitmapFromView(View view) {
+        //Define a bitmap with the same size as the view
+        Bitmap returnedBitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(),Bitmap.Config.ARGB_8888);
+        //Bind a canvas to it
+        Canvas canvas = new Canvas(returnedBitmap);
+        //Get the view's background
+        Drawable bgDrawable =view.getBackground();
+        if (bgDrawable!=null)
+            //has background drawable, then draw it on the canvas
+            bgDrawable.draw(canvas);
+        else
+            //does not have background drawable, then draw white background on the canvas
+            canvas.drawColor(Color.WHITE);
+        // draw the view on the canvas
+        view.draw(canvas);
+        //return the bitmap
+        return returnedBitmap;
+    }
+    /*For Share
     private Bitmap getBitmapFromView(RelativeLayout view) {
 
         Bitmap returnedBitmap = null;
@@ -426,19 +439,19 @@ public class Calculate extends AppCompatActivity {
 
             view.setDrawingCacheEnabled(true);
 
-/* new version
+ new version
             view.measure(View.MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), View.MeasureSpec.AT_MOST),
                     View.MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), View.MeasureSpec.AT_MOST));
             view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-*/
+
 
             view.measure(view.getMeasuredWidth(), view.getMeasuredHeight());
 
-/*old version
+old version
             view.measure(View.MeasureSpec.makeMeasureSpec(800, View.MeasureSpec.UNSPECIFIED),
                     View.MeasureSpec.makeMeasureSpec(600, View.MeasureSpec.UNSPECIFIED));
             view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-*/
+
             view.buildDrawingCache(true);
             returnedBitmap = Bitmap.createBitmap(view.getDrawingCache());
 
@@ -451,7 +464,7 @@ public class Calculate extends AppCompatActivity {
             e.getMessage();
         }
         return returnedBitmap;
-    }
+    } */
 
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         try {
@@ -465,6 +478,7 @@ public class Calculate extends AppCompatActivity {
         }
         return null;
     }
+
 
     //Gestione del menu
     @Override
@@ -492,7 +506,7 @@ public class Calculate extends AppCompatActivity {
                     shareIntent.putExtra(Intent.EXTRA_STREAM, getImageUri(this, bitmap));
                     shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_bio)); //frase già precompilata per il commento
                     shareIntent.setType("image/jpeg");
-                    shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+                    shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);   //PROBLEMA PERMESSO DA API 23
                     startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send)));
 
                 }catch (Exception e){

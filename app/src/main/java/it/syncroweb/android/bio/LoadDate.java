@@ -33,7 +33,7 @@ public class LoadDate extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_load_date);
-
+/*
         //Inflater Layout lwPersone list into activity_load_date (no work)
         inflater = (LayoutInflater) this.getSystemService(LAYOUT_INFLATER_SERVICE);
         View childLayout = inflater.inflate(R.layout.activity_registered_date_list,
@@ -41,7 +41,7 @@ public class LoadDate extends AppCompatActivity {
         parentLayout = (RelativeLayout) findViewById(R.id.parent);
         assert parentLayout != null;
         parentLayout.addView(childLayout);
-
+*/
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
 
         //Banner
