@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class ChooseAvatar extends AppCompatActivity {
 
     ImageView imgLY1;
@@ -19,11 +23,20 @@ public class ChooseAvatar extends AppCompatActivity {
     ImageView imgLY9;
 
     String avatar;
+    AdView adsChooseAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_avatar);
+
+        MobileAds.initialize(getApplicationContext(), String.valueOf(R.string.prova_banner));
+
+        //Banner
+        adsChooseAvatar= (AdView) findViewById(R.id.adsChooseAvatar);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adsChooseAvatar.loadAd(adRequest);
+
 
         imgLY1 = (ImageView) findViewById(R.id.imgLY1);
         imgLY2 = (ImageView) findViewById(R.id.imgLY2);

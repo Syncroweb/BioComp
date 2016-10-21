@@ -22,7 +22,7 @@
     <string name="intellettuale">Intellectual</string>
     <string name="calculate_biocomp">Calculate Bio Compatibility</string>
     <string name="button_2">Reset</string>
-    <string name="date">mm/dd/yyyy</string>
+    <string name="date">01/01/1980</string>
 
     <string name="take_screenshot">Take screenshot</string>
     <string name="n_a">Screenshot interface not (yet) available.</string>
@@ -96,5 +96,7 @@
     <string name="load_profile">Load a profile from your list of dates, or create a new profile.</string>
     <string name="load_label">Load Date</string>
     <string name="send">Share</string>
+    <string name="scegli_avatar">Choose one of the following avatar.</string>
+    <string name="your_result">"Your result is: "</string>
 
 </resources>

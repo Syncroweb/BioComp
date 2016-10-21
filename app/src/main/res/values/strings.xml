@@ -20,7 +20,7 @@
     <string name="intellettuale">IIntellettuale</string>
     <string name="calculate_biocomp">Calcola Bio Compatibilita\'</string>
     <string name="button_2">Reset</string>
-    <string name="date">gg/mm/aaaa</string>
+    <string name="date">01/01/1980</string>
 
     <string name="take_screenshot">Fai screenshot</string>
     <string name="n_a">Screenshot non disponibile.</string>
@@ -94,5 +94,7 @@
     <string name="load_profile">Carica un profilo della tua lista, oppure creane uno nuovo.</string>
     <string name="load_label">Carica Data</string>
     <string name="send">Condividi</string>
+    <string name="scegli_avatar">Scegli uno dei seguenti avatar.</string>
+    <string name="your_result">"Il vostro risultato e\': "</string>
 
 </resources>

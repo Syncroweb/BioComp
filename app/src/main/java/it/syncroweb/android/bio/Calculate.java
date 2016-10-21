@@ -111,26 +111,19 @@ public class Calculate extends AppCompatActivity {
         //Instantiate the InterstitialAd object
         adsFull = new InterstitialAd(this);
         adsFull.setAdUnitId("ca-app-pub-3940256099942544/1033173712");  //id di prova
+        requestNewInterstitial();
         adsFull.setAdListener(new AdListener() {
             @Override
-            public void onAdClosed() {
-                super.onAdClosed();
-                requestNewInterstitial();
+            public void onAdLoaded() {
+                // Call displayInterstitial() function
+                displayInterstitial();
             }
-
         });
 
         //Disable Calculate Button
         assert btnCalculate != null;
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
-
-        //Display the interstitial ad
-        if (adsFull.isLoaded()) {
-            adsFull.show();
-        } else {
-            Log.d("", "Error ADS");
-        }
 
         // Function that call the real
         // BioCompatibility function and
@@ -191,10 +184,18 @@ public class Calculate extends AppCompatActivity {
     //Create the AdListener
     private void requestNewInterstitial() {
         AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("SEE_YOUR_LOGCAT_TO_GET_YOUR_DEVICE_ID")
+                .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+                .addTestDevice("D4DF396F722EC23412033BAED04C6B93")
                 .build();
 
         adsFull.loadAd(adRequest);
+    }
+
+    public void displayInterstitial() {
+        // If Ads are loaded, show Interstitial else show nothing.
+        if (adsFull.isLoaded()) {
+            adsFull.show();
+        }
     }
 
     @Override
@@ -283,7 +284,7 @@ public class Calculate extends AppCompatActivity {
         for (int i = 0; i < CYCLES; i++)
             vetResults[i] = difference - ((difference / vetCostants[i]) * vetCostants[i]);
 
-        double fisico = vetPhysical[vetResults[0]];
+        double fisico = vetPhysical[vetResults[0]]; //Spesso da errore
         double emotivo = vetEmotional[vetResults[1]];
         double intellettuale = vetIntellectual[vetResults[2]];
 
@@ -330,7 +331,7 @@ public class Calculate extends AppCompatActivity {
 
 
         // Emotional
-        messages[0] = "Your result is: ";
+        messages[0] = getString(R.string.your_result);
 
         if (vetEmotional[vetResults[0]] < 30)
             messages[0] += this.getString(R.string.emotivo_1) + " ";
@@ -411,9 +412,9 @@ public class Calculate extends AppCompatActivity {
         lblCalculateEm.setText("0%");
         lblCalculateIn.setText("0%");
         lblCalculatePh.setText("0%");
-        lblCalculateEm.setTextColor(Color.parseColor(String.valueOf(R.color.colorPrimaryDark)));
-        lblCalculateIn.setTextColor(Color.parseColor(String.valueOf(R.color.colorPrimaryDark)));
-        lblCalculatePh.setTextColor(Color.parseColor(String.valueOf(R.color.colorPrimaryDark)));
+        lblCalculateEm.setTextColor(Color.argb(255, 213, 0, 0));
+        lblCalculateIn.setTextColor(Color.argb(255, 213, 0, 0));
+        lblCalculatePh.setTextColor(Color.argb(255, 213, 0, 0));
     }
 
     //For Share

@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/calculateDescr"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="2dp"
         android:id="@+id/shareView">
 
         <TextView
@@ -31,7 +31,7 @@
             android:id="@+id/lblNameOne"
             android:textSize="18dp"
             android:gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_alignParentStart="true"
             android:layout_alignEnd="@+id/btnFirstPhoto" />
 
@@ -41,7 +41,7 @@
             android:id="@+id/lblNameTwo"
             android:textSize="18dp"
             android:gravity="center_horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="8dp"
             android:layout_alignParentEnd="true"
             android:layout_alignStart="@+id/btnSecondPhoto" />
 
@@ -109,7 +109,9 @@
                 android:id="@+id/lblEmotional"
                 android:layout_marginTop="2dp"
                 android:textSize="18sp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textAlignment="textStart" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -118,7 +120,9 @@
                 android:textSize="18sp"
                 android:id="@+id/lblIntellectual"
                 android:layout_marginTop="2dp"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textAlignment="textStart" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -127,7 +131,10 @@
                 android:textSize="18sp"
                 android:id="@+id/lblPhysical"
                 android:layout_marginTop="2dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:textStyle="normal|bold"
+                android:textAlignment="textStart"
+                android:textAllCaps="false" />
 
         </LinearLayout>
 
@@ -137,7 +144,7 @@
             android:layout_height="wrap_content"
             android:layout_alignEnd="@+id/lblDateTwo"
             android:layout_below="@+id/lblDateTwo"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="36dp"
             android:id="@+id/linearLayout2">
 
             <TextView
