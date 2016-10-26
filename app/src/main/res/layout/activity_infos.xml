@@ -40,10 +40,12 @@
         android:text="@string/bio_info"
         android:enabled="false"
         android:layout_below="@+id/lblTitle"
-        android:textSize="16sp"
+        android:textSize="17sp"
         android:layout_marginTop="8dp"
         android:paddingBottom="6dp"
-        android:textColor="@color/common_google_signin_btn_text_light_default" />
+        android:textColor="@color/common_google_signin_btn_text_light_default"
+        android:lineSpacingExtra="2sp"
+        android:textAlignment="textStart" />
     </ScrollView>
 
     <com.google.android.gms.ads.AdView

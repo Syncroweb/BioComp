@@ -11,14 +11,14 @@
     <string name="emotivo_2">poco coinvolgimento emotivo, </string>
     <string name="emotivo_3">un medio coinvolgimento emotivo, </string>
     <string name="emotivo_4">un forte coinvolgimento emotivo, </string>
-    <string name="intellettuale_1">una bassissima compatibilita\' intellettuale, </string>
-    <string name="intellettuale_2">una bassa compatibilita\' intellettuale, </string>
-    <string name="intellettuale_3">una media compatibilita\' intellettuale, </string>
-    <string name="intellettuale_4">una forte compatibilita\' intellettuale, </string>
+    <string name="intellettuale_1">una bassissima compatibilit&#224; intellettuale, </string>
+    <string name="intellettuale_2">una bassa compatibilit&#224; intellettuale, </string>
+    <string name="intellettuale_3">una media compatibilit&#224; intellettuale, </string>
+    <string name="intellettuale_4">una forte compatibilit&#224; intellettuale, </string>
     <string name="fisico">Fisico</string>
     <string name="emotivo">Emozionale</string>
     <string name="intellettuale">IIntellettuale</string>
-    <string name="calculate_biocomp">Calcola Bio Compatibilita\'</string>
+    <string name="calculate_biocomp">Calcola Bio Compatibilit&#224;</string>
     <string name="button_2">Reset</string>
     <string name="date">01/01/1980</string>
 
@@ -42,9 +42,9 @@
     <string name="other_apps">Altre App</string>
     <string name="twitter">Twitter</string>
     <string name="datelist">Lista Date</string>
-    <string name="intro_biocomp">BioComp è un\'applicazione che calcola la compatibilita\' tra le persone attraverso l\'utilizzo della teoria dei bioritmi.</string>
+    <string name="intro_biocomp">BioComp &#232; un\'applicazione che calcola la compatibilit&#224; tra le persone attraverso l\'utilizzo della teoria dei bioritmi.</string>
 
-    <string name="calculate_compatibility">Calcola Compatibilita\'</string>
+    <string name="calculate_compatibility">Calcola Compatibilit&#224;</string>
     <string name="welcome_to_biocomp">Benvenuto In BioComp</string>
     <string name="enter_new_profile">Nuovo Profilo</string>
     <string name="your_date_list">La Tua Lista</string>
@@ -60,24 +60,29 @@
 
     <string name="facebook_app_id">1637657219830501</string>
 
-    <string name="descr">Ciao! Per calcolare la Bio Compatibilita\', scegli gli avatar e le date di nascita.</string>
+    <string name="descr">Ciao! Per calcolare la Bio Compatibilit&#224;, scegli gli avatar e le date di nascita.</string>
     <string name="theory">Teoria Dei Bioritmi</string>
     <string name="other_descr">Scarica le nostre app direttamente dal Google PlayStore.</string>
     <string name="other_infos">Per informazioni o domande, perfavore visita il nostro sito web.</string>
     <string name="name">Nome</string>
     <string name="date_of_birth">Data di nascita</string>
 
-    <string name="bio_info">La teoria dei bioritmi ha dedicato sempre grande attenzione anche ai problemi di affinita\' tra individui.
-        Grazie a queste osservazioni si e\' potuto constatare che due persone il cui ciclo emozionale segue le stesse fluttuazioni avranno per tutta la vita la stessa disposizione ai sentimenti, all\'ottimismo e la stessa sensibilita\'. Vivranno insieme fasi di carica e di scarica e questo fatto li portera\' ad avere una grande affinita\' emozionale.
-        Ne La teoria dei bioritmi, gli alti e bassi nel corso di una vita pubblicato nel 1959, Hugo Max Gross dedica parecchi capitoli alla spiegazione delle corrispondenze nei matrimoni e nella altre occasioni di relazioni tra persone e mette a punto un metodo di valutazione basato sulle percentuali di affinita\' tra i cicli.
-        Il metodo di valutazione di compatibilita\' parte dalla considerazione che due individui con due cicli identici hanno la massima affinita\' con una percentuale pari al 100%.
-        Poiche\' il caso di minore corrispondenza si verifica nella situazione opposta, ossia quando lo scarto equivale alla meta\' del ciclo, dando a questa condizione una percentuale pari a 0%, ne consegue che per ogni giorno di discordanza l\'affinita\' diminuisce di una percentuale pari a 100 / i giorni del ciclo X 2.
-        La percentuale di affinita\' diminuira\' quindi dell\'8,70% nel ciclo fisico, del 7,14% nel ciclo emozionale e dell\'6,06% nel ciclo intellettuale per ogni giorno di differenza tra i cicli.
-        Conseguentemente minore sara\' la percentuale, neno elevata sara\' la percentuale di affinita\'.
-        Calcolata la compatibilita\' ciclo per ciclo, potra\' poi essere definita una media che ci dara\' la percentuale di affinita\' complessiva.
-        Generalmente va considerata buona una percentuale media superiore al 50%. Ovviamente, una percentuale oltre il 70% ci dira\' che tra due persone c\'e\' una grande sintonia, mentre una inferiore al 50% mette una seria ipoteca alla possibilita\' di intesa.
-        La compatibilita\' fisica e\' importante nella formazione di team sportivo o di lavoro. Quella emozionale per l\'intesa in una coppia, in una famiglia o nei rapporti di amicizia. Per le associazioni o collaborazioni basate su attivita\' intellettive sara\' indispensabile una buona corrispondenza intellettuale.
-        Ovviamente tutto questo riguarda una pura armonia bioritmica: nulla toglie che in presenza di obiettivi importanti o di forti motivazioni queste difficolta\' possano essere superate o che, nonostante una buona consonanza bioritmica, ci siano difficolta\' di rapporto dovute ad altri fattori.
+    <string name="bio_info">La teoria dei bioritmi ha dedicato sempre grande attenzione anche ai problemi di affinit&#224; tra individui.
+        Grazie a queste osservazioni si &#232; potuto constatare che due persone il cui ciclo emozionale segue le stesse fluttuazioni avranno per tutta la vita la stessa disposizione ai sentimenti, all\'ottimismo e la stessa sensibilit&#224;. Vivranno insieme fasi di carica e di scarica e questo fatto li porter&#224; ad avere una grande affinit&#224; emozionale.
+
+        Ne <b>"La Teoria dei Bioritmi, gli Alti e Bassi nel Corso di una Vita"</b> pubblicato nel 1959, Hugo Max Gross dedica parecchi capitoli alla spiegazione delle corrispondenze nei matrimoni e nella altre occasioni di relazioni tra persone e mette a punto un metodo di valutazione basato sulle percentuali di affinit&#224; tra i cicli.
+
+        Il metodo di valutazione di compatibilit&#224; parte dalla considerazione che due individui con due cicli identici hanno la massima affinit&#224; con una percentuale pari al 100%.
+        Poich&#232; il caso di minore corrispondenza si verifica nella situazione opposta, ossia quando lo scarto equivale alla met&#224; del ciclo, dando a questa condizione una percentuale pari a 0%, ne consegue che per ogni giorno di discordanza l\'affinit&#224; diminuisce di una percentuale pari a 100 / i giorni del ciclo X 2.
+
+        La percentuale di affinit&#224; diminuir&#224; quindi dell\'8,70% nel ciclo fisico, del 7,14% nel ciclo emozionale e dell\'6,06% nel ciclo intellettuale per ogni giorno di differenza tra i cicli.
+        Conseguentemente minore sar&#224; la percentuale, neno elevata sar&#224; la percentuale di affinit&#224;.
+
+        Calcolata la compatibilit&#224; ciclo per ciclo, potr&#224; poi essere definita una media che ci dar&#224; la percentuale di affinit&#224; complessiva.
+        Generalmente va considerata buona una percentuale media superiore al 50%. Ovviamente, una percentuale oltre il 70% ci dir&#224; che tra due persone c\'&#232; una grande sintonia, mentre una inferiore al 50% mette una seria ipoteca alla possibilit&#224; di intesa.
+
+        La compatibilit&#224; fisica &#232; importante nella formazione di team sportivo o di lavoro. Quella emozionale per l\'intesa in una coppia, in una famiglia o nei rapporti di amicizia. Per le associazioni o collaborazioni basate su attivit&#224; intellettive sar&#224; indispensabile una buona corrispondenza intellettuale.
+        Ovviamente tutto questo riguarda una pura armonia bioritmica: nulla toglie che in presenza di obiettivi importanti o di forti motivazioni queste difficolt&#224; possano essere superate o che, nonostante una buona consonanza bioritmica, ci siano difficolt&#224; di rapporto dovute ad altri fattori.
     </string>
     <string name="reset_list">cancella lista</string>
     <string name="choose_descr">Scegli la data da inserire e salva.</string>
@@ -85,16 +90,16 @@
     <string name="month">Mese</string>
     <string name="year">Anno</string>
     <string name="reset">reset</string>
-    <string name="result_bio">Risultato della Bio Compatibilita\'</string>
-    <string name="insert_register">Uno dei dati inseriti non e\' valido!</string>
+    <string name="result_bio">Risultato della Bio Compatibilit&#224;</string>
+    <string name="insert_register">Uno dei dati inseriti non &#232; valido!</string>
     <string name="confirm">Confermi la data inserita?</string>
     <string name="yes">Si</string>
     <string name="no">No</string>
-    <string name="load_new_error">Qualcosa e\' andato storto. Il profilo selezionato non puo\' essere caricato!</string>
+    <string name="load_new_error">Qualcosa &#232; andato storto. Il profilo selezionato non puo\' essere caricato!</string>
     <string name="load_profile">Carica un profilo della tua lista, oppure creane uno nuovo.</string>
     <string name="load_label">Carica Data</string>
     <string name="send">Condividi</string>
     <string name="scegli_avatar">Scegli uno dei seguenti avatar.</string>
-    <string name="your_result">"Il vostro risultato e\': "</string>
+    <string name="your_result">"Il vostro risultato &#232;: "</string>
 
 </resources>
