@@ -11,6 +11,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="it.syncroweb.android.bio.LoadDate">
 
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list"
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/adsLDate"
+        android:layout_marginBottom="8dp"/>
+
     <com.google.android.gms.ads.AdView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

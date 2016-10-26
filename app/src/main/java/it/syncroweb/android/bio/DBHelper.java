@@ -33,7 +33,12 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // TODO Auto-generated method stub
+
+        //Se esiste non lo ricreo
+        //if (condizione esistenza){
+        //carico il db esistente
+        //} else creo
+
         db.execSQL(
                 "create table contacts " +
                         "(id integer primary key, name text,phone text,email text, street text,place text, photo text, birdate date)"
@@ -99,9 +104,17 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
-    public ArrayList<String> getAllContacts()
+    public Integer deleteAllContact ()
     {
-        ArrayList<String> array_list = new ArrayList<String>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete("contacts",
+                        "",
+                null);
+    }
+
+    public ArrayList<User> getAllContacts()
+    {
+        ArrayList<User> array_list = new ArrayList<User>();
 
         //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -109,7 +122,12 @@ public class DBHelper extends SQLiteOpenHelper {
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
-            array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)));
+            User user = new User(   res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)),
+                                    res.getString(res.getColumnIndex(CONTACTS_COLUMN_PHOTO)),
+                                    res.getString(res.getColumnIndex(CONTACTS_COLUMN_BIRDATE))
+                                    );
+
+            array_list.add(user);
             res.moveToNext();
         }
         return array_list;

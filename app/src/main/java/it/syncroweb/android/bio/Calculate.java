@@ -124,6 +124,7 @@ public class Calculate extends AppCompatActivity {
         assert btnCalculate != null;
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
+        btnCalculate.setTextColor(Color.argb(255, 158, 158, 158));
 
         // Function that call the real
         // BioCompatibility function and
@@ -230,6 +231,7 @@ public class Calculate extends AppCompatActivity {
                 if (!lblDateOne.getText().equals("") && !lblDateTwo.getText().equals("")) {
                     btnCalculate.setEnabled(true);
                     btnCalculate.setClickable(true);
+                    btnCalculate.setTextColor(Color.argb(255, 255, 255, 255));
                 }
             } catch (Error error) {
                 Toast.makeText(getApplicationContext(),
@@ -246,7 +248,6 @@ public class Calculate extends AppCompatActivity {
         }
 
     }
-
 
     // Function that calculate the BioCompatibility
     // between the two selected dates
@@ -430,6 +431,7 @@ public class Calculate extends AppCompatActivity {
         //return the bitmap
         return returnedBitmap;
     }
+
     /*For Share
     private Bitmap getBitmapFromView(RelativeLayout view) {
 

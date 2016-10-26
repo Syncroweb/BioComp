@@ -17,11 +17,12 @@
         android:text="@string/other_descr"
         android:id="@+id/txtTitleOther"
         android:layout_alignParentTop="true"
-        android:textSize="18dp"/>
+        android:textSize="18dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <Button
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/btnImgOne"
         android:src="@drawable/italia"
         android:layout_marginLeft="16dp"
@@ -34,8 +35,8 @@
 
 
     <Button
-        android:layout_width="130dp"
-        android:layout_height="130dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:id="@+id/btnImgTwo"
         android:src="@drawable/toro"
         android:layout_marginRight="16dp"
@@ -79,9 +80,10 @@
         android:text="@string/other_infos"
         android:id="@+id/textView"
         android:textSize="18dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:layout_below="@+id/lblSfondItalia"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="24dp" />
+        android:layout_marginTop="40dp" />
 
     <com.google.android.gms.ads.AdView
         android:layout_width="wrap_content"

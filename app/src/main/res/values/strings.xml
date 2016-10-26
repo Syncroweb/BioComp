@@ -42,7 +42,7 @@
     <string name="other_apps">Altre App</string>
     <string name="twitter">Twitter</string>
     <string name="datelist">Lista Date</string>
-    <string name="intro_biocomp">BioComp è un\'app che calcola la compatibilita\' tra le persone attraverso l\'utilizzo della teoria dei bioritmi.</string>
+    <string name="intro_biocomp">BioComp è un\'applicazione che calcola la compatibilita\' tra le persone attraverso l\'utilizzo della teoria dei bioritmi.</string>
 
     <string name="calculate_compatibility">Calcola Compatibilita\'</string>
     <string name="welcome_to_biocomp">Benvenuto In BioComp</string>

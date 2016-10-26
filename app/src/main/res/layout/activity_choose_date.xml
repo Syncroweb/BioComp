@@ -28,7 +28,8 @@
         android:id="@+id/txtDescrChoose"
         android:layout_alignParentStart="true"
         android:gravity="left"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="18sp"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -45,7 +46,8 @@
             android:text="@string/day"
             android:id="@+id/lblDay"
             android:layout_weight="1"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
             android:gravity="right" />
 
         <TextView
@@ -54,7 +56,8 @@
             android:text="@string/month"
             android:id="@+id/lblMonth"
             android:layout_weight="1"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
             android:gravity="center" />
 
         <TextView
@@ -63,7 +66,8 @@
             android:text="@string/year"
             android:id="@+id/lblYear"
             android:layout_weight="1"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
             android:gravity="left" />
 
     </LinearLayout>

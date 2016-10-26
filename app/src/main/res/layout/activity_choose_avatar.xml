@@ -18,7 +18,8 @@
         android:layout_height="wrap_content"
         android:text="@string/scegli_avatar"
         android:id="@+id/textView4"
-        android:textAppearance="?android:attr/textAppearanceMedium"/>
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="18sp"/>
 
     <LinearLayout
         android:orientation="horizontal"

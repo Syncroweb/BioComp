@@ -21,6 +21,10 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class RegisteredDateList extends AppCompatActivity {
@@ -49,17 +53,19 @@ public class RegisteredDateList extends AppCompatActivity {
 
         lwPersone = (ListView) findViewById(R.id.lwPersone);
 
-        /*Create DB
+        //Creo DB
         dbHelper = new DBHelper(this);
+
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+        Date newdate= null;
+        try {
+            newdate= df.parse("01/01/1980");
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        dbHelper.insertContact(String.valueOf(R.string.name), null, null, null, null, String.valueOf(R.drawable.user), newdate);
         users = dbHelper.getAllContacts();
-        */
-/*
-        mPrefs = getPreferences(MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = mPrefs.getString("User", "");
-        Type type = new TypeToken<List<User>>(){}.getType();
-        users = gson.fromJson(json, type);
-*/
+
         //Creo lista personalizzata
         adapter = new CustomListAdapter(this, 0, users);
         lwPersone.setAdapter(adapter);
@@ -92,24 +98,19 @@ public class RegisteredDateList extends AppCompatActivity {
             String date = data.getStringExtra("DATE");
 
             User user = new User(name, date, photo);
-/*
-            SharedPreferences.Editor prefsEditor = mPrefs.edit();
-            Gson gson = new Gson();
-            String json = gson.toJson(users);
-            prefsEditor.putString("User", json);
-            prefsEditor.apply();
-*/
-            users.add(user);
 
-            /*Insert to DB
+            //Insert to DB
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
             Date newdate= null;
             try {
                 newdate= df.parse(date);
             } catch (ParseException e) {
                 e.printStackTrace();
-            }*/
+            }
 
+            dbHelper.insertContact(name, null,null, null, null, photo, newdate);
+
+            users.add(user);
             adapter.notifyDataSetChanged();
 
         }
@@ -134,7 +135,7 @@ public class RegisteredDateList extends AppCompatActivity {
         {
             case R.id.resetList:
 
-                //dbHelper.deleteContact(); delete all?
+                dbHelper.deleteAllContact();
 
                 break;
         }
