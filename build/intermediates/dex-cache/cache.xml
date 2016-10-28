@@ -2,60 +2,202 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-gass/9.6.1/jars/classes.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_43e19084c9090816b020df4387d04648ae47123f\classes.dex" />
+        sha1="ee61ace5f3e488fc610e1c67693c49186a441f32">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-gass-9.6.1_6b078e690cdda0070aec0967a91055e25a69f153/classes.dex" />
     </item>
     <item
-        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads-lite/9.6.1/jars/classes.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_83d7d79e1290b466b7bb8cecd7aa7b4ac3fb17ad\classes.dex" />
+        sha1="6ff796a3173787afe2e712f3aec6f5b99796118e">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-lite-9.6.1_376866e2003900c46a18aea14610dd1cbb6bce01/classes.dex" />
     </item>
     <item
-        jar="C:\Users\Syncroweb\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-ads/9.6.1/jars/classes.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_1d3b971faab803f089b2413942ebce3007531eca\classes.dex" />
+        sha1="47bbb3ec4b31ba71e125241c090dabe70cbb4de7">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-ads-9.6.1_be738b2384dadfc031300c91ff76d1cde6f02e58/classes.dex" />
     </item>
     <item
-        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="c0f0c3962a9dcb961fdd89e213d0cc38e47496cf">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_8e6b19639a151f38278b40c4b9902fcb73ea5f7e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_388f358abf945dcf4850c4191866b5355cf8cc42/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.firebase/firebase-iid/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1e14ebe1cda8491f152083e752ca5bf73cd37bff">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-iid-9.6.1_9858bc969b03a1695b4533c3193eae005e05bc6f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_7e274590ddb37dada5a879d1898a1c2c99ae1983/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.2/f1bc476cc167b18e66c297df599b2377131a8947/gson-2.6.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.6.2_525655ec7db1ee1f2e253f97015cef898a03fa0f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="7ae92e8601cd8f6b63009a467eb2e22b83d16e2b">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_99346eabfdf7cdaccfd6e3f4665912107e58de0d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="a1c351dc10b92d638da57f3a6513f87cfbdc9f83">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-9.6.1_3968fd282330ee3a30633b1ae0c67db4637f3d05/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="af7582c6b327449c6d32518e6a10307860b7b5d6">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-base-9.6.1_534295df9512474c4fdef41e5d27cc5c3a2fa5a0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_90e667b31fd352fb347fa8d7c734b1c235ceb3bc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.firebase/firebase-analytics-impl/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="0efd1b44f47c134fb245914a1d54a55adbfc2f8d">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-analytics-impl-9.6.1_1ff99808961875e90a19394d30983158ee2c6656/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.firebase/firebase-common/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="1ef72e72bc0d05602c366582afa9439f58bb31d6">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.firebase-firebase-common-9.6.1_3cc8f6e9c2e56e0fcb069d4867e9228c2c654974/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/23.4.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
         revision="23.0.3"
         sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_e94676dd4e0e5618eaf2d4a46b4ddac51d8833b0\classes.dex" />
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-23.4.0_ad921e79f01c7d7a8b25dbf7bc40f4eb37c848a9/classes.dex" />
     </item>
     <item
-        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.4.0/jars/classes.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_09d547ac7a3a3c423365725cca31cef2d70a1f3c\classes.dex" />
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-23.4.0_3a12b71c3312bea8dcb896c437ab54df3ce243bb/classes.dex" />
     </item>
     <item
-        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/9.6.1/jars/classes.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_4e3c148e9a82379f3cd1bd4d9dda29645b3ccdd3\classes.dex" />
+        sha1="4a36600281a648769411ef642c331851732bf29e">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-tasks-9.6.1_f95d4acefc5ac6494adc33da67b59e19a0725043/classes.dex" />
     </item>
     <item
-        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="99b235c8069acdf79ec08cfbac75a4b31d2afc40">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_f14384bbfabec334dd26a89c5866f856ed664ff6\classes.dex" />
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_7277eba0f6b549f4b6c563fb7faac7902a271dbb/classes.dex" />
     </item>
     <item
-        jar="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/23.4.0/jars/classes.jar"
         jumboMode="true"
+        optimize="true"
         revision="23.0.3"
-        sha1="05f15f41eed0128e09b7941c24bbb258e8e5a5d7">
-        <dex dex="C:\Users\Syncroweb\Desktop\BioComp2.0\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_45ab5b63739dd3d13cf199134ed59797021f68bc\classes.dex" />
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-23.4.0_01fbff25fc4928f3a4afa2594b5007e0e92ef4b8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-clearcut/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="ee0ccb43f6ab276191b7f2d77c305fa9beb26db9">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-clearcut-9.6.1_b5f4aa595134bbf3bdf3ac483ddfa7a3a0033288/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.0.0_0948c1996614381249694c6222bd3bfaa0119dbb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/9.6.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="23.0.3"
+        sha1="eccaaa9ffa6bb4bfbd2e870f01aaf69655d353be">
+        <dex dex="/Users/jade/Desktop/Syncroweb/BioComp2.0/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.google.android.gms-play-services-basement-9.6.1_97630364f6f57a00d48974fbce1ac8176152c93f/classes.dex" />
     </item>
 
 </items>

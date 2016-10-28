@@ -36,13 +36,15 @@
         android:layout_height="wrap_content"
         android:text="@string/date_of_birth"
         android:id="@+id/lblBirthDate"
-        android:textSize="16dp"
+        android:textSize="18sp"
         android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
         android:gravity="center"
         android:layout_below="@+id/avatar"
         android:layout_marginTop="24dp"
         android:layout_alignEnd="@+id/avatar"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif-condensed"
+        android:textAlignment="viewStart" />
 
     <DatePicker
         android:layout_width="match_parent"
@@ -59,11 +61,12 @@
         android:layout_height="wrap_content"
         android:text="@string/name"
         android:id="@+id/lblNominativo"
-        android:textSize="16dp"
+        android:textSize="18sp"
         android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
         android:layout_alignTop="@+id/avatar"
         android:layout_alignStart="@+id/txtNameSurname"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-condensed" />
 
     <com.google.android.gms.ads.AdView
         android:layout_width="wrap_content"
