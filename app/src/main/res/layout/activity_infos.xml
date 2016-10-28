@@ -17,10 +17,11 @@
         android:text="@string/theory"
         android:id="@+id/lblTitle"
         android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:fontFamily="sans-serif-condensed" />
 
     <ScrollView
         android:id="@+id/scroller_id"

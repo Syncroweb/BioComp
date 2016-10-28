@@ -46,9 +46,10 @@
             android:text="@string/day"
             android:id="@+id/lblDay"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
-            android:gravity="right" />
+            android:gravity="right"
+            android:fontFamily="sans-serif-condensed" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -56,9 +57,10 @@
             android:text="@string/month"
             android:id="@+id/lblMonth"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
-            android:gravity="center" />
+            android:gravity="center"
+            android:fontFamily="sans-serif-condensed" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -66,9 +68,10 @@
             android:text="@string/year"
             android:id="@+id/lblYear"
             android:layout_weight="1"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textAppearance="?android:attr/textAppearanceLargePopupMenu"
-            android:gravity="left" />
+            android:gravity="left"
+            android:fontFamily="sans-serif-condensed" />
 
     </LinearLayout>
 
