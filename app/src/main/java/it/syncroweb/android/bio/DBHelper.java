@@ -23,7 +23,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CONTACTS_COLUMN_CITY = "place";
     public static final String CONTACTS_COLUMN_PHONE = "phone";
     public static final String CONTACTS_COLUMN_PHOTO = "photo";
-    public static final String CONTACTS_COLUMN_BIRDATE = "birdate";
+    public static final String CONTACTS_COLUMN_BIRTHDATE = "birthdate";
     private HashMap hp;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     public DBHelper(Context context)
@@ -41,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL(
                 "create table contacts " +
-                        "(id integer primary key, name text,phone text,email text, street text,place text, photo text, birdate date)"
+                        "(id integer primary key, name text,phone text,email text, street text,place text, photo text, birthdate date)"
         );
     }
 
@@ -52,7 +52,13 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String name, String phone, String email, String street, String place, String photo, Date birthdate)
+    public boolean insertContact  (String name,
+                                   String phone,
+                                   String email,
+                                   String street,
+                                   String place,
+                                   String photo,
+                                   Date birthdate)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -80,7 +86,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public boolean updateContact (Integer id, String name, String phone, String email, String street,String place, String photo, Date birdate)
+    public boolean updateContact (Integer id, String name, String phone, String email, String street,String place, String photo, Date birthdate)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -90,7 +96,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("street", street);
         contentValues.put("place", place);
         contentValues.put("photo", photo);
-        contentValues.put("birdate", dateFormat.format(birdate));
+        contentValues.put("birthdate", dateFormat.format(birthdate));
 
         db.update("contacts", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
@@ -124,7 +130,7 @@ public class DBHelper extends SQLiteOpenHelper {
         while(res.isAfterLast() == false){
             User user = new User(   res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)),
                                     res.getString(res.getColumnIndex(CONTACTS_COLUMN_PHOTO)),
-                                    res.getString(res.getColumnIndex(CONTACTS_COLUMN_BIRDATE))
+                                    res.getString(res.getColumnIndex(CONTACTS_COLUMN_BIRTHDATE))
                                     );
 
             array_list.add(user);

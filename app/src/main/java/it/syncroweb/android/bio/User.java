@@ -7,7 +7,7 @@ class User {
     private String birthdate;
     private String photo;
 
-    User(String name, String birthdate, String photo) {
+    User(String name,String photo,String birthdate) {
         this.name = name;
         this.birthdate = birthdate;
         this.photo = photo;

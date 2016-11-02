@@ -101,6 +101,9 @@ public class Register extends AppCompatActivity {
 
                 name = txtName.getText().toString().trim();
 
+
+
+
                 //FORSE MEGLIO USARE TRY CATCH?!
                 if(!name.equals("") && !date.equals("") && !avatar.equals("")){
                     Intent i = new Intent();

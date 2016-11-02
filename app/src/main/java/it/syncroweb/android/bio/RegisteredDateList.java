@@ -27,6 +27,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+import static it.syncroweb.android.bio.DBHelper.DATABASE_NAME;
+
 public class RegisteredDateList extends AppCompatActivity {
 
     ListView lwPersone;
@@ -56,6 +58,12 @@ public class RegisteredDateList extends AppCompatActivity {
         //Creo DB
         dbHelper = new DBHelper(this);
 
+
+        // Commenta questa linea se no ogni volta che parte
+        // cancella il DB
+        this.deleteDatabase(DATABASE_NAME);
+
+/*
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         Date newdate= null;
         try {
@@ -64,6 +72,8 @@ public class RegisteredDateList extends AppCompatActivity {
             e.printStackTrace();
         }
         dbHelper.insertContact(String.valueOf(R.string.name), null, null, null, null, String.valueOf(R.drawable.user), newdate);
+*/
+
         users = dbHelper.getAllContacts();
 
         //Creo lista personalizzata
