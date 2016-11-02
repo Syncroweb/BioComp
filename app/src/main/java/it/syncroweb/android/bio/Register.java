@@ -21,7 +21,6 @@ public class Register extends AppCompatActivity {
 
     EditText txtName;
     ImageButton btnAvatar;
-    Button btnSave;
     DatePicker dpDate;
     String name;
     String date;
@@ -56,10 +55,10 @@ public class Register extends AppCompatActivity {
         // the user choosen the date he wants
         dpDate.init(dpDate.getYear(), dpDate.getMonth(), dpDate.getDayOfMonth(), new DatePicker.OnDateChangedListener()
         {
-            public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth)
+            public void onDateChanged(DatePicker view, int dayOfMonth, int monthOfYear, int year)
             {
                 StringBuilder sb = new StringBuilder();
-                date = sb.append(dayOfMonth).append("/").append(monthOfYear+1).append("/").append(year).toString();
+                date = sb.append(dayOfMonth).append("/").append(monthOfYear+1).append("/").append(year).toString().trim();
             }
         });
 
@@ -94,35 +93,27 @@ public class Register extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        int id=item.getItemId();
+        int id = item.getItemId();
         switch (id) {
 
             case R.id.actionDone:
 
                 name = txtName.getText().toString().trim();
 
-
-
-
-                //FORSE MEGLIO USARE TRY CATCH?!
-                if(!name.equals("") && !date.equals("") && !avatar.equals("")){
+                if (!name.equals("") && !date.equals("") && !avatar.equals("")) {
                     Intent i = new Intent();
                     i.putExtra("AVATAR", avatar);
                     i.putExtra("NAME", name);
                     i.putExtra("DATE", date);
                     setResult(0, i);
                     finish();
-                } else
+
+                } else {
                     Toast.makeText(getApplicationContext(),
                             R.string.insert_register,
                             Toast.LENGTH_SHORT).show();
-                break;
-
-            //default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-            //    return super.onOptionsItemSelected(item);
-
+                }
+                        break;
         }
         return false;
     }

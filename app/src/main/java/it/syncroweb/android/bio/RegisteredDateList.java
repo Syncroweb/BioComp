@@ -61,7 +61,7 @@ public class RegisteredDateList extends AppCompatActivity {
 
         // Commenta questa linea se no ogni volta che parte
         // cancella il DB
-        this.deleteDatabase(DATABASE_NAME);
+        //this.deleteDatabase(DATABASE_NAME);
 
 /*
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -146,6 +146,7 @@ public class RegisteredDateList extends AppCompatActivity {
             case R.id.resetList:
 
                 dbHelper.deleteAllContact();
+                adapter.notifyDataSetChanged(); //Non Immediato
 
                 break;
         }

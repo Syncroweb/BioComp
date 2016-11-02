@@ -52,14 +52,7 @@ public class ChooseDate extends AppCompatActivity {
             }
         });
     }
-/*
-    public void saveDate(View view) {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(ChooseDate.this);
-        builder.setMessage("Confirming the date inserted?" + "\n\n" + date).setPositiveButton("Yes", dialogClickListener)
-                .setNegativeButton("No", dialogClickListener).show();
-    }
-*/
     // Listener of the dialog
     // that allows the user to decide
     // if the picked date is right or not

@@ -4,8 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
@@ -44,5 +46,20 @@ public class LoadDate extends AppCompatActivity {
 
         adapter = new CustomListAdapter(this, 0, users);
         list.setAdapter(adapter);
+
+/*
+        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                //String selectedFromList = (String) list.getItemAtPosition(position);
+
+
+                return false;
+            }
+        });
+
+        }*/
     }
+
 }

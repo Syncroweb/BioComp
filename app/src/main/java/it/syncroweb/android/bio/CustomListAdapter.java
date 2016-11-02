@@ -27,7 +27,7 @@ class CustomListAdapter extends ArrayAdapter<User> {
 
         User user = users.get(position);
 
-        if (convertView==null){
+        if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.content_list, parent, false);
         }
 
@@ -38,7 +38,7 @@ class CustomListAdapter extends ArrayAdapter<User> {
         data.setText(user.getBirthdate());
 
         ImageView img = (ImageView) convertView.findViewById(R.id.lvImage);
-        img.setImageResource(Integer.parseInt(user.getPhoto()));
+        img.setImageResource((int) Long.parseLong(user.getPhoto()));
 
         return convertView;
     }
