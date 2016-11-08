@@ -38,7 +38,7 @@ class CustomListAdapter extends ArrayAdapter<User> {
         data.setText(user.getBirthdate());
 
         ImageView img = (ImageView) convertView.findViewById(R.id.lvImage);
-        img.setImageResource((int) Long.parseLong(user.getPhoto()));
+        img.setImageResource((int) Long.parseLong(user.getPhoto()));        //Errore
 
         return convertView;
     }

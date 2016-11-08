@@ -24,6 +24,7 @@ public class Register extends AppCompatActivity {
     DatePicker dpDate;
     String name;
     String date;
+    int id;
 
     AdView adsRegister;
     String avatar;
@@ -70,6 +71,9 @@ public class Register extends AppCompatActivity {
         startActivityForResult(i, 0);
     }
 
+    //Assegnare ID
+
+
     // Call Back method to get the Strings form other Activity
     @Override
     protected void onActivityResult( int requestCode, int resultCode, Intent data){
@@ -85,7 +89,7 @@ public class Register extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
-        MenuInflater inflater=getMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_register, menu);
         return true;
 
@@ -93,8 +97,8 @@ public class Register extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        int id = item.getItemId();
-        switch (id) {
+        int idItem = item.getItemId();
+        switch (idItem) {
 
             case R.id.actionDone:
 
@@ -102,6 +106,7 @@ public class Register extends AppCompatActivity {
 
                 if (!name.equals("") && !date.equals("") && !avatar.equals("")) {
                     Intent i = new Intent();
+                    i.putExtra("ID", id);
                     i.putExtra("AVATAR", avatar);
                     i.putExtra("NAME", name);
                     i.putExtra("DATE", date);
@@ -113,7 +118,7 @@ public class Register extends AppCompatActivity {
                             R.string.insert_register,
                             Toast.LENGTH_SHORT).show();
                 }
-                        break;
+                break;
         }
         return false;
     }

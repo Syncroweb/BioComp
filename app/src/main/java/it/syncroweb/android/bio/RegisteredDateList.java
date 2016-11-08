@@ -38,8 +38,6 @@ public class RegisteredDateList extends AppCompatActivity {
     AdView adsList;
     FloatingActionButton fab;
 
-    SharedPreferences mPrefs;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -62,17 +60,6 @@ public class RegisteredDateList extends AppCompatActivity {
         // Commenta questa linea se no ogni volta che parte
         // cancella il DB
         //this.deleteDatabase(DATABASE_NAME);
-
-/*
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        Date newdate= null;
-        try {
-            newdate= df.parse("01/01/1980");
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        dbHelper.insertContact(String.valueOf(R.string.name), null, null, null, null, String.valueOf(R.drawable.user), newdate);
-*/
 
         users = dbHelper.getAllContacts();
 
@@ -103,11 +90,12 @@ public class RegisteredDateList extends AppCompatActivity {
         //dbHelper = new DBHelper(this);
 
         if(requestCode==0){
+            String id = data.getStringExtra("ID");
             String photo = data.getStringExtra("AVATAR");
             String name = data.getStringExtra("NAME");
             String date = data.getStringExtra("DATE");
 
-            User user = new User(name, date, photo);
+            User user = new User(id, name, photo, date);
 
             //Insert to DB
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -118,7 +106,7 @@ public class RegisteredDateList extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            dbHelper.insertContact(name, null,null, null, null, photo, newdate);
+            dbHelper.insertContact(Integer.parseInt(id), name, null,null, null, null, photo, newdate);
 
             users.add(user);
             adapter.notifyDataSetChanged();
@@ -146,7 +134,8 @@ public class RegisteredDateList extends AppCompatActivity {
             case R.id.resetList:
 
                 dbHelper.deleteAllContact();
-                adapter.notifyDataSetChanged(); //Non Immediato
+                adapter.notifyDataSetChanged();
+                recreate(); //Ricrea l'activity aggiornando la lista
 
                 break;
         }

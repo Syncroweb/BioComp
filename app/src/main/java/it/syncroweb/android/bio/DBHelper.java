@@ -52,7 +52,8 @@ public class DBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertContact  (String name,
+    public boolean insertContact  (int id,
+                                   String name,
                                    String phone,
                                    String email,
                                    String street,
@@ -63,6 +64,7 @@ public class DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
+        contentValues.put("id", id);
         contentValues.put("name", name);
         contentValues.put("phone", phone);
         contentValues.put("email", email);
@@ -86,10 +88,11 @@ public class DBHelper extends SQLiteOpenHelper {
         return numRows;
     }
 
-    public boolean updateContact (Integer id, String name, String phone, String email, String street,String place, String photo, Date birthdate)
+    public boolean updateContact (int id, String name, String phone, String email, String street,String place, String photo, Date birthdate)
     {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("id", id);
         contentValues.put("name", name);
         contentValues.put("phone", phone);
         contentValues.put("email", email);
@@ -128,7 +131,8 @@ public class DBHelper extends SQLiteOpenHelper {
         res.moveToFirst();
 
         while(res.isAfterLast() == false){
-            User user = new User(   res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)),
+            User user = new User(   res.getString(res.getColumnIndex(CONTACTS_COLUMN_ID)),
+                                    res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)),
                                     res.getString(res.getColumnIndex(CONTACTS_COLUMN_PHOTO)),
                                     res.getString(res.getColumnIndex(CONTACTS_COLUMN_BIRTHDATE))
                                     );

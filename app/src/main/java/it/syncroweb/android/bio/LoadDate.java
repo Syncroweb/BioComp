@@ -44,22 +44,19 @@ public class LoadDate extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         users = dbHelper.getAllContacts();
 
-        adapter = new CustomListAdapter(this, 0, users);
+        adapter = new CustomListAdapter(this, 0, users);    //Problema Visualizzazione data!
         list.setAdapter(adapter);
 
-/*
-        list.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                //String selectedFromList = (String) list.getItemAtPosition(position);
+                String selected = (String) parent.getItemAtPosition(position);
 
-
-                return false;
             }
         });
 
-        }*/
     }
 
 }
