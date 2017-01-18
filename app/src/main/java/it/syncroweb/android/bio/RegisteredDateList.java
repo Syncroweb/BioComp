@@ -86,7 +86,7 @@ public class RegisteredDateList extends AppCompatActivity {
     protected void onActivityResult( int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-        //Create DB
+        //Create DB (solo la prima volta)
         //dbHelper = new DBHelper(this);
 
         if(requestCode==0){
@@ -95,7 +95,7 @@ public class RegisteredDateList extends AppCompatActivity {
             String name = data.getStringExtra("NAME");
             String date = data.getStringExtra("DATE");
 
-            User user = new User(id, name, photo, date);
+            User user = new User(null, name, photo, date);
 
             //Insert to DB
             DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -106,7 +106,7 @@ public class RegisteredDateList extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            dbHelper.insertContact(Integer.parseInt(id), name, null,null, null, null, photo, newdate);
+            dbHelper.insertContact(Integer.parseInt(id), name, null,null, null, null, photo, newdate);  //Errore
 
             users.add(user);
             adapter.notifyDataSetChanged();

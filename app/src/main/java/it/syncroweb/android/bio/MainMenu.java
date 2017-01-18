@@ -16,7 +16,7 @@ import com.google.android.gms.ads.MobileAds;
 public class MainMenu extends AppCompatActivity {
 
     Button btnCalculate;
-    Button btnDateList;
+    //Button btnDateList;
     AdView adsMain;
 
     @Override
@@ -27,7 +27,7 @@ public class MainMenu extends AppCompatActivity {
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544/6300978111");
 
         btnCalculate = (Button) findViewById(R.id.btnCalculate);
-        btnDateList = (Button) findViewById(R.id.btnDateList);
+        //btnDateList = (Button) findViewById(R.id.btnDateList);
 
         // /Banner
         adsMain = (AdView) findViewById(R.id.adsMain);
@@ -43,7 +43,7 @@ public class MainMenu extends AppCompatActivity {
             }
         });
 
-        //Start the activity that show
+        /*Start the activity that show
         //all the saved people's datas
         btnDateList.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -51,6 +51,7 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        */
 
     }
 
@@ -86,6 +87,16 @@ public class MainMenu extends AppCompatActivity {
                 //or to the syncroweb's app page
                 Intent menu2 = new Intent(this, OtherApps.class);
                 startActivity(menu2);
+
+                break;
+
+            case R.id.datelist:
+
+                //Start the activity that contains
+                //the links to the other syncroweb apps
+                //or to the syncroweb's app page
+                Intent datelist = new Intent(this, RegisteredDateList.class);
+                startActivity(datelist);
 
                 break;
         }

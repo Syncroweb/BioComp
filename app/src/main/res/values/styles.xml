@@ -31,5 +31,12 @@
         <item name="android:paddingLeft">16dp</item>
     </style>
 
+    <style name="AppTheme.Text">
+        <item name="android:textSize">18sp</item>
+        <item name="textAppearance=">?android:attr/textAppearanceMedium</item>
+        <item name="textColor">@color/text</item>
+
+    </style>
+
 </resources>
 

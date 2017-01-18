@@ -24,7 +24,6 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:id="@+id/btnImgOne"
-        android:src="@drawable/italia"
         android:layout_marginLeft="16dp"
         android:tag="com.it.china"
         android:background="@drawable/italia"
@@ -38,10 +37,9 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:id="@+id/btnImgTwo"
-        android:src="@drawable/toro"
         android:layout_marginRight="16dp"
-        android:background="@drawable/toro"
-        android:tag="it.com.toro"
+        android:background="@drawable/bellofigo"
+        android:tag="syncroweb.it.bellofigo"
         android:layout_alignTop="@+id/btnImgOne"
         android:layout_alignParentEnd="true" />
 
@@ -58,7 +56,7 @@
 
     <TextView  android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sfondi Granata"
+        android:text="Bello Figo"
         android:id="@+id/lblSfondiGranata"
         android:layout_below="@+id/btnImgTwo"
         android:layout_alignLeft="@+id/btnImgTwo"
@@ -67,13 +65,13 @@
         android:textSize="14dp"
         android:layout_marginTop="12dp" />
 
-    <Button android:layout_width="210dp"
-        android:layout_height="80dp"
+    <Button android:layout_width="240dp"
+        android:layout_height="70dp"
         android:id="@+id/btnSyncroweb"
         android:background="@drawable/logo"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="20dp" />
 
     <TextView android:layout_width="wrap_content"
         android:layout_height="wrap_content"

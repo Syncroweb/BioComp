@@ -103,7 +103,7 @@ public class Register extends AppCompatActivity {
             case R.id.actionDone:
 
                 name = txtName.getText().toString().trim();
-
+                //CAMBIARE LA CONDIZIONE!
                 if (!name.equals("") && !date.equals("") && !avatar.equals("")) {
                     Intent i = new Intent();
                     i.putExtra("ID", id);

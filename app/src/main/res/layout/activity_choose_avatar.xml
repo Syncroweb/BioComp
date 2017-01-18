@@ -21,39 +21,48 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textSize="18sp"/>
 
-    <LinearLayout
-        android:orientation="horizontal"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linear1"
         android:layout_below="@+id/textView4"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="8dp">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/girl"
-            android:layout_weight="1"
-            android:id="@+id/imgLY1"
-            android:onClick="press"/>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/girl2"
-            android:layout_weight="1"
-            android:id="@+id/imgLY2"
-            android:onClick="press"/>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/linear1"
+                android:layout_marginTop="20dp">
 
-        <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/girl3"
-            android:layout_weight="1"
-            android:id="@+id/imgLY3"
-            android:onClick="press"/>
-    </LinearLayout>
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/girl"
+                    android:layout_weight="1"
+                    android:id="@+id/imgLY1"
+                    android:onClick="press"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/girl2"
+                    android:layout_weight="1"
+                    android:id="@+id/imgLY2"
+                    android:onClick="press"/>
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/girl3"
+                    android:layout_weight="1"
+                    android:id="@+id/imgLY3"
+                    android:onClick="press"/>
+            </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -121,7 +130,8 @@
             android:id="@+id/imgLY9"
             android:onClick="press"/>
     </LinearLayout>
-
+        </RelativeLayout>
+    </ScrollView>
     <com.google.android.gms.ads.AdView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

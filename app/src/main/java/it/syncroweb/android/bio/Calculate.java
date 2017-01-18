@@ -1,6 +1,9 @@
 package it.syncroweb.android.bio;
 
+import android.*;
+import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -17,6 +20,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.ShareActionProvider;
@@ -89,6 +93,9 @@ public class Calculate extends AppCompatActivity {
 
         setContentView(R.layout.activity_calculate);
         shareView = (RelativeLayout) findViewById(R.id.shareView);
+
+        //Check permission
+        checkExternalPermission();
 
         lblNameOne = (TextView) this.findViewById(R.id.lblNameOne);
         lblNameTwo = (TextView) this.findViewById(R.id.lblNameTwo);
@@ -385,7 +392,7 @@ public class Calculate extends AppCompatActivity {
         result.setText("");
 
         //Disable Calculate Button
-        btnCalculate.setText("Calculate");
+        btnCalculate.setText(R.string.calculate);
         btnCalculate.setTag("calculate");
         btnCalculate.setEnabled(false);
         btnCalculate.setClickable(false);
@@ -432,42 +439,6 @@ public class Calculate extends AppCompatActivity {
         return returnedBitmap;
     }
 
-    /*For Share
-    private Bitmap getBitmapFromView(RelativeLayout view) {
-
-        Bitmap returnedBitmap = null;
-
-        try {
-
-            view.setDrawingCacheEnabled(true);
-
- new version
-            view.measure(View.MeasureSpec.makeMeasureSpec(view.getMeasuredWidth(), View.MeasureSpec.AT_MOST),
-                    View.MeasureSpec.makeMeasureSpec(view.getMeasuredHeight(), View.MeasureSpec.AT_MOST));
-            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-
-
-            view.measure(view.getMeasuredWidth(), view.getMeasuredHeight());
-
-old version
-            view.measure(View.MeasureSpec.makeMeasureSpec(800, View.MeasureSpec.UNSPECIFIED),
-                    View.MeasureSpec.makeMeasureSpec(600, View.MeasureSpec.UNSPECIFIED));
-            view.layout(0, 0, view.getMeasuredWidth(), view.getMeasuredHeight());
-
-            view.buildDrawingCache(true);
-            returnedBitmap = Bitmap.createBitmap(view.getDrawingCache());
-
-            //Define a bitmap with the same size as the view
-            view.setDrawingCacheEnabled(false);
-
-            return returnedBitmap;
-
-        }catch (Exception e){
-            e.getMessage();
-        }
-        return returnedBitmap;
-    } */
-
     public Uri getImageUri(Context inContext, Bitmap inImage) {
         try {
             ByteArrayOutputStream bytes = new ByteArrayOutputStream();
@@ -508,7 +479,7 @@ old version
                     shareIntent.putExtra(Intent.EXTRA_STREAM, getImageUri(this, bitmap));
                     shareIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.result_bio)); //frase già precompilata per il commento
                     shareIntent.setType("image/jpeg");
-                    shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);   //PROBLEMA PERMESSO DA API 23
+                    //shareIntent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);   //PROBLEMA PERMESSO DA API 23
                     startActivity(Intent.createChooser(shareIntent, getResources().getText(R.string.send)));
 
                 }catch (Exception e){
@@ -532,5 +503,75 @@ old version
     public void chooseAvatarTwo(View view) {
         Intent i = new Intent(this, ChooseAvatar.class);
         startActivityForResult(i, 2);
+    }
+
+
+    //PERMESSI CONDIVISIONE
+    public static final int MY_PERMISSIONS_REQUEST_W_EXTERNAL = 99;
+
+    private void checkExternalPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    android.Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+                new AlertDialog.Builder(this)
+                        .setTitle("Write External Permission Needed")
+                        .setMessage("This app needs the write external permission, please accept to use share functionality")
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //Prompt the user once explanation has been shown
+                                ActivityCompat.requestPermissions(Calculate.this,
+                                        new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                                        MY_PERMISSIONS_REQUEST_W_EXTERNAL);
+                            }
+                        })
+                        .create()
+                        .show();
+
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        MY_PERMISSIONS_REQUEST_W_EXTERNAL);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSIONS_REQUEST_W_EXTERNAL: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+
+                    // permission was granted, yay!
+                    if (ContextCompat.checkSelfPermission(this,
+                            android.Manifest.permission.ACCESS_FINE_LOCATION)
+                            == PackageManager.PERMISSION_GRANTED) {
+
+
+                    }
+
+                } else {
+
+                    // permission denied, boo! Disable the
+                    // functionality that depends on this permission.
+                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show();
+                }
+            }
+
+            // other 'case' lines to check for other
+            // permissions this app might request
+        }
     }
 }
